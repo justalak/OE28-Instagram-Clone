@@ -1,0 +1,12 @@
+<%= form_for @post do |f| %>
+  <div class="form-group">
+    <%= f.text_field :description, placeholder: t(".description") %>
+  </div>
+  <div class="form-group">
+    <%= f.file_field :images, multiple: true, accept: Settings.image_format %>
+  </div>
+  <ul id="preview"></ul>
+  <div class="text-center">
+    <%= f.submit t(".create_post"), class: "btn btn-primary" %>
+  </div>
+<% end %>

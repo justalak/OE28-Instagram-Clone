@@ -26,9 +26,13 @@
       </div>
       <%= render "users/stat" %>
       <h2 class="name"><%= @user.name %></h2>
+      <p class= "bio"><%= @user.bio %></p>
       <%= link_to @user.website, class: "website" do %>
         <%= @user.website %>
       <% end %>
     </div>
   </div>
 </div>
+<%= render  "tab" %>
+<hr>
+<%= render  "gallery" %>

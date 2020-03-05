@@ -5,6 +5,7 @@ class User < ApplicationRecord
   enum gender: {female: 0, male: 1, other: 2}
   enum role: {user: 0, admin: 1}
 
+  has_many :posts, dependent: :destroy
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true,
@@ -62,7 +63,7 @@ class User < ApplicationRecord
 
   def authenticate? attribute, token
     digest = send "#{attribute}_digest"
-    return false unless digest and token
+    return false unless digest && token
 
     BCrypt::Password.new(digest).is_password? token
   end

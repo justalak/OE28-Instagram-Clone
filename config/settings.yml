@@ -4,6 +4,7 @@ user:
   min_length_password: 6
   max_length_username: 50
   min_length_username: 4
+  previews_per_page: 12
   email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i'
   username_regex: !ruby/regexp '/\A[a-zA-Z0-9]+\z/'
   phone_regex: !ruby/regexp '/\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/'
@@ -17,3 +18,8 @@ user:
   per_of_page: 10
 favicon_image: "favicon.png"
 disable_link: "javascript:void(0)"
+post:
+  max_picture_size: 2
+  content_type: ["image/jpeg", "image/gif", "image/png"]
+favicon_image: "favicon.png"
+image_format: "image/jpeg,image/gif,image/png"

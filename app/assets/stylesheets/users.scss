@@ -242,3 +242,27 @@ a.link_to_user {
   color: $white;
   background-color: $d3897f0;
 }
+.user-tabs{
+  border-top: 1px solid $efefef;
+  display: flex;
+  justify-content: center;
+  a.tab{
+    height: 35px;
+    margin-right: 50px;
+    line-height: 45px;
+    color: $d999;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    i{
+      padding-right: 1px;
+    }
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  a.active{
+    border-top: 1px solid $d262626;
+    color: $d262626;
+  }
+}
