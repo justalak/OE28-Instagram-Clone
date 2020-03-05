@@ -4,5 +4,5 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery");
 global.$ = jQuery;
-require("popper");
+require("popper.js");
 require("bootstrap");

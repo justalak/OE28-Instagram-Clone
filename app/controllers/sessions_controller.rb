@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :get_user, only: :create
+  before_action :load_user, only: :create
   def new
     redirect_to current_user if user_signed_in?
   end
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  def get_user
+  def load_user
     email_username = params[:session][:email_username]
     @user = if email? email_username
               User.find_by email: email_username

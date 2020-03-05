@@ -1,4 +1,4 @@
-<div class="gallery-item" tabindex="0">
+<%= link_to post, class: "gallery-item", tabindex: 0 do %>
   <%= image_tag post.images.first, class: "gallery-image" %>
   <% if post.images.size > 1 %>
     <div class="gallery-item-type">
@@ -15,4 +15,4 @@
       </li>
     </ul>
   </div>
-</div>
+<% end %>

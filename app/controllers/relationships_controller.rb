@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :logged_in_user, :get_user
+  before_action :logged_in_user, :load_user
 
   def create
     current_user.follow @user
@@ -18,7 +18,7 @@ class RelationshipsController < ApplicationController
   end
 
   private
-  def get_user
+  def load_user
     @user = if request.post?
               User.find_by id: params[:followed_id]
             else

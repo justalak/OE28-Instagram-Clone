@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :get_user, except: %i(new create)
+  before_action :load_user, except: %i(new create)
   before_action :correct_user, only: %i(edit update)
 
   def new
@@ -55,11 +55,11 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
-  def get_user
+  def load_user
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t "users.get_user.not_find_user"
+    flash[:danger] = t "users.load_user.not_find_user"
     redirect_to root_path
   end
 end

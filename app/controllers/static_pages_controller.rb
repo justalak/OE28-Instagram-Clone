@@ -6,7 +6,6 @@ class StaticPagesController < ApplicationController
   end
 
   private
-
   def log_in_user
     return if user_signed_in?
 

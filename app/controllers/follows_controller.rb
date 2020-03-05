@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-  before_action :get_user
+  before_action :load_user
 
   def following
     @title = t ".title"
@@ -14,7 +14,7 @@ class FollowsController < ApplicationController
   end
 
   private
-  def get_user
+  def load_user
     @user = User.find params[:id]
     return if @user
 

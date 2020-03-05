@@ -15,6 +15,6 @@ Rails.application.routes.draw do
       end
     end
     resources :relationships, only: %i(create destroy)
-    resources :posts, only: :create
+    resources :posts, except: :index
   end
 end
