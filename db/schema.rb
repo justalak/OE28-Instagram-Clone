@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_132738) do
     t.text "bio"
     t.string "phone"
     t.integer "gender"
-    t.integer "admin"
+    t.integer "role", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
