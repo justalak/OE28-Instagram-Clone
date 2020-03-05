@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
   before_action :log_in_user, except: :show
   before_action :load_post, except: :create
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: %i(destroy update edit)
 
   def create
     @post = current_user.posts.build post_params
-    @post.images.attach params[:post][:images]
     if @post.save
       flash[:success] = t ".upload_successfully"
       redirect_to current_user
@@ -17,15 +16,22 @@ class PostsController < ApplicationController
 
   def edit; end
 
-  def update; end
-
   def destroy
     if @post.destroy
       flash[:success] = t ".destroy_success"
     else
       flash[:danger] = t ".destroy_failed"
     end
-    redirect_to current_user
+  end
+
+  def update
+    if @post.update_post post_params
+      flash[:success] = t ".update_success"
+      redirect_to @post
+    else
+      flash.now[:danger] = t ".update_fail"
+      render :edit
+    end
   end
 
   def show
@@ -34,7 +40,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit :description
+    params.require(:post).permit(:description, images: [])
   end
 
   def log_in_user

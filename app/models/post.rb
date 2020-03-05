@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  include PostConcern
+
   belongs_to :user
   has_many_attached :images
 
@@ -14,7 +16,6 @@ class Post < ApplicationRecord
   scope :order_by_created_at, ->{order created_at: :desc}
 
   private
-
   def image_presence
     errors.add :images, I18n.t("image_cant_be_blank") unless images.attached?
   end

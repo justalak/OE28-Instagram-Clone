@@ -33,6 +33,9 @@ vi:
   static_pages:
     new:
       title: "Trang chủ"
+    title: "Trang chủ"
+    index:
+      create_post: Đăng bài
   users:
     create:
       signup_success: "Đăng ký thành công!"
@@ -94,6 +97,19 @@ vi:
       unfollow: "Bỏ theo dõi"
     follow_form:
       you: "Bạn"
+      count_posts:
+        one: "%{count} bài đăng"
+        other: "%{count} bài đăng"
+      count_followers:
+        one: "%{count} người theo dõi bạn"
+        other: "%{count} người theo dõi bạn"
+      count_following:
+        one: "%{count} người mà bạn theo dõi"
+        other: "%{count} người mà bạn theo dõi"
+    stat:
+      followers: Người theo dõi
+      following: Đang theo dõi
+      posts: Bài đăng
   sessions:
     new:
       username_or_email: Username hoặc email
@@ -135,3 +151,13 @@ vi:
       count_like:
         other: "%{count} lượt thích"
   
+      destroy_success: Xóa bài thành công
+      destroy_failed: Có lỗi xảy ra khi xóa bài
+    update:
+      update_success: Cập nhật bài viết thành công
+      update_fail: Có lỗi xảy ra khi cập nhật bài viết
+    card_content:
+      count_like:
+        other: "%{count} lượt thích"
+    edit:
+      edit_post: Chỉnh sửa

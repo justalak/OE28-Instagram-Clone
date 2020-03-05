@@ -34,6 +34,9 @@ en:
   static_pages:
     new:
       title: "Home"
+    title: "Home"
+    index:
+      create_post: Create post
   users:
     create:
       signup_success: "Sign up success!"
@@ -94,6 +97,19 @@ en:
       unfollow: "Unfollow"
     follow_form:
       you: "You"
+      count_posts:
+        one: "%{count} post"
+        other: "%{count} posts"
+      count_followers:
+        one: "%{count} follower"
+        other: "%{count} followers"
+      count_following:
+        one: "%{count} following"
+        other: "%{count} following"
+    stat:
+      followers: Followers
+      following: Following
+      posts: Posts
   sessions:
     new:
       username_or_email: Username or email
@@ -129,7 +145,13 @@ en:
     destroy:
       destroy_success: Xóa bài đăng thành công
       destroy_failed: Có lỗi xảy ra khi xóa bài đăng
+    update:
+      update_success: Updated post successfully
+      update_fail: Fail to update post. Try again
     card_content:
       count_like:
         one: "%{count} Like"
         other: "%{count} Likes"
+    edit:
+      edit_post: Edit post
+    

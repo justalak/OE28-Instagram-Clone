@@ -1,4 +1,5 @@
 <%= form_for @post do |f| %>
+  <%= render "shared/error_messages", object: @post %>
   <div class="form-group">
     <%= f.text_field :description, placeholder: t(".description") %>
   </div>
@@ -7,6 +8,6 @@
   </div>
   <ul id="preview"></ul>
   <div class="text-center">
-    <%= f.submit t(".create_post"), class: "btn btn-primary" %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   </div>
 <% end %>
