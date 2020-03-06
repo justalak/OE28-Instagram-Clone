@@ -1,9 +1,9 @@
-<% provide :title, t(".title") %>
+<% provide :title, @user.name %>
 <div class="user-profile">
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <%= image_tag @user.default_avatar_image %>
+        <%= image_tag display_avatar_image(@user), class: "avatar" %>
       </div>
     </div>
     <div class="col-md-8 basic-info">
