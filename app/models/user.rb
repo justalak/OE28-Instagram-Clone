@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include UserConcern
-  
+
   attr_accessor :remember_token
   enum gender: {female: 0, male: 1, other: 2}
   enum role: {user: 0, admin: 1}
@@ -18,6 +18,10 @@ class User < ApplicationRecord
     },
     format: {with: Settings.user.username_regex},
     uniqueness: {case_sensitive: true}
+  validates :phone, allow_blank: true,
+    format: {with: Settings.user.phone_regex}
+  validates :website, allow_blank: true,
+    format: {with: Settings.user.website_regex}
   validates :password, presence: true,
     length: {minimum: Settings.user.min_length_password}, allow_nil: true
 
@@ -25,6 +29,12 @@ class User < ApplicationRecord
 
   has_secure_password
   has_one_attached :avatar_image
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships
 
   USER_PARAMS = %i(email name username password password_confirmation).freeze
   USER_PARAMS_UPDATE = %i(email name username website

@@ -8,14 +8,25 @@
     </div>
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= @user.username %></h2>
-        <%= link_to edit_user_path, class: "edit-profile" do %>
-          <button><%= t ".edit_profile" %></button>
+        <h2 class="username">
+          <%= @user.username %>
+          <% if current_user? @user %>
+            <%= image_tag Settings.user.verified_image, class: "ml-2" %>
+          <% end %>
+        </h2>
+        <% if current_user? @user %>
+          <%= link_to edit_user_path, class: "profile__button ml-5" do %>
+            <%= t ".edit_profile" %>
+          <% end %>
+        <% else %>
+          <div id="people__column__<%= @user.id %>" class="ml-5">
+            <%= render follow_unfollow(@user), user: @user %>
+          </div>
         <% end %>
       </div>
       <%= render "users/stat" %>
       <h2 class="name"><%= @user.name %></h2>
-      <%= link_to class: "website" do %>
+      <%= link_to @user.website, class: "website" do %>
         <%= @user.website %>
       <% end %>
     </div>

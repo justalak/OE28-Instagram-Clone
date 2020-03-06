@@ -54,9 +54,11 @@ en:
     show:
       title: "User"
       edit_profile: "Edit Profile"
+    stat:
       posts: posts
       followers: followers
-      following: following
+      after_following: following
+      before_following: ""
     update:
       update_succeed: "Update success!"
       update_failed: "Update failed!"
@@ -81,6 +83,12 @@ en:
       not_allow: "Not allow!"
     logged_in_user:
       please_log_in: "Please log in!"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    follow_form:
+      you: "You"
   sessions:
     new:
       username_or_email: Username or email
@@ -92,3 +100,15 @@ en:
       login_via_gmail: Login via Gmail
     create:
       invalid_message: Invalid username or password
+  follows:
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
+    find_user:
+      not_find_user: "Not find user!"
+    follow_list:
+      nobody: "Nobody..."
+  relationships:
+    find_user:
+      invalid_user: "Invalid user!"

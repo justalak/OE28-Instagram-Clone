@@ -129,3 +129,116 @@
   margin-bottom: 1rem;
   margin-left: 1rem;
 }
+
+.people{
+  width:90%;
+  border-radius: 3px;
+  background-color: $fbfbfb;
+  border:1px solid $rgbc0975;
+  margin:0 auto;
+  max-width: 1000px;
+}
+
+.people__person{
+  padding:10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $rgbc0975;
+}
+
+.people__person:last-child{
+  border:none;
+}
+
+.people__avatar{
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+}
+
+.people__column{
+  display: flex;
+  align-items:center; 
+}
+
+.people__info{
+  margin-left:15px;
+}
+
+.people__username{
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  margin-bottom: 5px;
+  color: $d333;
+}
+
+.people__username img{
+  margin-left: 5px;
+}
+
+.people__full-name{
+  color:$d999;
+}
+
+.follow_unfollow, .you{
+  background-color: $d3897;
+  padding:7px 13px;
+  color:$white;
+  border-radius: 3px;
+  font-weight: 600;
+  transition: all .1s linear;
+  text-decoration: none!important
+}
+
+.follow_unfollow:active{
+  transform: scale(.95);
+}
+
+.people__username img{
+  transition:all .3s linear;
+}
+
+.people__person:hover .people__username img{
+  transform: rotate(1turn);
+}
+
+.text-center {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+a.link_to_user {
+  padding: none!important;
+  text-decoration: none;
+}
+
+.you {
+  background: $white;
+  color: $d007bff;
+  border: 1px solid;
+  cursor: not-allowed;
+}
+
+.people__username img{
+  transition:all .3s linear;
+}
+
+.profile__button{
+  height: 80%;
+  margin-right: 20px;
+  border:1px solid $rgbc0975;
+  color:$black;
+  padding:5px 20px;
+  border-radius: 3px;
+  transition: all .5s ease-in-out;
+  font-weight: 600;
+  text-decoration: none!important;
+}
+
+.profile__button:hover{
+  color: $white;
+  background-color: $d3897f0;
+}
