@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    root "static_pages#new"
+    root "static_pages#index"
     
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       end
     end
     resources :relationships, only: %i(create destroy)
+    resources :posts, only: :create
   end
 end

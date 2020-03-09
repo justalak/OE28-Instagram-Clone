@@ -1,5 +1,7 @@
 en:
   instagram: Instagram
+  image_cant_be_blank: Image can't be blank
+  login_first: You must login first
   layouts:
     header:
       search: "@search"
@@ -57,8 +59,7 @@ en:
     stat:
       posts: posts
       followers: followers
-      after_following: following
-      before_following: ""
+      before_following: following
     update:
       update_succeed: "Update success!"
       update_failed: "Update failed!"
@@ -112,3 +113,10 @@ en:
   relationships:
     find_user:
       invalid_user: "Invalid user!"
+  posts:
+    post_form: 
+      create_post: Create Post
+      description: Description about post
+    create:
+      upload_successfully: Uploaded post successfully
+      upload_fail: Fail to upload image

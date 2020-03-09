@@ -1,5 +1,7 @@
 vi:
   instagram: Instagram
+  image_cant_be_blank: Ảnh đính kèm không thể để trống
+  login_first: Bạn phải đăng nhập trước
   layouts:
     header:
       search: "@tìm_kiếm"
@@ -112,3 +114,7 @@ vi:
   relationships:
     find_user:
       invalid_user: "Sai người dùng!"
+  posts:
+    post_form: 
+      create_post: Đăng bài
+      description: Mô tả cho bài đăng

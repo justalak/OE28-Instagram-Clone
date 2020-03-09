@@ -2,17 +2,19 @@
 <ul class="profile-stat">
   <li>
     <%= link_to "#" do %>
-      <span>12</span> <%= t ".posts"%>
+      <span><%= @user.posts.size %></span> <%= t ".posts"%>
     <% end %>
   </li>
   <li>
     <%= link_to followers_user_path(@user) do %>
-      <span id="followers"><%= @user.followers.size %></span> <%= t ".followers" %>
+      <span id="followers"><%= @user.followers.size %></span> 
+      <%= t ".followers" %>
     <% end %>
   </li>
   <li>
     <%= link_to following_user_path(@user) do %>
-      <%= t ".before_following" %> <span><%= @user.following.size %></span> <%= t ".after_following" %>
+      <span><%= @user.following.size %></span> 
+      <%= t ".before_following" %>
     <% end %>
   </li>
 </ul>
