@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  include UserConcern
+  
   attr_accessor :remember_token
-  enum gender: {female: 0, male: 1}
+  enum gender: {female: 0, male: 1, other: 2}
   enum role: {user: 0, admin: 1}
 
   validates :name, presence: true,
@@ -22,6 +24,11 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   has_secure_password
+  has_one_attached :avatar_image
+
+  USER_PARAMS = %i(email name username password password_confirmation).freeze
+  USER_PARAMS_UPDATE = %i(email name username website
+                          bio phone gender avatar_image).freeze
 
   class << self
     def digest string
@@ -45,7 +52,7 @@ class User < ApplicationRecord
 
   def authenticate? attribute, token
     digest = send "#{attribute}_digest"
-    return false unless token
+    return false unless digest and token
 
     BCrypt::Password.new(digest).is_password? token
   end
@@ -54,12 +61,7 @@ class User < ApplicationRecord
     update remember_digest: nil
   end
 
-  def default_avatar_image
-    Settings.user.default_avt
-  end
-
   private
-
   def downcase_email
     email.downcase!
   end
