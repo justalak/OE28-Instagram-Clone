@@ -1,0 +1,12 @@
+<% provide :title, @title %>
+<% if @users.any? %>
+  <h1 class="text-center"><%= @title %></h1>
+  <section class="people">
+    <ul class="people__list">
+      <%= render @users %>
+    </ul>
+  </section>
+<% else %>
+  <h1 class="text-center"><%= @title %></h1>
+  <h3 class="text-center"><%= t ".nobody" %></h3>
+<% end %>

@@ -1,0 +1,4 @@
+$('#people__column__<%= @user.id %>')
+  .html('<%= j render(partial: "users/unfollow", locals: {user: @user}) %>');
+$('span#followers')
+  .html('<%= @user.followers.size %>');

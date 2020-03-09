@@ -1,0 +1,7 @@
+<div id="people__column__<%= user.id %>">
+  <% if current_user? user %>
+    <%= link_to t(".you"), Settings.disable_link, class: "you" %>
+  <% else %>
+    <%= render follow_unfollow(user), user: user %>
+  <% end %>
+</div>

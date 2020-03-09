@@ -6,9 +6,14 @@ user:
   min_length_username: 4
   email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i'
   username_regex: !ruby/regexp '/\A[a-zA-Z0-9]+\z/'
+  phone_regex: !ruby/regexp '/\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/'
+  website_regex: !ruby/regexp '/https?:\/\/[\S]+/'
   default_avt: "default.jpg"
+  verified_image: "verified.png"
   valid_image_types: ["image/jpeg", "image/gif", "image/png"]
   gender_male: 1
   gender_female: 0
   gender_other: 2
+  per_of_page: 10
 favicon_image: "favicon.png"
+disable_link: "javascript:void(0)"

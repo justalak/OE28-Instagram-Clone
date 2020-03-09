@@ -54,9 +54,11 @@ vi:
     show:
       title: "Người dùng"
       edit_profile: "Chỉnh sửa hồ sơ"
+    stat:
       posts: bài đăng
       followers: người theo dõi
-      following: đang theo dõi
+      after_following: người dùng
+      before_following: "Đang theo dõi"
     update:
       update_succeed: "Cập nhật thành công!"
       update_failed: "Cập nhật thất bại!"
@@ -81,6 +83,12 @@ vi:
       not_allow: "Không cho phép!"
     logged_in_user:
       please_log_in: "Vui lòng đăng ký!"
+    follow:
+      follow: "Theo dõi"
+    unfollow:
+      unfollow: "Bỏ theo dõi"
+    follow_form:
+      you: "Bạn"
   sessions:
     new:
       username_or_email: Username hoặc email
@@ -92,3 +100,15 @@ vi:
       login_via_gmail: Đăng nhập bằng Gmail
     create:
       invalid_message: Sai tên đăng nhập hoặc mật khẩu
+  follows:
+    following:
+      title: "Đang theo dõi"
+    followers:
+      title: "Người theo dõi"
+    find_user:
+      not_find_user: "Không tìm thấy người dùng!"
+    follow_list:
+      nobody: "Không có ai..."
+  relationships:
+    find_user:
+      invalid_user: "Sai người dùng!"

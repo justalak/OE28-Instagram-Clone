@@ -1,0 +1,19 @@
+<li class="people__person">
+  <div class="people__column">
+    <div class="people__avatar-container">
+      <%= image_tag display_avatar_image(user), class: "people__avatar" %>
+    </div>
+    <div class="people__info">
+      <%= link_to user, class: "link_to_user" do %>
+        <span class="people__username">
+          <%= user.username %>
+          <% if current_user? user %>
+            <%= image_tag Settings.user.verified_image, class: "ml-1" %>
+          <% end %>
+        </span> 
+      <% end %>
+      <span class="people__full-name"><%= user.name %></span>
+    </div>
+  </div>
+  <%= render "users/follow_form", user: user %>
+</li>

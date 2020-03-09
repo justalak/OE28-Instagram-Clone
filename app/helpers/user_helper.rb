@@ -18,4 +18,18 @@ module UserHelper
   def display_avatar_image user
     user.avatar_image.attached? ? user.avatar_image : Settings.user.default_avt
   end
+
+  def get_relationship user
+    if current_user.following? user
+      current_user.active_relationships.find_by followed_id: user.id
+    else
+      current_user.active_relationships.build
+    end
+  end
+
+  def follow_unfollow user
+    return "users/unfollow" if current_user.following? user
+
+    "users/follow"
+  end
 end

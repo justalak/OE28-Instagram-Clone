@@ -1,3 +1,4 @@
+<% @user ||= current_user %>
 <ul class="profile-stat">
   <li>
     <%= link_to "#" do %>
@@ -5,13 +6,13 @@
     <% end %>
   </li>
   <li>
-    <%= link_to "#" do %>
-      <span>12</span> <%= t ".followers" %>
+    <%= link_to followers_user_path(@user) do %>
+      <span id="followers"><%= @user.followers.size %></span> <%= t ".followers" %>
     <% end %>
   </li>
   <li>
-    <%= link_to "#" do %>
-      <span>12</span> <%= t ".following" %>
+    <%= link_to following_user_path(@user) do %>
+      <%= t ".before_following" %> <span><%= @user.following.size %></span> <%= t ".after_following" %>
     <% end %>
   </li>
 </ul>
