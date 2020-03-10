@@ -1,5 +1,5 @@
 /*Post form*/
-.new_post {
+.new_post, .edit_post {
   border: 1px solid $dbdbdb;
   height: auto;
   margin: auto 160px;
@@ -109,8 +109,10 @@ ul#preview li img {
   padding: 15px;
   display: flex;
   align-items: center;
+  a {
+    margin-right: 15px
+  }
 }
-
 .instagram-card-user-image {
   width: 40px;
   height: 40px;
