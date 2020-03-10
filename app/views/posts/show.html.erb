@@ -1,11 +1,10 @@
 <% provide :title, @title %>
-<div class="instagram-card flex-card" id="post-<%= @post.id %>"%>
+<div class="instagram-card flex-card" id="post-<%= @post.id %>">
   <%= render "shared/card_images", post: @post, type: "detail" %>
   <div class="content-wrapper" >
     <%= render "shared/card_header", post: @post %>
     <%= render "shared/card_content", post: @post %>
     <%= render "shared/card_stat", post: @post %>
-    <div class="instagram-card-footer">
-    </div>
+    <%= render  "shared/card_footer", post: @post %>
   </div>
 </div>

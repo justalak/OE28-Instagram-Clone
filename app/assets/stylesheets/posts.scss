@@ -1,5 +1,6 @@
 /*Post form*/
-.new_post, .edit_post {
+.new_post,
+.edit_post {
   border: 1px solid $dbdbdb;
   height: auto;
   padding: 30px;
@@ -126,7 +127,7 @@ ul#preview li img {
   display: flex;
   align-items: center;
   a {
-    margin-right: 15px
+    margin-right: 15px;
   }
 }
 .instagram-card-user-image {
@@ -146,6 +147,7 @@ ul#preview li img {
 
 .instagram-card-image img.detail {
   max-width: 700px;
+  max-height: 700px;
 }
 
 .instagram-card-image img.feed {
@@ -157,8 +159,14 @@ ul#preview li img {
   padding: 5px 15px;
 }
 
+.comments {
+  max-height: calc(100% - 205px);
+  overflow-y: scroll;
+}
+
 .content-wrapper {
   width: 335px;
+  max-height: 500px;
 }
 
 .instagram-card-content a {
@@ -179,8 +187,8 @@ ul#preview li img {
 }
 
 .hashtag {
-    color: #007bff !important;
-    font-weight: 200 !important
+  color: $d007bff;
+  font-weight: 200 !important;
 }
 
 .date {
@@ -192,6 +200,20 @@ ul#preview li img {
 .instagram-card-footer {
   padding: 15px;
   padding-top: 0;
+  form {
+    display: flex;
+  }
+  input[type="submit"] {
+    float: right;
+    color: $light-blue;
+    background: transparent;
+    border: 0;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  input[disabled] {
+    opacity: 0.3;
+  }
 }
 
 .instagram-card-input {
@@ -200,20 +222,32 @@ ul#preview li img {
   width: 90%;
 }
 
-.button_red, .button_blue {
-  display: inline!important;
+.button_red,
+.button_blue {
+  display: inline !important;
   padding: 0px;
   background: none;
   border: none;
   outline: none;
 }
-.button_red:focus, .button_blue:focus {
+
+.button_red:focus,
+.button_blue:focus {
   outline: 0 !important;
   border: none;
 }
-form.form_for_like, form.form_for_bookmark {
-  display: inline!important;
+
+form.form_for_like,
+form.form_for_bookmark {
+  display: inline !important;
 }
+
 .transform-scale:hover {
   transform: scale(1.3);
 }
+
+.view-all {
+    font-size: 1rem;
+    color: $d999 !important;
+    margin-bottom: 1rem;
+  }

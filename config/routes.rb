@@ -15,12 +15,15 @@ Rails.application.routes.draw do
         get :bookmarking, to: "bookmarks#index"
       end
     end
-    resources :relationships, only: %i(create destroy)
-    resources :posts, except: :index do
+
+    resources :posts do
       member do
         get :likers, to: "likes#index"
       end
+      resource :comments, only: :create      
     end
+
+    resources :relationships, only: %i(create destroy)
     resources :likes, :bookmarks, only: %i(create destroy)
-  end
+  end  
 end

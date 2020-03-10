@@ -5,7 +5,7 @@
     <% post.images.each do |image| %>
       <div class="carousel-item 
         <%= image==post.images.first ? "active" : "" %>">
-        <%= image_tag image, class: "d-block w-100 #{type}" %>
+        <%= image_tag image, class: "d-block #{type}" %>
       </div>
     <% end %>
   </div>

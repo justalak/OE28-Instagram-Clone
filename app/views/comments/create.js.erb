@@ -1,0 +1,7 @@
+$('#post-<%= @post.id %> .comments')
+  .append('<%= j render(partial: "comments/comment",
+    locals: {comment: @comment}) %>');
+$('#post-<%= @post.id %> .instagram-card-input').val('');
+$('#post-<%= @post.id %> .comments')
+  .animate({ scrollTop: 10000 }, 750);
+$('#post-<%= @post.id %> input[type="submit"').attr('disabled', true);

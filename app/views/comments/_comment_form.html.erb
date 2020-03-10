@@ -1,0 +1,6 @@
+<%= form_for post.comments.build, url: post_comments_path(post),
+  remote: true do |f| %>
+  <%= f.text_field :content, class: "instagram-card-input",
+    placeholder: t(".add_comment") %>
+  <%= f.submit t(".post"), class: "instagram-card-icon", disabled: true %>
+<% end %>

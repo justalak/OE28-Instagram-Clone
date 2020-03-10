@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
   has_many :bookmark_likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
