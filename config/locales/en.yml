@@ -2,6 +2,10 @@ en:
   instagram: Instagram
   image_cant_be_blank: Image can't be blank
   login_first: You must login first
+  sure_delete: Are you sure to delete?
+  image_cant_be_blank: Image can't be blank
+  login_first: You must login first
+  post_not_found: Post that you requested is not founded
   layouts:
     header:
       search: "@search"
@@ -34,7 +38,7 @@ en:
     create:
       signup_success: "Sign up success!"
       signup_failed: "Sign up failed!"
-    get_user:
+    load_user:
       not_find_user: "Not find user!"
     new:
       title: "Sign up"
@@ -115,8 +119,17 @@ en:
       invalid_user: "Invalid user!"
   posts:
     post_form: 
+  posts:
+    post_form:
       create_post: Create Post
       description: Description about post
     create:
       upload_successfully: Uploaded post successfully
       upload_fail: Fail to upload image
+    destroy:
+      destroy_success: Xóa bài đăng thành công
+      destroy_failed: Có lỗi xảy ra khi xóa bài đăng
+    card_content:
+      count_like:
+        one: "%{count} Like"
+        other: "%{count} Likes"

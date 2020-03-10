@@ -10,21 +10,21 @@
   }
 }
 ul#preview {
-   list-style: none;
-   margin: 25px auto;
-   padding: 0;
-   display: block;
-   max-width: 600px;
+  list-style: none;
+  margin: 25px auto;
+  padding: 0;
+  display: block;
+  max-width: 600px;
 }
 
 ul#preview li {
-   display: inline-block;
-   margin: 0 10px 10px;
-   max-width: 100px;
+  display: inline-block;
+  margin: 0 10px 10px;
+  max-width: 100px;
 }
 
 ul#preview li img {
-   width: 100%;
+  width: 100%;
 }
 
 /*Gallery*/
@@ -66,6 +66,7 @@ ul#preview li img {
   display: inline-block;
   font-size: 1.4rem;
   font-weight: 600;
+  color: $fff;
 }
 
 .gallery-item-likes {
@@ -89,4 +90,84 @@ ul#preview li img {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+/*Post show*/
+.instagram-card {
+  width: fit-content;
+  margin: 0 auto;
+  border: 1px solid $d999;
+  background: $white;
+  margin-top: 25px;
+  border-radius: 4px;
+}
+
+.flex-card {
+  display: flex;
+}
+
+.instagram-card-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.instagram-card-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.instagram-card-username {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: $black;
+  margin-right: 15px;
+}
+
+.instagram-card-image img {
+  max-width: 600px;
+}
+
+.instagram-card-content {
+  padding: 15px;
+}
+
+.content-wrapper {
+  width: 335px;
+}
+
+.instagram-card-content a {
+  color: $black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.instagram-card-icon {
+  font-size: 24px;
+  color: $black;
+  margin-right: 10px;
+}
+
+.instagram-bookmark {
+  float: right;
+  margin-right: 0;
+}
+
+.date {
+  font-size: 10px;
+  color: $d999;
+  text-transform: uppercase;
+}
+
+.instagram-card-footer {
+  padding: 15px;
+  padding-top: 0;
+}
+
+.instagram-card-input {
+  border: none;
+  outline: none;
+  width: 90%;
 }

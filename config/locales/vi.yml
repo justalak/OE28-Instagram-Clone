@@ -2,6 +2,9 @@ vi:
   instagram: Instagram
   image_cant_be_blank: Ảnh đính kèm không thể để trống
   login_first: Bạn phải đăng nhập trước
+  sure_delete: Bạn có chắc muốn xóa không?
+  login_first: Bạn phải đăng nhập trước
+  post_not_found: Bài đăng không khả dụng
   layouts:
     header:
       search: "@tìm_kiếm"
@@ -34,7 +37,7 @@ vi:
     create:
       signup_success: "Đăng ký thành công!"
       signup_failed: "Đăng ký thất bại!"
-    get_user:
+    load_user:
       not_find_user: "Không tìm thấy người dùng!"
     new:
       title: "Đăng ký"
@@ -95,7 +98,7 @@ vi:
     new:
       username_or_email: Username hoặc email
       password: Mật khẩu
-      log_in: Đăng nhập 
+      log_in: Đăng nhập
       sign_in: Đăng nhập
       sign_up: Đăng ký
       login_via_facebook: Đăng nhập bằng facebook
@@ -118,3 +121,17 @@ vi:
     post_form: 
       create_post: Đăng bài
       description: Mô tả cho bài đăng
+  posts:
+    post_form:
+      create_post: Đăng bài
+      description: Mô tả cho bài đăng
+    create:
+      upload_successfully: Đăng bài thành công
+      upload_fail: Xảy ra lỗi trong quá trình đăng bài  
+    destroy:
+      destroy_success: Post has been deleted successfully
+      destroy_failed: Fail to delete post
+    card_content:
+      count_like:
+        other: "%{count} lượt thích"
+  

@@ -22,4 +22,8 @@ post:
   max_picture_size: 2
   content_type: ["image/jpeg", "image/gif", "image/png"]
 favicon_image: "favicon.png"
+post:
+  max_picture_size: 2
+  content_type: ["image/jpeg", "image/gif", "image/png"]
+favicon_image: "favicon.png"
 image_format: "image/jpeg,image/gif,image/png"
