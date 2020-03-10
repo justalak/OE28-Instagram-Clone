@@ -18,4 +18,8 @@ module PostConcern
       hashtags << hashtag
     end
   end
+
+  def likers? user
+    User.likers(id).include? user
+  end
 end

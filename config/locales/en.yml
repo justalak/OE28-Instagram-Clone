@@ -148,10 +148,42 @@ en:
     update:
       update_success: Updated post successfully
       update_fail: Fail to update post. Try again
-    card_content:
-      count_like:
-        one: "%{count} Like"
-        other: "%{count} Likes"
     edit:
       edit_post: Edit post
-    
+    card_content:
+      count_like:
+        zero: ""
+        one: "%{count} Like"
+        other: "%{count} Likes"
+  likes:
+    find_post:
+      not_find_post: "Not find post!"
+    index:
+      title: "Likers"
+      tips: "Likers"
+    like_list:
+      nobody: "Nobody..."
+    load_post_request:
+      invalid_user: "Invalid user"
+    create:
+      count_like:
+        zero: ""
+        one: "%{count} Like"
+        other: "%{count} Likes"
+    destroy:
+      count_like:
+        zero: ""
+        one: "%{count} Like"
+        other: "%{count} Likes"
+  bookmarks:
+    find_user:
+      not_find_user: "Not find user!"
+    index:
+      title: "Bookmarking"
+      tips: "The marked posts"
+    correct_user:
+      not_allow: "Not allow!"
+    bookmark_list:
+      nothing: "Nothing..."
+    load_post_request:
+      invalid_user: "Invalid user"

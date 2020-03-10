@@ -19,4 +19,8 @@ module UserConcern
   def following? other_user
     following.include? other_user
   end
+
+  def bookmarking? post
+    Post.bookmarking(id).include? post
+  end
 end

@@ -1,0 +1,6 @@
+<%= form_for @post, url: like_path(@post), method: :delete,
+  html: {class: "form_for_like" }, remote: true do |f| %>
+  <%= button_tag class: "instagram-card-icon button_red" do %>
+    <i class="fa fa-heart text-danger transform-scale"></i>
+  <% end %>
+<% end %>

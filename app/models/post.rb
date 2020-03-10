@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :post_hashtags, dependent: :destroy
   has_many :hashtags, through: :post_hashtags
   has_many_attached :images
+  has_many :bookmark_likes, dependent: :destroy
 
   delegate :name, :username, to: :user, prefix: :user
 
@@ -16,10 +17,14 @@ class Post < ApplicationRecord
   validate :image_presence
 
   scope :order_by_created_at, ->{order created_at: :desc}
-
   after_commit :add_hashtags, on: %i(create update)
-  
+
+  scope :bookmarking, (lambda do |user_id|
+    where(id: BookmarkLike.bookmarking_post(user_id))
+  end)
+
   private
+
   def image_presence
     errors.add :images, I18n.t("image_cant_be_blank") unless images.attached?
   end

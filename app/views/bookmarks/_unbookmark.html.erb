@@ -1,0 +1,8 @@
+<%= form_for load_bookmark_like(@post, 1),
+  url: bookmark_path(load_bookmark_like @post, 1),
+  html: { method: :delete, class: "form_for_bookmark" },
+  remote: true do |f| %>
+  <%= button_tag class: "instagram-card-icon instagram-bookmark button_blue" do %>
+    <i class="fa fa-bookmark text-primary transform-scale"></i>
+  <% end %>
+<% end %>

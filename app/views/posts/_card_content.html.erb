@@ -1,17 +1,17 @@
 <div class="instagram-card-content">
+  <div id="bookmark_like__like" class="d-inline">
+    <%= render like_unlike(@post) %>
+  </div>
   <%= link_to "#", class: "instagram-card-icon" do %>
-    <a class="instagram-card-icon" href="#"><i class="fa fa-heart-o"></i></a>
+    <i class="fa fa-comment-o"></i>
   <% end %>
-  <%= link_to "#", class: "instagram-card-icon" do %>
-    <a class="instagram-card-icon" href="#"><i class="fa fa-comment-o"></i></a>
-  <% end %>
-  <%= link_to "#", class: "instagram-card-icon instagram-bookmark" do %>
-    <i class="fa fa-bookmark-o"></i>
-  <% end %>
+  <div id="bookmark_like__bookmark" class="d-inline">
+    <%= render bookmark_unbookmark(@post) %>
+  </div>
   <%= link_to "", "#", class: "instagram-card-icon" %>
-  <p>
-    <%= link_to t(".count_like", count: 70), "#" %>
-  </p>
+  <div id="count_like_post">
+    <%= link_to t(".count_like", count: User.likers(@post.id).size), likers_post_path(@post) %>
+  </div>
   <p>
     <% if @post.description %>
       <%= link_to @post.user, class: "instagram-card-content-username" do %>
@@ -19,7 +19,7 @@
       <% end %>
       <% separate_lines(@post.description).each do |line| %>
         <% separate_words(line).each do |word| %>
-          <% if word.start_with? '#' %>
+          <% if word.start_with? "#" %>
             <%= link_to word, "#", class: "hashtag" %>
           <% else %>
             <%= word %>

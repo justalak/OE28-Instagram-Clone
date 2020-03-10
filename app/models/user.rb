@@ -36,6 +36,11 @@ class User < ApplicationRecord
     foreign_key: :followed_id, dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
+  has_many :bookmark_likes, dependent: :destroy
+
+  scope :likers, (lambda do |post_id|
+    where(id: BookmarkLike.likers_user(post_id))
+  end)
 
   USER_PARAMS = %i(email name username password password_confirmation).freeze
   USER_PARAMS_UPDATE = %i(email name username website
