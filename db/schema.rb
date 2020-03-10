@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_013214) do
+ActiveRecord::Schema.define(version: 2020_03_10_075213) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_013214) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_hashtags_on_name", unique: true
   end
 
   create_table "post_hashtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_013214) do
     t.string "website"
     t.text "bio"
     t.string "phone"
-    t.integer "gender"
+    t.integer "gender", default: 2
     t.integer "role", default: 0
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -85,5 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_10_013214) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_hashtags", "hashtags"
+  add_foreign_key "post_hashtags", "posts"
   add_foreign_key "posts", "users"
 end

@@ -11,14 +11,14 @@ class User < ApplicationRecord
   validates :email, presence: true,
     length: {maximum: Settings.user.max_length_email},
     format: {with: Settings.user.email_regex},
-    uniqueness: {case_sensitive: true}
+    uniqueness: {case_sensitive: false}
   validates :username, presence: true,
     length: {
       maximum: Settings.user.max_length_username,
       minimum: Settings.user.min_length_username
     },
     format: {with: Settings.user.username_regex},
-    uniqueness: {case_sensitive: true}
+    uniqueness: {case_sensitive: false}
   validates :phone, allow_blank: true,
     format: {with: Settings.user.phone_regex}
   validates :website, allow_blank: true,
