@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :logged_in_user, :load_user, only: :index
+  before_action :logged_in_user, :load_user, :correct_user, only: :index
   before_action :post_exists, only: %i(create destroy)
   before_action :find_bookmark, only: :destroy
 
@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
 
   def create
     params[:type_action] = params[:type_action].to_i
-    @new_bookmark = current_user.bookmark_likes.build bookmark_params
+    @new_bookmark = current_user.bookmark_likes.build bookmark_like_params
     if @new_bookmark.save
       respond_to do |format|
         format.html{redirect_to @user}
@@ -47,16 +47,21 @@ class BookmarksController < ApplicationController
     redirect_to root_url
   end
 
+  def correct_user
+    return if current_user? @user
+
+    flash[:danger] = t "access_denied"
+    redirect_back fallback_location: root_path
+  end
+
   def find_bookmark
-    @bookmark = current_user.bookmark_likes.find_by post_id: bookmark_params[:post_id],
-                                      type_action: bookmark_params[:type_action]
+    @bookmark = current_user
+                .bookmark_likes
+                .find_by post_id: bookmark_like_params[:post_id],
+                  type_action: bookmark_like_params[:type_action]
     return if @bookmark
 
     flash[:danger] = t "bookmarks.find_user.not_find_user"
     redirect_to root_url
-  end
-
-  def bookmark_params
-    params.permit :post_id, :type_action
   end
 end

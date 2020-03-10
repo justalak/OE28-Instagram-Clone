@@ -1,0 +1,18 @@
+<div class="instagram-card-content">
+  <div id="bookmark_like__like" class="d-inline">
+    <%= render like_unlike(post), post: post %>
+  </div>
+  <%= link_to "#", class: "instagram-card-icon" do %>
+    <i class="fa fa-comment-o"></i>
+  <% end %>
+  <div id="bookmark_like__bookmark" class="d-inline">
+    <%= render bookmark_unbookmark(post), post: post %>
+  </div>
+  <%= link_to "", "#", class: "instagram-card-icon" %>
+  <div id="count_like_post">
+    <%= link_to t(".count_like", count: count_like(post)), likers_post_path(post) %>
+  </div>
+  <p class="date">
+    <%= time_ago_in_words post.created_at %>
+  </p>
+</div>

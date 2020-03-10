@@ -13,7 +13,7 @@ class LikesController < ApplicationController
 
   def create
     params[:type_action] = params[:type_action].to_i
-    @new_like = current_user.bookmark_likes.build like_params
+    @new_like = current_user.bookmark_likes.build bookmark_like_params
     if @new_like.save
       respond_to do |format|
         format.html{redirect_to @user}
@@ -48,15 +48,13 @@ class LikesController < ApplicationController
   end
 
   def find_like
-    @like = current_user.bookmark_likes.find_by post_id: like_params[:post_id],
-                                          type_action: like_params[:type_action]
+    @like = current_user
+            .bookmark_likes
+            .find_by post_id: bookmark_like_params[:post_id],
+              type_action: bookmark_like_params[:type_action]
     return if @like
 
     flash[:danger] = t "likes.find_post.not_find_post"
     redirect_to root_url
-  end
-
-  def like_params
-    params.permit :post_id, :type_action
   end
 end

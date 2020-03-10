@@ -1,4 +1,4 @@
-$('div#bookmark_like__like')
-  .html('<%= j render("likes/like") %>');
-$('div#count_like_post')
+$('#post-<%= @post.id %> #bookmark_like__like')
+  .html('<%= j render("likes/like", post: @post) %>');
+$('#post-<%= @post.id %> #count_like_post')
   .html('<%= j link_to(t(".count_like", count: User.likers_to_post(@post.id).size), likers_post_path(@post)) %>');

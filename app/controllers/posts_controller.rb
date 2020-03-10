@@ -7,11 +7,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build post_params
     if @post.save
       flash[:success] = t ".upload_successfully"
-      redirect_to current_user
     else
       flash[:danger] = t ".upload_fail"
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def edit; end
@@ -22,6 +21,8 @@ class PostsController < ApplicationController
     else
       flash[:danger] = t ".destroy_failed"
     end
+
+    redirect_back fallback_location: root_path
   end
 
   def update
@@ -53,10 +54,10 @@ class PostsController < ApplicationController
   def correct_user
     return if current_user? @post.user
 
-    flash[:danger] = t "login_first"
-    redirect_to login_path
+    flash[:danger] = t "access_denied"
+    redirect_back fallback_location: root_path
   end
-
+  
   def load_post
     @post = Post.find_by id: params[:id]
     return if @post
