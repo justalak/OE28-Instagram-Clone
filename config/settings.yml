@@ -26,3 +26,6 @@ hashtag:
   max_length: 500
 favicon_image: "favicon.png"
 image_format: "image/jpeg,image/gif,image/png"
+bookmark_like:
+  like: 0
+  bookmark: 1

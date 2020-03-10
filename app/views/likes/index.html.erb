@@ -1,10 +1,9 @@
 <% provide :title, @title %>
-<% if @users.any? %>
-  <h1 class="text-center"><%= @title %></h1>
+<% if @likers.any? %>
+  <h1 class="text-center"><%= @tips %></h1>
   <section class="people">
     <ul class="people__list">
-      <%= render @users %>
-      <%= paginate @users, theme: "twitter-bootstrap-4" %>
+      <%= render partial: "users/user", collection: @likers, as: :user %>
     </ul>
   </section>
 <% else %>

@@ -1,0 +1,8 @@
+<% provide :title, @title %>
+<% if @posts.any? %>
+  <h1 class="text-center"><%= @tips %></h1>
+  <%= render "users/gallery" %>
+<% else %>
+  <h1 class="text-center"><%= @title %></h1>
+  <h3 class="text-center"><%= t ".nothing" %></h3>
+<% end %>

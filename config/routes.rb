@@ -12,9 +12,15 @@ Rails.application.routes.draw do
       member do
         get :following, to: "follows#following"
         get :followers, to: "follows#followers"
+        get :bookmarking, to: "bookmarks#index"
       end
     end
     resources :relationships, only: %i(create destroy)
-    resources :posts, except: :index
+    resources :posts, except: :index do
+      member do
+        get :likers, to: "likes#index"
+      end
+    end
+    resources :likes, :bookmarks, only: %i(create destroy)
   end
 end

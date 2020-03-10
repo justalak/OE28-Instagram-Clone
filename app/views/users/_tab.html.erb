@@ -1,18 +1,18 @@
 <div class="user-tabs">
-  <a class="tab active" href="">
+  <%= link_to "", class: "tab active" do %>
     <i class="fa fa-th"></i>
     <%= t ".posts" %>
-  </a>
-  <a class="tab" href="">
+  <% end %>
+  <%= link_to "", class: "tab" do %>
     <i class="fa fa-tv"></i>
-   <%= t ".igtv" %>
-  </a>
-  <a class="tab" href="">
+    <%= t ".igtv" %>
+  <% end %>
+  <%= link_to bookmarking_user_path(@current_user), class: "tab" do %>
     <i class="fa fa-bookmark"></i>
     <%= t ".saved" %>
-  </a>
-  <a class="tab" href="">
+  <% end %>
+  <%= link_to "", class: "tab" do %>
     <i class="fa fa-tag"></i>
     <%= t ".tagged" %>
-  </a>
+  <% end %>
 </div>

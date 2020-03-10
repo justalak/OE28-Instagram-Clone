@@ -4,12 +4,16 @@ class FollowsController < ApplicationController
   def following
     @title = t ".title"
     @users = @user.following
+                  .page(params[:page])
+                  .per Settings.user.previews_per_page
     render :follow_list
   end
 
   def followers
     @title = t ".title"
     @users = @user.followers
+                  .page(params[:page])
+                  .per Settings.user.previews_per_page
     render :follow_list
   end
 
