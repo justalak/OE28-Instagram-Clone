@@ -180,10 +180,9 @@ vi:
     index:
       title: "Lượt thích"
       tips: "Lượt thích"
+      nobody: "Không có ai..."
     find_post:
       not_find_post: "Không tìm thấy bài viết!"
-    like_list:
-      nobody: "Không có ai..."
     load_post_request:
       invalid_user: "Người dùng không đúng"
     destroy:
@@ -198,15 +197,23 @@ vi:
     index:
       title: "Bài viết đánh dấu"
       tips: "Những bài viết được đánh dấu"
+      nothing: "Không có gì..."
     find_user:
       not_find_user: "Không tìm thấy người dùng!"
     correct_user:
       not_allow: "Không cho phép"
-    bookmark_list:
-      nothing: "Không có gì..."
     load_post_request:
       invalid_user: "Người dùng không đúng"
   comments:
     comment_form: 
       post: Đăng
       add_comment: Thêm bình luận
+  searches:
+    index:
+      title: "Tìm kiếm..."
+      not_result: "Không có kết quả tìm kiếm"
+      for_user: "cho tên người dùng"
+      for_hashtag: "cho tên hashtag"
+      result: "Kết quả tìm kiếm"
+    search_blank:
+      empty_string: "Ô tìm kiếm trống!"

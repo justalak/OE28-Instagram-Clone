@@ -1,0 +1,13 @@
+<% if @users.any? %>
+  <h2 class="text-center"><%= t ".result" %></h2>
+  <h5><%= t ".for_user" %> "<%= @search %>"...</h5>
+  <section class="people">
+    <ul class="people__list">
+      <%= render @users %>
+      <%= paginate @users, theme: "twitter-bootstrap-4" %>
+    </ul>
+  </section>
+<% else %>
+  <h2 class="text-center"><%= t ".not_result" %></h2>
+  <h5><%= t ".for_user" %> "<%= @search %>"...</h5>
+<% end %>

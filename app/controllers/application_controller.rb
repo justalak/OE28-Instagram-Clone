@@ -20,15 +20,15 @@ class ApplicationController < ActionController::Base
     redirect_to login_url
   end
 
+  def bookmark_like_params
+    params.permit :post_id, :type_action
+  end
+
   def post_exists
     @post = Post.find_by id: bookmark_like_params[:post_id].to_i
     return if @post
 
     flash[:danger] = t "bookmarks.find_post.not_find_post"
     redirect_to root_url
-  end
-
-  def bookmark_like_params
-    params.permit :post_id, :type_action
   end
 end

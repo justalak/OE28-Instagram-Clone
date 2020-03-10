@@ -6,7 +6,7 @@ module PostsHelper
         if word.start_with? "#"
           html << link_to(word, "#", class: "hashtag")
         else
-          htlm << word
+          html << word
         end
       end
       html << "<br>"
