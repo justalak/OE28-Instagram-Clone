@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :load_post, only: :index
+  before_action :load_post, only: %i(index create destroy)
   before_action :logged_in_user, only: %i(create destroy)
   before_action :like_params, only: :create
 
@@ -42,11 +42,15 @@ class LikesController < ApplicationController
   private
 
   def load_post
-    @post = Post.find_by id: params[:id]
+    @post = if request.post?
+              Post.find_by id: params[:post_id]
+            else
+              Post.find_by id: params[:id]
+            end
     return if @post
 
-    flash[:danger] = t "likes.find_post.not_find_post"
-    redirect_to root_url
+    flash[:danger] = t "likes.load_post_request.not_find_post"
+    redirect_to root_path
   end
 
   def like_params
