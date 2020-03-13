@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2020_03_10_075213) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bookmark_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.integer "type_action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_bookmark_likes_on_post_id"
+    t.index ["user_id", "post_id", "type_action"], name: "index_bookmark_likes_on_user_id_and_post_id_and_type_action", unique: true
+    t.index ["user_id"], name: "index_bookmark_likes_on_user_id"
+  end
+
   create_table "hashtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false

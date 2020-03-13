@@ -6,6 +6,14 @@ class User < ApplicationRecord
   enum role: {user: 0, admin: 1}
 
   has_many :posts, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships
+  has_many :bookmark_likes, dependent: :destroy
+
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true,
@@ -27,15 +35,15 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.min_length_password}, allow_nil: true
 
   before_save :downcase_email
-
   has_secure_password
   has_one_attached :avatar_image
-  has_many :active_relationships, class_name: Relationship.name,
-    foreign_key: :follower_id, dependent: :destroy
-  has_many :passive_relationships, class_name: Relationship.name,
-    foreign_key: :followed_id, dependent: :destroy
-  has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships
+
+  scope :likers_to_post, (lambda do |post_id|
+    joins(bookmark_likes: :post).where(
+      "bookmark_likes.type_action": Settings.bookmark_like.like,
+      "posts.id": post_id
+    )
+  end)
 
   USER_PARAMS = %i(email name username password password_confirmation).freeze
   USER_PARAMS_UPDATE = %i(email name username website
@@ -70,6 +78,10 @@ class User < ApplicationRecord
 
   def forget
     update remember_digest: nil
+  end
+
+  def bookmarking? post
+    Post.bookmarking_by_user(id).include? post
   end
 
   private

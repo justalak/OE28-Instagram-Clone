@@ -147,10 +147,6 @@ vi:
     destroy:
       destroy_success: Post has been deleted successfully
       destroy_failed: Fail to delete post
-    card_content:
-      count_like:
-        other: "%{count} lượt thích"
-  
       destroy_success: Xóa bài thành công
       destroy_failed: Có lỗi xảy ra khi xóa bài
     update:
@@ -161,3 +157,37 @@ vi:
         other: "%{count} lượt thích"
     edit:
       edit_post: Chỉnh sửa
+    card_content:
+      count_like:
+        zero: ""
+        other: "%{count} lượt thích"
+  likes:
+    index:
+      title: "Lượt thích"
+      tips: "Lượt thích"
+    find_post:
+      not_find_post: "Không tìm thấy bài viết!"
+    like_list:
+      nobody: "Không có ai..."
+    load_post_request:
+      invalid_user: "Người dùng không đúng"
+    destroy:
+      count_like:
+        zero: ""
+        other: "%{count} lượt thích"
+    create:
+      count_like:
+        zero: ""
+        other: "%{count} lượt thích"
+  bookmarks:
+    index:
+      title: "Bài viết đánh dấu"
+      tips: "Những bài viết được đánh dấu"
+    find_user:
+      not_find_user: "Không tìm thấy người dùng!"
+    correct_user:
+      not_allow: "Không cho phép"
+    bookmark_list:
+      nothing: "Không có gì..."
+    load_post_request:
+      invalid_user: "Người dùng không đúng"
