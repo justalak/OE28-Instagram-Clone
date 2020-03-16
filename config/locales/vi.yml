@@ -229,3 +229,6 @@ vi:
       result: "Kết quả tìm kiếm"
     search_blank:
       empty_string: "Ô tìm kiếm trống!"
+    comment:
+      reply: Trả lời
+      

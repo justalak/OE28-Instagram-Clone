@@ -3,5 +3,6 @@
   <% if post.comments.size > Settings.top_comments %>
     <%= link_to t("view_all"), post, class: "view-all" %>
   <% end %>
-  <%= render partial: "comments/comment", collection: post.top_comments %>
+  <%= render partial: "comments/preview", collection: post.top_comments,
+    as: :comment %>
 </div>

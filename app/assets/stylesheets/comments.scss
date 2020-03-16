@@ -1,0 +1,22 @@
+.reply {
+  button {
+    background: transparent;
+    border: 0px;
+    color: rgba(var(--f52,153,153,153),1);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    margin-right: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+.comment-text {
+  p {
+    margin-bottom: 0px !important;
+  }
+}
+
+.reply-comments {
+  margin-left: 40px;
+}

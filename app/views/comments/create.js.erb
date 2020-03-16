@@ -1,7 +1,14 @@
-$('#post-<%= @post.id %> .comments')
+<% if @comment.root? %>
+  $('#post-<%= @post.id %> .comments')
   .append('<%= j render(partial: "comments/comment",
     locals: {comment: @comment}) %>');
-$('#post-<%= @post.id %> .instagram-card-input').val('');
-$('#post-<%= @post.id %> .comments')
+  $('#post-<%= @post.id %> .comments')
   .animate({ scrollTop: 10000 }, 750);
+<% else %>
+  $('#post-<%= @post.id %> #comment-<%= @comment.parent.id %>')
+  .append('<%= j render(partial: "comments/comment_detail",
+    locals: {comment: @comment}) %>');
+<% end %>
+$('#post-<%= @post.id %> .instagram-card-input').val('');
+$('#post-<%= @post.id %> #comment_content').val('');
 $('#post-<%= @post.id %> input[type="submit"').attr('disabled', true);

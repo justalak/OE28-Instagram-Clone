@@ -4,7 +4,7 @@ module PostsHelper
     description.split("\n").each do |line|
       line.to_s.split(" ").each do |word|
         if word.start_with? "#"
-          html << link_to(word, "#", class: "hashtag")
+          html << link_to(word, searches_path(search: word), class: "hashtag")
         else
           html << word
         end
