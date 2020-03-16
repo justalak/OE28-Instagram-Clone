@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_075213) do
+ActiveRecord::Schema.define(version: 2020_03_12_144823) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 2020_03_10_075213) do
     t.index ["post_id"], name: "index_bookmark_likes_on_post_id"
     t.index ["user_id", "post_id", "type_action"], name: "index_bookmark_likes_on_user_id_and_post_id_and_type_action", unique: true
     t.index ["user_id"], name: "index_bookmark_likes_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.integer "parent_id"
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "hashtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -97,6 +109,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_075213) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "post_hashtags", "hashtags"
   add_foreign_key "post_hashtags", "posts"
   add_foreign_key "posts", "users"

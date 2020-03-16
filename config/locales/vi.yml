@@ -6,6 +6,7 @@ vi:
   login_first: Bạn phải đăng nhập trước
   access_denied: Bạn không có quyền truy cập
   post_not_found: Bài đăng không khả dụng
+  view_all: Xem tất cả bình luận
   layouts:
     header:
       search: "@tìm_kiếm"
@@ -205,3 +206,7 @@ vi:
       nothing: "Không có gì..."
     load_post_request:
       invalid_user: "Người dùng không đúng"
+  comments:
+    comment_form: 
+      post: Đăng
+      add_comment: Thêm bình luận

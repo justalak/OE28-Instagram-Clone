@@ -1,10 +1,5 @@
-<div class="instagram-card-content">
-  <p>
-    <% if post.description.present? %>
-      <%= link_to post.user, class: "instagram-card-content-username" do %>
-        <%= post.user_username %>
-      <% end %>
-      <%= display_description post.description %>
-    <% end %>
-  </p>
+<div class="instagram-card-content comments">
+  <%= render "shared/post_description", post: post %>
+  <hr>
+  <%= render partial: "comments/comment", collection: post.comments %>
 </div>

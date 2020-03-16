@@ -6,3 +6,4 @@ require("jquery");
 global.$ = jQuery;
 require("popper.js");
 require("bootstrap");
+require("packs/posts");

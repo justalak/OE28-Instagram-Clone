@@ -1,0 +1,8 @@
+<p>
+  <% if post.description.present? %>
+    <%= link_to post.user, class: "instagram-card-content-username" do %>
+      <%= post.user_username %>
+    <% end %>
+    <%= display_description post.description %>
+  <% end %>
+</p>

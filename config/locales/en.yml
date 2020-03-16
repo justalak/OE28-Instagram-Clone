@@ -7,6 +7,8 @@ en:
   login_first: You must login first
   access_denied: You can not access to this page
   post_not_found: Post that you requested is not founded
+  post_comment_fail: Failed to add your comment
+  view_all: View all comments
   layouts:
     header:
       search: "@search"
@@ -199,3 +201,15 @@ en:
       nothing: "Nothing..."
     load_post_request:
       invalid_user: "Invalid user"
+    edit:
+      edit_post: Edit post
+  comments:
+    comment_form: 
+      post: Post
+      add_comment: Add a new comment
+    comment:
+      datetime:
+        distance_in_words:
+          x_days:
+            one: 1d
+            other: "%{count}d"
