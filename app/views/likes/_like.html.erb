@@ -1,6 +1,6 @@
 <%= form_for current_user.bookmark_likes.build, url: likes_path,
   html: {class: "form_for_like"}, remote: true do |f| %>
-  <%= hidden_field_tag :post_id, @post.id %>
+  <%= hidden_field_tag :post_id, post.id %>
   <%= hidden_field_tag :type_action, Settings.bookmark_like.like %>
   <%= button_tag class: "instagram-card-icon button_red" do %>
     <i class="fa fa-heart-o transform-scale"></i>

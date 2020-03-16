@@ -29,3 +29,5 @@ image_format: "image/jpeg,image/gif,image/png"
 bookmark_like:
   like: 0
   bookmark: 1
+feed_items_per_page: 10
+single_image_size: 1

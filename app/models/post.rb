@@ -25,13 +25,16 @@ class Post < ApplicationRecord
       "users.id": user_id
     )
   end)
+  scope :feed, (lambda do |user_id|
+                  where(user_id: Relationship.following_ids(user_id))
+                  .or(where(user_id: user_id))
+                end)
 
   def likers? user
     User.likers_to_post(id).include? user
   end
-
+  
   private
-
   def image_presence
     errors.add :images, I18n.t("image_cant_be_blank") unless images.attached?
   end

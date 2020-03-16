@@ -1,10 +1,17 @@
 module PostsHelper
-  def separate_lines description
-    description.split "\n"
-  end
-
-  def separate_words line
-    line.to_s.split " "
+  def display_description description
+    html = ""
+    description.split("\n").each do |line|
+      line.to_s.split(" ").each do |word|
+        if word.start_with? "#"
+          html << link_to(word, "#", class: "hashtag")
+        else
+          htlm << word
+        end
+      end
+      html << "<br>"
+    end
+    html.html_safe
   end
 
   def like_unlike post

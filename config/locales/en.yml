@@ -5,6 +5,7 @@ en:
   sure_delete: Are you sure to delete?
   image_cant_be_blank: Image can't be blank
   login_first: You must login first
+  access_denied: You can not access to this page
   post_not_found: Post that you requested is not founded
   layouts:
     header:
@@ -31,12 +32,17 @@ en:
       count:
         one: "%{count} error"
         other: "%{count} errors"
+    card_stat:
+      count_like:
+        one: "%{count} Like"
+        other: "%{count} Likes"
   static_pages:
     new:
       title: "Home"
     title: "Home"
     index:
       create_post: Create post
+      new_post: New post
   users:
     create:
       signup_success: "Sign up success!"
@@ -56,6 +62,11 @@ en:
       or: "OR"
       login_via_facebook: "Login via Facebook"
     tab:
+      saved: SAVED
+      tagged: TAGGED
+      posts: POSTS
+      igtv: IGTV
+    save_tab:
       saved: SAVED
       tagged: TAGGED
       posts: POSTS
@@ -151,6 +162,7 @@ en:
     edit:
       edit_post: Edit post
     card_content:
+    card_stat:
       count_like:
         zero: ""
         one: "%{count} Like"
