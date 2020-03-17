@@ -1,0 +1,24 @@
+<% provide :title, t(".edit_comment") %>
+<h1><%= t ".edit_comment" %></h1>
+<h3><%= t ".commentator" %>
+<%= image_tag display_avatar_image(@comment.user),
+    class: "instagram-card-user-image" %>
+<%= link_to @comment.user, class: "instagram-card-username" do %>
+  <%= @comment.user_username %>
+<% end %>
+<h3><%= t ".owner" %>
+<%= image_tag display_avatar_image(@comment.post_owner_user),
+    class: "instagram-card-user-image" %>
+<%= link_to @comment.user, class: "instagram-card-username" do %>
+  <%= @comment.post_owner_user.username %>
+<% end %>
+
+<%= form_for ([@post, @comment]), html: {class: "mt-5"} do |f| %>
+  <%= render "shared/error_messages", object: @comment %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control", placeholder: t(".content") %>
+  </div>
+  <div class="text-center">
+    <%= f.submit t(".update"), class: "btn btn-primary" %>
+  </div>
+<% end %>

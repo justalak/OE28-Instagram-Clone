@@ -4,4 +4,13 @@
   <span class="date">
     <%= time_ago_in_words comment.created_at %>
   </span>
+  <% if current_user? comment.user %>
+    <%= link_to post_comment_path(comment.post_id, comment.id),
+      method: :delete, data: { confirm: t("sure_delete")} do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+    <%= link_to edit_post_comment_path(comment.post, comment) do %>
+      <i class="fa fa-edit"></i>
+    <% end %>
+  <% end %>
 </p>

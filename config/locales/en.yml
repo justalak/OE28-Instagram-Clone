@@ -205,6 +205,18 @@ en:
     comment_form: 
       post: Post
       add_comment: Add a new comment
+    destroy:
+      destroy_failed: "Destroy failed"
+      destroy_success: "Destroy success"
+    edit:
+      edit_comment: "Edit comment"
+      content: "Content"
+      update: "Update"
+      commentator: "Commentator: "
+      owner: "Owner post: "
+    update:
+      update_success: "Update success"
+      update_fail: "Update failed"
     comment:
       datetime:
         distance_in_words:

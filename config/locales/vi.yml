@@ -208,6 +208,18 @@ vi:
     comment_form: 
       post: Đăng
       add_comment: Thêm bình luận
+    destroy:
+      destroy_failed: "Không thể xóa bình luận"
+      destroy_success: "Xóa thành công"
+    edit:
+      edit_comment: "Chỉnh sửa bình luận"
+      content: "Nội dung"
+      update: "Cập nhật"
+      commentator: "Người bình luận: "
+      owner: "Sở hữu bài viết: "
+    update:
+      update_success: "Chỉnh sửa thành công"
+      update_fail: "Không thể chỉnh sửa"
   searches:
     index:
       title: "Tìm kiếm..."
