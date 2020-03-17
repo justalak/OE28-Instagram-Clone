@@ -175,7 +175,6 @@ en:
     index:
       title: "Likers"
       tips: "Likers"
-    like_list:
       nobody: "Nobody..."
     load_post_request:
       invalid_user: "Invalid user"
@@ -195,10 +194,9 @@ en:
     index:
       title: "Bookmarking"
       tips: "The marked posts"
+      nothing: "Nothing..."
     correct_user:
       not_allow: "Not allow!"
-    bookmark_list:
-      nothing: "Nothing..."
     load_post_request:
       invalid_user: "Invalid user"
     edit:
@@ -213,3 +211,12 @@ en:
           x_days:
             one: 1d
             other: "%{count}d"
+  searches:
+    index:
+      title: "Search..."
+      not_result: "Not result search"
+      for_user: "for user name"
+      for_hashtag: "for hashtag name"
+      result: "Result search"
+    search_blank:
+      empty_string: "Search box is empty!"

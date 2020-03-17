@@ -46,6 +46,11 @@ class User < ApplicationRecord
     )
   end)
 
+  scope :search_by_name_username, (lambda do |sample_string|
+    where("username LIKE :search OR name LIKE :search",
+          search: "%#{sample_string}%")
+  end)
+
   USER_PARAMS = %i(email name username password password_confirmation).freeze
   USER_PARAMS_UPDATE = %i(email name username website
                           bio phone gender avatar_image).freeze

@@ -35,14 +35,22 @@ class Post < ApplicationRecord
                   .or(where(user_id: user_id))
                 end)
 
+  scope :search_by_hashtag, (lambda do |sample_string|
+    joins(post_hashtags: :hashtag).where(
+      "hashtags.name LIKE :search", search: "%#{sample_string}%"
+    ).distinct
+  end)
+
   def likers? user
     User.likers_to_post(id).include? user
   end
-  
+
   def top_comments
     comments.top(id)
   end
+
   private
+
   def image_presence
     errors.add :images, I18n.t("image_cant_be_blank") unless images.attached?
   end

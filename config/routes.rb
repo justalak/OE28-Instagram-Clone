@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
     resources :relationships, only: %i(create destroy)
     resources :likes, :bookmarks, only: %i(create destroy)
-  end  
+    resources :searches, only: :index
+  end
 end

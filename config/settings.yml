@@ -32,3 +32,6 @@ bookmark_like:
 feed_items_per_page: 10
 single_image_size: 1
 top_comments: 2
+search:
+  char_sharp: "#"
+  char_at: "@"
