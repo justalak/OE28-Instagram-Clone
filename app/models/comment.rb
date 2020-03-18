@@ -21,4 +21,5 @@ class Comment < ApplicationRecord
     .order(created_at: :desc)
     .limit(Settings.top_comments)
   end)
+  scope :root, ->{where parent_id: nil}
 end

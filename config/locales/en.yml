@@ -232,3 +232,4 @@ en:
       result: "Result search"
     search_blank:
       empty_string: "Search box is empty!"
+      reply: Reply

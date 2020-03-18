@@ -11,4 +11,11 @@ $(document).ready(function() {
         .find("input[type='submit']")
         .attr("disabled", true);
   });
+
+  $('.reply button').on('click', function(){
+    var parent_id = $(this).attr('comment_id');
+    var postElement= $(this).closest('.instagram-card');
+    $('#comment_parent_id').val(parent_id)
+    $(postElement).find('#comment_content').focus()
+  })
 });

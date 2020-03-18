@@ -2,5 +2,6 @@
   remote: true do |f| %>
   <%= f.text_field :content, class: "instagram-card-input",
     placeholder: t(".add_comment") %>
+  <%= f.hidden_field :parent_id, value: nil %>
   <%= f.submit t(".post"), class: "instagram-card-icon", disabled: true %>
 <% end %>
