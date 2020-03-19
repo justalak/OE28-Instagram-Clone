@@ -1,0 +1,13 @@
+<div class="exists-notif h-100 scrollbar" id="style-3">
+  <h4 class="text-center mt-4"><%= t ".notif" %></h4>
+  <h6 class="mark_all_read">
+    <%= link_to t(".mark_all"), Settings.disable_link,
+      class: "mark_read", id: "mark_all_as_read" %>
+  </h6>
+  <div class="w-100" id="frame-notification">
+    <%= patial_notification %>
+  </div>
+  <div class="force-overflow"></div>
+  <a href=<%= Settings.disable_link %> id="load-notifications"><%= t ".view_more" %></a>
+</div>
+<%= javascript_pack_tag "load_notifications", "data-turbolinks-track": "reload" %>

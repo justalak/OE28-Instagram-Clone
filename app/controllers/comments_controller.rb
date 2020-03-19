@@ -6,6 +6,23 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build comment_params
     @comment.user = current_user
     if @comment.save
+      if comment_params[:parent_id].present?
+        notif = {
+          sender: current_user,
+          receiver: @comment.parent_user,
+          post: @post,
+          type_notif: Settings.notification.reply
+        }
+        NotificationPushService.new(notif).push_notification unless current_user? @comment.parent_user
+      else
+        notif = {
+          sender: current_user,
+          receiver: @post.user,
+          post: @post,
+          type_notif: Settings.notification.comment
+        }
+        NotificationPushService.new(notif).push_notification unless current_user? @post.user
+      end
       respond_to do |format|
         format.html{redirect_to @post}
         format.js

@@ -19,9 +19,11 @@
       <%= link_to "#" do %>
         <i class="fa fa-compass"></i>
       <% end %>
-      <%= link_to "#" do %>
+      <div class="d-inline box-notif" id="notification_icon">
         <i class="fa fa-heart"></i>
-      <% end %>
+      </div>
+      <%= render "notifications/badge_count_unread" if user_signed_in? and count_unread_notif %>
+      <%= render "notifications/frame" %>
       <% if user_signed_in? %>
         <%= link_to current_user  do %>
           <i class="fa fa-user"></i>

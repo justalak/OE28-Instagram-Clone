@@ -35,3 +35,16 @@ top_comments: 2
 search:
   char_sharp: "#"
   char_at: "@"
+notification:
+  follow: 0
+  like: 1
+  comment: 2
+  reply: 3
+  update: "update"
+  delete: "delete"
+  read: 1
+  unread: 0
+  type_follow: "follow"
+  type_like: "like"
+  type_comment: "comment"
+  type_reply: "reply"

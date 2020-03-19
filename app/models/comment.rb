@@ -14,6 +14,7 @@ class Comment < ApplicationRecord
 
   delegate :username, to: :user, prefix: :user
   delegate :user, to: :post, prefix: :post_owner
+  delegate :user, to: :parent, prefix: :parent
 
   scope :order_by_created_at, ->{order :created_at}
   scope :top, (lambda do |post_id|

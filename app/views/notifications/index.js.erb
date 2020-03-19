@@ -1,0 +1,7 @@
+$('#frame-notification')
+  .append('<%= j render partial: "notifications/notification", collection: @notifications %>');
+
+var sizeof_notification = '<%= @notifications.size %>';
+if(parseInt(sizeof_notification) == 0) {
+  $('#load-notifications').hide();
+}

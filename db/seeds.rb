@@ -46,3 +46,16 @@ followers.each { |other_user| other_user.follow user }
   #   comment.save
   # end
 # end
+# users = User.all
+# user = users.first
+# following = users[2..20]
+# followers = users[18..30]
+# following.each { |other_user| user.follow other_user }
+# followers.each { |other_user| other_user.follow user }
+
+senders = User.all[2..5]
+user_first = User.first
+senders.each do |sender|
+  notif = sender.active_notifications.build receiver_id: user_first.id, type_notif: 0
+  notif.save
+end

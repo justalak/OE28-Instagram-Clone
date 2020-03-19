@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     resources :relationships, only: %i(create destroy)
     resources :likes, :bookmarks, only: %i(create destroy)
     resources :searches, only: :index
+    resources :notifications, only: %i(index update destroy)
   end
 end

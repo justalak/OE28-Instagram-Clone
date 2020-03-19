@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   before_action :check_blank, :search_post, :search_user, only: :index
 
   def index
-    return if @posts or @users
+    return if @posts || @users
 
     @users = User.search_by_name_username(@search)
                  .page(params[:page])

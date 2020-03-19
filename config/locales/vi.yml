@@ -233,3 +233,37 @@ vi:
     comment:
       reply: Trả lời
       
+  notifications:
+    create:
+      create_failed: "Không thể tạo!"
+    user_exists:
+      not_user_exist: "Người dùng không tồn tại!"
+    none_notification:
+      activity: "Hoạt động trên bài viết của bạn"
+      when: "Khi có người thích hoặc bình luận về một trong những bài viết của bạn, bạn sẽ nhìn thấy nó ở đây."
+    notification:
+      follow: "đang theo dõi bạn"
+      like: "đã thích một bài viết của bạn"
+      comment: "đã bình luận trong một bài viết của bạn"
+      reply: "đã trả lời bình luận của bạn trong một bài viết"
+      update: "Đánh dấu đã đọc"
+      delete: "Xóa"
+    follow_notif:
+      follow: "đang theo dõi bạn"
+    like_notif:
+      like: "đã thích một bài viết của bạn"
+    comment_notif:
+      comment: "đã bình luận trong một bài viết của bạn"
+    reply_notif:
+      reply: "đã trả lời bình luận của bạn trong một bài viết"
+    exists_notification:
+      notif: "Thông baó"
+      mark_all: "Đánh dấu tất cả là đã đọc"
+      view_more: "Xem thêm"
+    frame:
+      not_login: "Bạn chưa đăng nhập"
+      login: "Vui lòng đăng nhập để sử dụng ứng dụng."
+    update:
+      error: "Chưa thể gửi thông báo cho người khác"
+    destroy:
+      error_destroy: "Không thể xóa thông báo này"
