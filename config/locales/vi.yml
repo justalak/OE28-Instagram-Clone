@@ -225,6 +225,11 @@ vi:
     update:
       update_success: "Chỉnh sửa thành công"
       update_fail: "Không thể chỉnh sửa"
+    comment_detail:
+      reply: Trả lời
+      count_like:
+        zero: ""
+        other: "%{count} lượt thích"
   searches:
     index:
       title: "Tìm kiếm..."
@@ -260,6 +265,8 @@ vi:
       comment: "đã bình luận trong một bài viết của bạn"
     reply_notif:
       reply: "đã trả lời bình luận của bạn trong một bài viết"
+    like_comment_notif:
+      like_comment: "thích bình luận của bạn"
     exists_notification:
       notif: "Thông baó"
       mark_all: "Đánh dấu tất cả là đã đọc"

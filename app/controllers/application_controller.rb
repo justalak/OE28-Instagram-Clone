@@ -21,12 +21,13 @@ class ApplicationController < ActionController::Base
   end
 
   def bookmark_like_params
-    params.permit :post_id, :type_action
+    params.permit :likeable_id, :type_action, :likeable_type
   end
 
-  def post_exists
-    @post = Post.find_by id: bookmark_like_params[:post_id].to_i
-    return if @post
+  def object_exists
+    object_class = Object.const_get bookmark_like_params[:likeable_type]
+    @object = object_class.find_by id: bookmark_like_params[:likeable_id].to_i
+    return if @object
 
     flash[:danger] = t "bookmarks.find_post.not_find_post"
     redirect_to root_url

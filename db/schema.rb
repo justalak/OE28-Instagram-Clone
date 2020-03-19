@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_090903) do
+ActiveRecord::Schema.define(version: 2020_03_23_024103) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -35,12 +35,13 @@ ActiveRecord::Schema.define(version: 2020_03_17_090903) do
 
   create_table "bookmark_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_id"
     t.integer "type_action"
+    t.string "likeable_type"
+    t.bigint "likeable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_bookmark_likes_on_post_id"
-    t.index ["user_id", "post_id", "type_action"], name: "index_bookmark_likes_on_user_id_and_post_id_and_type_action", unique: true
+    t.index ["likeable_type", "likeable_id", "user_id", "type_action"], name: "add_unique_index", unique: true
+    t.index ["likeable_type", "likeable_id"], name: "index_bookmark_likes_on_likeable_type_and_likeable_id"
     t.index ["user_id"], name: "index_bookmark_likes_on_user_id"
   end
 

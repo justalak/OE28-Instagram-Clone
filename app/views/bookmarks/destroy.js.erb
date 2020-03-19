@@ -1,2 +1,2 @@
-$('#post-<%= @post.id %> #bookmark_like__bookmark')
-  .html('<%= j render("bookmarks/bookmark", post: @post) %>');
+$('#post-<%= @object.id %> #bookmark_like__bookmark')
+  .html('<%= j render("bookmarks/bookmark", post: @object) %>');

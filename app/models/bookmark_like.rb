@@ -5,8 +5,10 @@ class BookmarkLike < ApplicationRecord
   }
 
   belongs_to :user
-  belongs_to :post
+  belongs_to :likeable, polymorphic: true
 
   validates :user_id, presence: true
-  validates :post_id, presence: true
+  validates :likeable_id, presence: true
+  validates :likeable_type, presence: true
+  validates :type_action, presence: true
 end

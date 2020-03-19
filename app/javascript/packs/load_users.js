@@ -1,7 +1,5 @@
 var loadData = require('packs/load_data');
-var url;
-var data_id;
-var page;
+var url, data_id, type, page;
 
 $(document).ready(function() {
   $('#followers-list').on('click', function() {

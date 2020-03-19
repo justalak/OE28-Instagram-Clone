@@ -7,6 +7,8 @@ class Comment < ApplicationRecord
 
   has_many :replies, class_name: Comment.name, foreign_key: :parent_id,
     dependent: :destroy
+  has_many :likes, class_name: BookmarkLike.name, foreign_key: :likeable_id,
+    as: :likeable, dependent: :destroy
 
   validates :content, presence: true
   validates :user_id, presence: true
@@ -24,4 +26,8 @@ class Comment < ApplicationRecord
     .reverse
   end)
   scope :root, ->{where parent_id: nil}
+
+  def likers? user
+    User.likers_to_likeable(id, Comment.name).include? user
+  end
 end

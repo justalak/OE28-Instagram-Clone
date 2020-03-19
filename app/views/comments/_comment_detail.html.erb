@@ -21,11 +21,20 @@
         </div>
       </div>
     <% end %>
+    <div id="like-unlike-comment">
+      <%= render like_unlike(comment), object: comment %>
+    </div>
   </div>
   <div class="reply <%= "reply-comments" unless comment.root? %>">
     <span class="date">
       <%= time_ago_in_words comment.created_at %>
     </span>
+    <button data_id="<%= comment.id %>" 
+      id="count-like-comment-<%= comment.id %>"
+      data-toggle="modal" data-target="#list-modal"
+      class="transparent-btn like-comment-list">
+      <%= t ".count_like", count: count_like(comment) %>
+    </button>
     <button comment_id="<%= comment.root? ? comment.id : comment.parent.id %>">
       <%= t ".reply" %>
     </button>
