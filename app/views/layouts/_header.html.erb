@@ -25,7 +25,7 @@
       <%= render "notifications/badge_count_unread" if user_signed_in? and count_unread_notif %>
       <%= render "notifications/frame" %>
       <% if user_signed_in? %>
-        <%= link_to current_user  do %>
+        <%= link_to current_user do %>
           <i class="fa fa-user"></i>
         <% end %>
         <%= link_to logout_path, method: :delete do %>

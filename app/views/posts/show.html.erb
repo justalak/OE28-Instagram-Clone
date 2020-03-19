@@ -1,5 +1,6 @@
 <% provide :title, @title %>
-<div class="instagram-card flex-card" id="post-<%= @post.id %>">
+<div class="instagram-card flex-card" id="post-<%= @post.id %>"
+  data_id="<%= @post.id %>">
   <%= render "shared/card_images", post: @post, type: "detail" %>
   <div class="content-wrapper" >
     <%= render "shared/card_header", post: @post %>
@@ -8,3 +9,7 @@
     <%= render  "shared/card_footer", post: @post %>
   </div>
 </div>
+<%= render "posts/edit_modal", post: @post %>
+<%= render "shared/list_modal" %>
+<%= render  "comments/edit_comment_modal" %>
+<%= javascript_pack_tag "load_users", "data-turbolinks-track": "reload" %>

@@ -1,0 +1,11 @@
+<%= form_for post, remote: true do |f| %>
+  <%= render "shared/error_messages", object: post %>
+  <div class="form-group">
+    <%= f.text_area :description, placeholder: t(".description"), 
+      class: "form-control" %>
+  </div>
+  <ul id="preview"></ul>
+  <div class="text-center">
+    <%= f.submit t("edit"), class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -22,9 +22,10 @@ Rails.application.routes.draw do
       member do
         get :likers, to: "likes#index"
       end
-      resources :comments, except: %i(index new show)
+      resources :comments, only: %i(create index destroy)
     end
 
+    resources :comments, only: %i(update destroy)
     resources :relationships, only: %i(create destroy)
     resources :likes, :bookmarks, only: %i(create destroy)
     resources :searches, only: :index

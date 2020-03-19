@@ -1,0 +1,6 @@
+
+<% if @comment.root? %>
+  $('#comment-<%= @comment.id %>').parent().remove()
+<% else %>
+  $('#comment-<%= @comment.id %>').remove()
+<% end %>

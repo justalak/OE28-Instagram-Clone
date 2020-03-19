@@ -1,0 +1,3 @@
+$('#content-<%= @comment.id %>').html('<%= j render(partial: 
+  "comments/comment_content", locals: {comment: @comment}) %>')
+$('#edit-comment').modal('hide');

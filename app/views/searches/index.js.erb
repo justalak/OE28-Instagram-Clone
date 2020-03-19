@@ -1,5 +1,11 @@
 <% if @posts %>
   $('.gallery').append('<%= j render(@posts) %>')
+  <% if @posts.size < Settings.user.previews_per_page %>
+    $('#load-more').hide()
+  <% end %>
 <% else %>
   $('.people__list').append('<%= j render(@users) %>')
+  <% if @users.size < Settings.user.previews_per_page %>
+    $('#load-more').hide()
+  <% end %>
 <% end %>
