@@ -30,8 +30,6 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :phone, allow_blank: true,
     format: {with: Settings.user.phone_regex}
-  validates :website, allow_blank: true,
-    format: {with: Settings.user.website_regex}
   validates :password, presence: true,
     length: {minimum: Settings.user.min_length_password}, allow_nil: true
 

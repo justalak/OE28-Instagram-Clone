@@ -5,10 +5,13 @@ class BookmarksController < ApplicationController
 
   def index
     @title = t ".title"
-    @tips = t ".tips"
     @posts = Post.bookmarking_by_user(@current_user.id).order_by_created_at
                  .page(params[:page])
                  .per Settings.user.previews_per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

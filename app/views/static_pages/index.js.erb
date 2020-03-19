@@ -1,0 +1,4 @@
+$('.feeds').append('<%= j render(partial: "shared/feed_item",
+  collection: @feed_items,
+  as: :post) %>' )
+$('.loading').hide();

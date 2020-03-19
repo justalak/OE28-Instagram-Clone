@@ -1,7 +1,18 @@
 class PostsController < ApplicationController
-  before_action :log_in_user, except: :show
-  before_action :load_post, except: :create
+  before_action :log_in_user, except: %i(show index)
+  before_action :load_user, only: :index
+  before_action :load_post, except: %i(create index)
   before_action :correct_user, only: %i(destroy update edit)
+
+  def index
+    @posts = @user.posts.order_by_created_at
+                  .page(params[:page])
+                  .per Settings.user.previews_per_page
+    respond_to do |format|
+      format.html{redirect_to @user}
+      format.js
+    end
+  end
 
   def create
     @post = current_user.posts.build post_params
@@ -51,13 +62,21 @@ class PostsController < ApplicationController
     redirect_to login_path
   end
 
+  def load_user
+    @user = User.find_by id: params[:user_id]
+    return if @user
+
+    flash[:danger] = t "users.load_user.not_find_user"
+    redirect_to root_path
+  end
+
   def correct_user
     return if current_user? @post.user
 
     flash[:danger] = t "access_denied"
     redirect_back fallback_location: root_path
   end
-  
+
   def load_post
     @post = Post.find_by id: params[:id]
     return if @post
