@@ -1,0 +1,5 @@
+<% if @posts %>
+  $('.gallery').append('<%= j render(@posts) %>')
+<% else %>
+  $('.people__list').append('<%= j render(@users) %>')
+<% end %>

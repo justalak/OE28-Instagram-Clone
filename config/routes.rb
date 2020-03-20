@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#index"
     
+    get "/feeds", to: "static_pages#index"
     get "/signup", to: "users#new"
     post "/signup", to: "users#create"
     get "/login", to: "sessions#new"
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     
     resources :users do
+      resources :posts, only: :index
       member do
         get :following, to: "follows#following"
         get :followers, to: "follows#followers"

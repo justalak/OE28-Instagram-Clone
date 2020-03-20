@@ -33,3 +33,16 @@ following = users[2..20]
 followers = users[18..30]
 following.each { |other_user| user.follow other_user }
 followers.each { |other_user| other_user.follow user }
+
+# user.posts[1..5].each do |post| 
+  # followers.each do |other_user|
+  #   like= other_user.bookmark_likes.build post_id: post.id, type_action: 0
+  #   like.save
+  # end
+
+  # following.each do |other_user|
+  #   comment=post.comments.build content: Faker::Lorem.sentence(word_count: 7)
+  #   comment.user=other_user
+  #   comment.save
+  # end
+# end

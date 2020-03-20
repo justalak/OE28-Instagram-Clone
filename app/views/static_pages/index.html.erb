@@ -1,30 +1,31 @@
 <% provide :title, t("instagram") %>
 <% provide :button_text, t(".create_post") %>
-<button type="button" class="btn btn-primary new-btn" 
+<div class="feeds" >
+  <button type="button" class="btn btn-primary new-btn" 
   data-toggle="modal" data-target="#new-post">
-  <%= t ".new_post" %>
-</button>
-<div class="modal" id="new-post" 
+    <%= t ".new_post" %>
+  </button>
+  <div class="modal" id="new-post" 
   tabindex="-1" role="dialog"
   data-backdrop="static"
   aria-labelledby="exampleModalLabel" 
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"><%= t ".new_post" %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render "posts/post_form" %>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t ".new_post" %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "posts/post_form" %>
+        </div>
       </div>
     </div>
   </div>
+  <div id="feeds">
+  </div>
+  <hr>
 </div>
-<%= render partial: "shared/feed_item", collection: @feed_items, as: :post %>
-<hr>
-<div class="paging">
-  <%= paginate @feed_items, theme: "twitter-bootstrap-4" %>
-</div>
+<%= javascript_pack_tag "feed_items", "data-turbolinks-track": "reload" %>

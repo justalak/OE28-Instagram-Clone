@@ -20,6 +20,7 @@ class Comment < ApplicationRecord
     where(post_id: post_id)
     .order(created_at: :desc)
     .limit(Settings.top_comments)
+    .reverse
   end)
   scope :root, ->{where parent_id: nil}
 end

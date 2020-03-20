@@ -9,6 +9,7 @@ en:
   post_not_found: Post that you requested is not founded
   post_comment_fail: Failed to add your comment
   view_all: View all comments
+  load_more: Load more
   layouts:
     header:
       search: "@search"

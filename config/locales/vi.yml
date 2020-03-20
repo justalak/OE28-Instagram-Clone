@@ -7,6 +7,7 @@ vi:
   access_denied: Bạn không có quyền truy cập
   post_not_found: Bài đăng không khả dụng
   view_all: Xem tất cả bình luận
+  load_more: HIển thị thêm
   layouts:
     header:
       search: "@tìm_kiếm"

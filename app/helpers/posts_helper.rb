@@ -3,11 +3,11 @@ module PostsHelper
     html = ""
     description.split("\n").each do |line|
       line.to_s.split(" ").each do |word|
-        if word.start_with? "#"
-          html << link_to(word, searches_path(search: word), class: "hashtag")
-        else
-          html << word
-        end
+        html << if word.start_with? "#"
+                  link_to(word, searches_path(search: word), class: "hashtag")
+                else
+                  word
+                end
       end
       html << "<br>"
     end
@@ -15,15 +15,19 @@ module PostsHelper
   end
 
   def like_unlike post
-    return "likes/unlike" if post.likers? current_user
-
-    "likes/like"
+    if user_signed_in? && post.likers?(current_user)
+      "likes/unlike"
+    else
+      "likes/like"
+    end
   end
 
   def bookmark_unbookmark post
-    return "bookmarks/unbookmark" if current_user.bookmarking? post
-
-    "bookmarks/bookmark"
+    if user_signed_in? && current_user.bookmarking?(post)
+      "bookmarks/unbookmark"
+    else
+      "bookmarks/bookmark"
+    end
   end
 
   def count_like post

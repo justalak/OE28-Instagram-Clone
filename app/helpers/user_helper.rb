@@ -28,8 +28,10 @@ module UserHelper
   end
 
   def follow_unfollow user
-    return "users/unfollow" if current_user.following? user
-
-    "users/follow"
+    if user_signed_in? && current_user.following?(user)
+      "users/unfollow"
+    else
+      "users/follow"
+    end
   end
 end

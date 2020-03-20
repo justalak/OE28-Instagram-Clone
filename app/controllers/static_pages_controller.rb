@@ -7,6 +7,11 @@ class StaticPagesController < ApplicationController
                       .order_by_created_at
                       .page(params[:page])
                       .per Settings.feed_items_per_page
+    @page = params[:page]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

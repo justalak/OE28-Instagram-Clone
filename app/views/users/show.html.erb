@@ -1,5 +1,5 @@
 <% provide :title, @user.name %>
-<div class="user-profile">
+<div class="user-profile" data_id="<%= @user.id %>">
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
@@ -36,3 +36,4 @@
 <%= render "tab" %>
 <hr>
 <%= render "gallery" %>
+<%= javascript_pack_tag "load_posts", "data-turbolinks-track": "reload" %>
