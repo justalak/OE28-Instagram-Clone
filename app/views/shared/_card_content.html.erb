@@ -1,5 +1,7 @@
 <div class="instagram-card-content comments">
-  <%= render "shared/post_description", post: post %>
+  <p class="description">
+    <%= render "shared/post_description", post: post %>
+  </p>
   <hr>
   <%= render partial: "comments/comment", collection: post.comments.root %>
 </div>

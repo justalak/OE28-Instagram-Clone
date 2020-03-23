@@ -1,0 +1,17 @@
+<div class="instagram-card-header" >
+  <%= image_tag display_avatar_image(post.user),
+      class: "instagram-card-user-image" do %>
+    <%= link_to post.user %>
+  <% end %>
+  <%= link_to post.user, class: "instagram-card-username" do %>
+    <%= post.user_username %>
+  <% end %>
+  <div class="dropdown ml-5">
+    <button class="dropbtn"><i class="fa fa-info-circle"></i></button>
+    <div class="dropdown-content">
+      <%= link_to post do %>
+        <%= t "post_detail" %>
+      <% end %>
+    </div>
+  </div>
+</div>

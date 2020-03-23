@@ -1,23 +1,35 @@
-<div class="comment-text <%= "reply-comments" unless comment.root? %>">
-  <p>
-    <%= link_to comment.user_username, comment.user %>
-    <%= comment.content %>
+<div class="comment-wrapper" id="comment-<%= comment.id %>">
+  <div class="comment-text <%= "reply-comments" unless comment.root? %>">
+    <p class="comment-content" id="content-<%= comment.id %>">
+      <%= render "comments/comment_content", comment: comment %>
+    </p>
+    <% if current_user? comment.user %>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <i class="fa fa-cog"></i>
+        </button>
+        <div class="dropdown-content">
+          <%= button_to post_comment_path(comment.post_id, comment.id),
+            class: "delete-comment",
+            method: :delete,
+            remote: true,
+            data: { confirm: t("sure_delete")} do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
+          <button data_id="<%= comment.id %>" class="edit-comment"
+            data-toggle="modal" data-target="#edit-comment">
+            <i class="fa fa-edit"></i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="reply <%= "reply-comments" unless comment.root? %>">
     <span class="date">
       <%= time_ago_in_words comment.created_at %>
     </span>
-    <% if current_user? comment.user %>
-      <%= link_to post_comment_path(comment.post_id, comment.id),
-      method: :delete, data: { confirm: t("sure_delete")} do %>
-        <i class="fa fa-trash"></i>
-      <% end %>
-      <%= link_to edit_post_comment_path(comment.post, comment) do %>
-        <i class="fa fa-edit"></i>
-      <% end %>
-    <% end %>
-  </p>
-</div>
-<div class="reply <%= "reply-comments" unless comment.root? %>">
-  <button comment_id="<%= comment.root? ? comment.id : comment.parent.id %>">
-    <%= t ".reply" %>
-  </button>
+    <button comment_id="<%= comment.root? ? comment.id : comment.parent.id %>">
+      <%= t ".reply" %>
+    </button>
+  </div>
 </div>

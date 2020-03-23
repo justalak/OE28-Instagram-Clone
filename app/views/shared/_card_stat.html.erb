@@ -8,9 +8,11 @@
   <div id="bookmark_like__bookmark" class="d-inline">
     <%= render bookmark_unbookmark(post), post: post %>
   </div>
-  <%= link_to "", "#", class: "instagram-card-icon" %>
   <div id="count_like_post">
-    <%= link_to t(".count_like", count: count_like(post)), likers_post_path(post) %>
+    <button data-toggle="modal" data-target="#list-modal"
+      class="transparent-btn like-list" >
+      <%= t ".count_like", count: count_like(post) %>
+    </button>
   </div>
   <p class="date">
     <%= time_ago_in_words post.created_at %>

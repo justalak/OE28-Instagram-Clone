@@ -1,6 +1,7 @@
 <% provide :title, @title %>
-<div class="instagram-card" id="post-<%= post.id %>">
-  <%= render "shared/card_header", post: post %>
+<div class="instagram-card" id="post-<%= post.id %>"
+  data_id="<%= post.id %>">
+  <%= render "shared/card_header_feed", post: post %>
   <%= render "shared/card_images", post: post, type: "feed" %>
   <%= render "shared/card_stat", post: post %>
   <%= render "shared/card_content_feed", post: post %>
