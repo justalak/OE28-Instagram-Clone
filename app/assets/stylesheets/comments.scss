@@ -12,11 +12,32 @@
 }
 
 .comment-text {
+  display: flex;
   p {
     margin-bottom: 0px !important;
+  }
+  span {
+    line-height: 1.5rem;
+    padding-right: 5px;
+  }
+  button {
+    padding: 0px 5px;
+  }
+  .dropdown-content {
+    min-width: 0px !important;
   }
 }
 
 .reply-comments {
   margin-left: 40px;
+}
+
+.comment-content {
+  padding: 0px 5px;
+}
+
+.edit-comment,
+.delete-comment {
+  background: transparent;
+  border: none;
 }

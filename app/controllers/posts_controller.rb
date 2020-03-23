@@ -39,7 +39,10 @@ class PostsController < ApplicationController
   def update
     if @post.update_post post_params
       flash[:success] = t ".update_success"
-      redirect_to @post
+      respond_to do |format|
+        format.html{redirect_to @post}
+        format.js
+      end
     else
       flash.now[:danger] = t ".update_fail"
       render :edit

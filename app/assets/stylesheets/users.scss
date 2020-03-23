@@ -1,30 +1,30 @@
-.profile .avatar{
-  .wrapper{
+.profile .avatar {
+  .wrapper {
     width: 140px;
     height: 140px;
     margin: 40px auto;
   }
-  .wrapper img{
+  .wrapper img {
     width: 100%;
     border-radius: 50%;
   }
 }
 
-.profile .basic-info{
+.profile .basic-info {
   padding: 40px 0;
-  .user-wrapper{
+  .user-wrapper {
     display: flex;
   }
-  .username{
+  .username {
     font-size: 30px;
     line-height: 40px;
     font-weight: 200;
   }
-  .edit-profile{
+  .edit-profile {
     margin-left: 20px;
     margin-top: 5px;
   }
-  .edit-profile button{
+  .edit-profile button {
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid $dbdbdb;
@@ -33,26 +33,26 @@
     padding: 4px 10px;
     font-weight: 500;
   }
-  ul.profile-stat{
+  ul.profile-stat {
     padding-left: 0;
-    > li{
+    > li {
       display: inline;
       padding-right: 40px;
       font-size: 15px;
-      span{
+      span {
         color: $d262626;
         font-weight: 600;
       }
       a {
-        color: $d262626
+        color: $d262626;
       }
     }
   }
-  .name{
+  .name {
     font-size: 15px;
     font-weight: 600;
   }
-  .website{
+  .website {
     color: $d003569;
     text-decoration: none;
     font-size: 15px;
@@ -60,70 +60,72 @@
   }
 }
 
-.user-edit-page{
+.user-edit-page {
   display: flex;
   margin-top: 60px;
   min-height: 500px;
-  
-  .actions{
+
+  .actions {
     width: 220px;
-    border: 1px solid $dbdbdb;  
+    border: 1px solid $dbdbdb;
   }
-  .details{
+  .details {
     flex: 1;
     border: 1px solid $dbdbdb;
-    border-left:none;
+    border-left: none;
   }
 }
 
-.actions{
+.actions {
   width: 220px;
   border: 1px solid $dbdbdb;
-.nav-link{
+  .nav-link {
     font-size: 14px;
     background-color: $white;
     color: $black;
     border-radius: 0;
     padding: 12px 0 12px 30px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
-  .nav-pills .nav-link.active{
+  .nav-pills .nav-link.active {
     border-left: 2px solid;
     font-weight: 600;
   }
 }
 
-.form-edit-user{
+.form-edit-user {
   padding: 30px 100px 10px 50px;
-.form-group, input{
+  .form-group,
+  input {
     font-size: 14px;
     color: $black;
   }
-  input, textarea{
+  input,
+  textarea {
     border: 1px solid $efefef;
   }
-  .col-form-label{
+  .col-form-label {
     text-align: right;
     font-weight: 600;
   }
-.avatar{
+  .avatar {
     height: 38px;
     width: 38px;
     border-radius: 50%;
   }
-  .username{
+  .username {
     font-size: 20px;
     line-height: 22px;
     margin-bottom: 0;
   }
-  .change-photo{
+  .change-photo {
     color: $d3897f0;
     text-decoration: none;
     font-size: 13px;
   }
-  input[type='submit']{
+  input[type="submit"] {
     color: $white;
   }
 }
@@ -133,43 +135,44 @@
   margin-left: 1rem;
 }
 
-.people{
-  width:90%;
+.people {
+  width: 100%;
   border-radius: 3px;
   background-color: $fbfbfb;
-  border:1px solid $rgbc0975;
-  margin:0 auto;
-  max-width: 1000px;
 }
 
-.people__person{
-  padding:10px 20px;
+.people__list {
+  padding: 0;
+}
+
+.people__person {
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid $rgbc0975;
 }
 
-.people__person:last-child{
-  border:none;
+.people__person:last-child {
+  border: none;
 }
 
-.people__avatar{
+.people__avatar {
   height: 56px;
   width: 56px;
   border-radius: 50%;
 }
 
-.people__column{
+.people__column {
   display: flex;
-  align-items:center; 
+  align-items: center;
 }
 
-.people__info{
-  margin-left:15px;
+.people__info {
+  margin-left: 15px;
 }
 
-.people__username{
+.people__username {
   display: flex;
   font-weight: 600;
   align-items: center;
@@ -177,33 +180,34 @@
   color: $d333;
 }
 
-.people__username img{
+.people__username img {
   margin-left: 5px;
 }
 
-.people__full-name{
-  color:$d999;
+.people__full-name {
+  color: $d999;
 }
 
-.follow_unfollow, .you{
+.follow_unfollow,
+.you {
   background-color: $d3897;
-  padding:7px 13px;
-  color:$white;
+  padding: 7px 13px;
+  color: $white;
   border-radius: 3px;
   font-weight: 600;
-  transition: all .1s linear;
-  text-decoration: none!important
+  transition: all 0.1s linear;
+  text-decoration: none !important;
 }
 
-.follow_unfollow:active{
-  transform: scale(.95);
+.follow_unfollow:active {
+  transform: scale(0.95);
 }
 
-.people__username img{
-  transition:all .3s linear;
+.people__username img {
+  transition: all 0.3s linear;
 }
 
-.people__person:hover .people__username img{
+.people__person:hover .people__username img {
   transform: rotate(1turn);
 }
 
@@ -214,7 +218,7 @@
 }
 
 a.link_to_user {
-  padding: none!important;
+  padding: none !important;
   text-decoration: none;
 }
 
@@ -225,31 +229,31 @@ a.link_to_user {
   cursor: not-allowed;
 }
 
-.people__username img{
-  transition:all .3s linear;
+.people__username img {
+  transition: all 0.3s linear;
 }
 
-.profile__button{
+.profile__button {
   height: 80%;
   margin-right: 20px;
-  border:1px solid $rgbc0975;
-  color:$black;
-  padding:5px 20px;
+  border: 1px solid $rgbc0975;
+  color: $black;
+  padding: 5px 20px;
   border-radius: 3px;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   font-weight: 600;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
-.profile__button:hover{
+.profile__button:hover {
   color: $white;
   background-color: $d3897f0;
 }
-.user-tabs{
+.user-tabs {
   border-top: 1px solid $efefef;
   display: flex;
   justify-content: center;
-  a.tab{
+  a.tab {
     height: 35px;
     margin-right: 50px;
     line-height: 45px;
@@ -257,14 +261,14 @@ a.link_to_user {
     font-size: 14px;
     font-weight: 500;
     text-align: center;
-    i{
+    i {
       padding-right: 1px;
     }
-    &:hover{
+    &:hover {
       text-decoration: none;
     }
   }
-  a.active{
+  a.active {
     border-top: 1px solid $d262626;
     color: $d262626;
   }
