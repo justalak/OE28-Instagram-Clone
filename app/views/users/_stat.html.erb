@@ -6,15 +6,17 @@
     <% end %>
   </li>
   <li>
-    <%= link_to followers_user_path(@user) do %>
-      <span id="followers"><%= @user.followers.size %></span> 
+    <button id="followers-list" data-toggle="modal" data-target="#list-modal"
+      class="transparent-btn" >
+      <span id="followers"><%= @user.followers.size %></span>
       <%= t ".followers" %>
-    <% end %>
+    </button>
   </li>
   <li>
-    <%= link_to following_user_path(@user) do %>
-      <span><%= @user.following.size %></span> 
+    <button id="following-list" data-toggle="modal" data-target="#list-modal"
+      class="transparent-btn" >
+      <span><%= @user.following.size %></span>
       <%= t ".following" %>
-    <% end %>
+    </button>
   </li>
 </ul>

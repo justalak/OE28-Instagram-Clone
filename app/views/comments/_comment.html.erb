@@ -1,4 +1,4 @@
-<div class="comments-block" id="comment-<%= comment.id %>">
+<div class="comments-block">
   <%= render "comments/comment_detail", comment: comment %>
   <%= render partial: "comments/comment_detail", collection: comment.replies,
     as: :comment %>

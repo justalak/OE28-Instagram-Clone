@@ -10,6 +10,10 @@ en:
   post_comment_fail: Failed to add your comment
   view_all: View all comments
   load_more: Load more
+  post_detail: Go to post
+  edit: Edit
+  list: List
+  close: Close
   layouts:
     header:
       search: "@search"
@@ -165,7 +169,7 @@ en:
     edit:
       edit_post: Edit post
     card_content:
-    card_stat:
+    show:
       count_like:
         zero: ""
         one: "%{count} Like"
