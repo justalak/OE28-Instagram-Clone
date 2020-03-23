@@ -15,6 +15,12 @@ class User < ApplicationRecord
   has_many :bookmark_likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :active_notifications, class_name: Notification.name,
+    foreign_key: :sender_id, dependent: :destroy
+  has_many :passive_notifications, class_name: Notification.name,
+    foreign_key: :receiver_id, dependent: :destroy
+  has_many :senders, through: :passive_notifications, source: :sender
+
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true,

@@ -3,6 +3,13 @@ class RelationshipsController < ApplicationController
 
   def create
     current_user.follow @user
+    notif = {
+      sender: current_user,
+      receiver: @user,
+      post: nil,
+      type_notif: Settings.notification.follow
+    }
+    NotificationPushService.new(notif).push_notification unless current_user? @user
     respond_to do |format|
       format.html{redirect_to @user}
       format.js

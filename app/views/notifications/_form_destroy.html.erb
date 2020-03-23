@@ -1,0 +1,6 @@
+<%= form_for notification, html: {class: "delete_form_submit"},
+  url: notification_path(notification),
+  html: { method: :delete },
+  remote: true do |f| %>
+  <%= f.submit class: "button_delete_notif" %>
+<% end %>

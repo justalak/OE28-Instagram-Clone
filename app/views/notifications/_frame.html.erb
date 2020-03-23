@@ -1,0 +1,11 @@
+<div class="notif" id="frame-notif">
+  <% if user_signed_in? %>
+    <%= render "notifications/none_notification" unless exists_notifications? %>
+    <%= render "notifications/exists_notification" if exists_notifications? %>
+  <% else %>
+    <div class="notif_not_login">
+      <h4 class="text-center"><%= t ".not_login" %></h4>
+      <h5 class="text-center"><%= t ".login" %></h5>
+    </div>
+  <% end %>
+</div>

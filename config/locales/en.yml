@@ -234,3 +234,33 @@ en:
     search_blank:
       empty_string: "Search box is empty!"
       reply: Reply
+  notifications:
+    create:
+      create_failed: "Create failed!"
+    user_exists:
+      not_user_exist: "Not user exists!"
+    none_notification:
+      activity: "Actions on your post"
+      when: "When someone likes or comments on one of your posts, you'll see it here."
+    notification:
+      update: "Mark as read"
+      delete: "Remove"
+    follow_notif:
+      follow: "followed you"
+    like_notif:
+      like: "liked your post"
+    comment_notif:
+      comment: "commented in a your posts"
+    reply_notif:
+      reply: "replied your comment in a post"
+    exists_notification:
+      notif: "Notification"
+      mark_all: "Mark all as read"
+      view_more: "View more"
+    frame:
+      not_login: "You are not logged in"
+      login: "Please login to use the application."
+    update:
+      error_update: "Not yet able to send notifications to others"
+    destroy:
+      error_destroy: "Not remove this notification"

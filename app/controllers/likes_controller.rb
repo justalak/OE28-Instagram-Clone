@@ -15,6 +15,13 @@ class LikesController < ApplicationController
     params[:type_action] = params[:type_action].to_i
     @new_like = current_user.bookmark_likes.build bookmark_like_params
     if @new_like.save
+      notif = {
+        sender: current_user,
+        receiver: @post.user,
+        post: @post,
+        type_notif: Settings.notification.like
+      }
+      NotificationPushService.new(notif).push_notification unless current_user? @post.user
       respond_to do |format|
         format.html{redirect_to @user}
         format.js
