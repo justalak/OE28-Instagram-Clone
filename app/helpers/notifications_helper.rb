@@ -30,15 +30,17 @@ module NotificationsHelper
   def render_type_notifications notification
     case notification.type_notif
     when Settings.notification.type_follow
-      render "notifications/follow_notif"
+      render "notifications/type_notif/follow_notif"
     when Settings.notification.type_like
-      render "notifications/like_notif"
+      render "notifications/type_notif/like_notif"
     when Settings.notification.type_comment
-      render "notifications/comment_notif"
+      render "notifications/type_notif/comment_notif"
     when Settings.notification.type_reply
-      render "notifications/reply_notif"
+      render "notifications/type_notif/reply_notif"
     when Settings.notification.type_like_comment
-      render "notifications/like_comment_notif"
+      render "notifications/type_notif/like_comment_notif"
+    when Settings.notification.type_mention
+      render "notifications/type_notif/mention_notif"
     end
   end
 end

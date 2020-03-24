@@ -8,22 +8,11 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     if @comment.save
       if comment_params[:parent_id].present?
-        notif = {
-          sender: current_user,
-          receiver: @comment.parent_user,
-          post: @post,
-          type_notif: Settings.notification.reply
-        }
-        NotificationPushService.new(notif).push_notification unless current_user? @comment.parent_user
+        push_notification @comment.parent_user, Settings.notification.reply
       else
-        notif = {
-          sender: current_user,
-          receiver: @post.user,
-          post: @post,
-          type_notif: Settings.notification.comment
-        }
-        NotificationPushService.new(notif).push_notification unless current_user? @post.user
+        push_notification @post.user, Settings.notification.comment
       end
+      push_mention_notification
       respond_to do |format|
         format.html{redirect_to @post}
         format.js
@@ -87,5 +76,23 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit :content, :parent_id
+  end
+
+  def push_notification receiver, type
+    return if current_user? receiver
+
+    notif = {
+      sender: current_user,
+      receiver: receiver,
+      post: @post,
+      type_notif: type
+    }
+    NotificationPushService.new(notif).push_notification
+  end
+
+  def push_mention_notification
+    @comment.mentions.each do |user|
+      push_notification user, Settings.notification.mention
+    end
   end
 end

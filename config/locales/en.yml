@@ -153,11 +153,11 @@ en:
     find_user:
       invalid_user: "Invalid user!"
   posts:
-    post_form: 
-  posts:
     post_form:
       create_post: Create Post
       description: Description about post
+    edit_form:
+      description: Description
     create:
       upload_successfully: Uploaded post successfully
       upload_fail: Fail to upload image
@@ -256,16 +256,19 @@ en:
     notification:
       update: "Mark as read"
       delete: "Remove"
-    follow_notif:
-      follow: "followed you"
-    like_notif:
-      like: "liked your post"
-    comment_notif:
-      comment: "commented in a your posts"
-    reply_notif:
-      reply: "replied your comment in a post"
-    like_comment_notif:
-      like_comment: "liked your comment"
+    type_notif:
+      follow_notif:
+        follow: "followed you"
+      like_notif:
+        like: "liked your post"
+      comment_notif:
+        comment: "commented in a your posts"
+      reply_notif:
+        reply: "replied your comment in a post"
+      like_comment_notif:
+        like_comment: "liked your comment"
+      mention_notif:
+        mention: mentioned you
     exists_notification:
       notif: "Notification"
       mark_all: "Mark all as read"
