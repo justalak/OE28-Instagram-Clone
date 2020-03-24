@@ -43,10 +43,11 @@ class User < ApplicationRecord
   has_secure_password
   has_one_attached :avatar_image
 
-  scope :likers_to_post, (lambda do |post_id|
-    joins(bookmark_likes: :post).where(
+  scope :likers_to_likeable, (lambda do |likeable_id, likeable_type|
+    joins(:bookmark_likes).where(
       "bookmark_likes.type_action": Settings.bookmark_like.like,
-      "posts.id": post_id
+      "bookmark_likes.likeable_id": likeable_id,
+      "bookmark_likes.likeable_type": likeable_type
     )
   end)
 

@@ -14,8 +14,8 @@ module PostsHelper
     html.html_safe
   end
 
-  def like_unlike post
-    if user_signed_in? && post.likers?(current_user)
+  def like_unlike object
+    if user_signed_in? && object.likers?(current_user)
       "likes/unlike"
     else
       "likes/like"
@@ -30,7 +30,7 @@ module PostsHelper
     end
   end
 
-  def count_like post
-    User.likers_to_post(post.id).size
+  def count_like object
+    User.likers_to_likeable(object.id, object.class.name).size
   end
 end

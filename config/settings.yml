@@ -40,6 +40,7 @@ notification:
   like: 1
   comment: 2
   reply: 3
+  like_comment: 4
   update: "update"
   delete: "delete"
   read: 1
@@ -48,3 +49,4 @@ notification:
   type_like: "like"
   type_comment: "comment"
   type_reply: "reply"
+  type_like_comment: "like_comment"

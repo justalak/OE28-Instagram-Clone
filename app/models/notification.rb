@@ -3,7 +3,9 @@ class Notification < ApplicationRecord
     follow: 0,
     like: 1,
     comment: 2,
-    reply: 3
+    reply: 3,
+    like_comment: 4,
+    mention: 5
   }
   enum status: {
     unread: 0,

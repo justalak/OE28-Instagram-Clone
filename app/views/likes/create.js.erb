@@ -1,6 +1,13 @@
-$('#post-<%= @post.id %> #bookmark_like__like')
-  .html('<%= j render("likes/unlike", post: @post) %>');
-$('#post-<%= @post.id %> #count_like_post')
-  .html('<%= j link_to(t(".count_like",
-    count: User.likers_to_post(@post.id).size),
-    likers_post_path(@post)) %>');
+<% if @new_like.likeable_type == Post.name %>
+  $('#post-<%= @object.id %> #bookmark_like__like')
+  .html('<%= j render("likes/unlike", object: @object) %>');
+  $('#post-<%= @object.id %> #count_like_post button')
+  .html('<%= j t(".count_like",
+      count: count_like(@object)) %>');
+<% else %>
+  $('#comment-<%= @object.id %> #like-unlike-comment')
+  .html('<%= j render("likes/unlike", object: @object) %>')
+  $('#count-like-comment-<%= @object.id %>')
+  .html('<%= j t(".count_like",
+      count: count_like(@object)) %>')
+<% end %>

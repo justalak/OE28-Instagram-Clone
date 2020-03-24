@@ -37,6 +37,8 @@ module NotificationsHelper
       render "notifications/comment_notif"
     when Settings.notification.type_reply
       render "notifications/reply_notif"
+    when Settings.notification.type_like_comment
+      render "notifications/like_comment_notif"
     end
   end
 end

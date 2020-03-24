@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :logged_in_user, :load_user, :correct_user, only: :index
-  before_action :post_exists, only: %i(create destroy)
+  before_action :object_exists, only: %i(create destroy)
   before_action :find_bookmark, only: :destroy
 
   def index
@@ -60,8 +60,9 @@ class BookmarksController < ApplicationController
   def find_bookmark
     @bookmark = current_user
                 .bookmark_likes
-                .find_by post_id: bookmark_like_params[:post_id],
-                  type_action: bookmark_like_params[:type_action]
+                .find_by likeable_id: bookmark_like_params[:likeable_id],
+                  type_action: bookmark_like_params[:type_action],
+                  likeable_type: bookmark_like_params[:likeable_type]
     return if @bookmark
 
     flash[:danger] = t "bookmarks.find_user.not_find_user"

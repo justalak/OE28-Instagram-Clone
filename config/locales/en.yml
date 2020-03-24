@@ -41,8 +41,9 @@ en:
         other: "%{count} errors"
     card_stat:
       count_like:
-        one: "%{count} Like"
-        other: "%{count} Likes"
+        zero: ""
+        one: "%{count} like"
+        other: "%{count} likes"
   static_pages:
     new:
       title: "Home"
@@ -186,13 +187,13 @@ en:
     create:
       count_like:
         zero: ""
-        one: "%{count} Like"
-        other: "%{count} Likes"
+        one: "%{count} like"
+        other: "%{count} likes"
     destroy:
       count_like:
         zero: ""
-        one: "%{count} Like"
-        other: "%{count} Likes"
+        one: "%{count} like"
+        other: "%{count} likes"
   bookmarks:
     find_user:
       not_find_user: "Not find user!"
@@ -228,6 +229,12 @@ en:
           x_days:
             one: 1d
             other: "%{count}d"
+    comment_detail:
+      reply: Reply
+      count_like:
+        zero: ""
+        one: "%{count} like"
+        other: "%{count} likes"
   searches:
     index:
       title: "Search..."
@@ -257,6 +264,8 @@ en:
       comment: "commented in a your posts"
     reply_notif:
       reply: "replied your comment in a post"
+    like_comment_notif:
+      like_comment: "liked your comment"
     exists_notification:
       notif: "Notification"
       mark_all: "Mark all as read"
