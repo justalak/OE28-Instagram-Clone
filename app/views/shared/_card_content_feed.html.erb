@@ -1,5 +1,7 @@
 <div class="instagram-card-content comments">
-  <%= render "shared/post_description", post: post %>
+  <% if post.description %>
+    <%= render "shared/post_description", post: post %>
+  <% end %>
   <hr>
   <% if post.comments.size > Settings.top_comments %>
     <%= link_to t("view_all"), post, class: "view-all" %>

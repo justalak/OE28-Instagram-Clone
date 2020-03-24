@@ -7,6 +7,7 @@ user:
   previews_per_page: 9
   email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i'
   username_regex: !ruby/regexp '/\A[a-zA-Z0-9]+\z/'
+  name_regex: !ruby/regexp '/\w+/'
   phone_regex: !ruby/regexp '/\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/'
   website_regex: !ruby/regexp '/https?:\/\/[\S]+/'
   default_avt: "default.jpg"
@@ -41,6 +42,7 @@ notification:
   comment: 2
   reply: 3
   like_comment: 4
+  mention: 5
   update: "update"
   delete: "delete"
   read: 1
@@ -50,3 +52,4 @@ notification:
   type_comment: "comment"
   type_reply: "reply"
   type_like_comment: "like_comment"
+  type_mention: "mention"

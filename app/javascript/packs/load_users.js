@@ -25,17 +25,28 @@ $(document).ready(function() {
       .attr('data_id');
     url = '/posts/' + data_id + '/likers';
     page = 1;
+    type = 'Post'
+    appendData();
+  });
+
+  $('.comment-wrapper').on('click', '.like-comment-list', function() {
+    $('#load-more').show();
+    data_id = $(this)
+      .attr('data_id');
+    url = '/posts/' + data_id + '/likers';
+    page = 1;
+    type = 'Comment';
     appendData();
   });
 
   function appendData() {
     $('.people__list').empty();
 
-    loadData(url, { page: page });
+    loadData(url, { page: page, type: type });
 
     $('#load-more').on('click', function() {
       page++;
-      loadData(url, { page: page });
+      loadData(url, { page: page, type: type });
     });
   }
 });

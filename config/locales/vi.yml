@@ -154,6 +154,8 @@ vi:
       create_post: Đăng bài
       description: Mô tả cho bài đăng
   posts:
+    edit_form:
+      description: Mô tả cho bài đăng 
     post_form:
       create_post: Đăng bài
       description: Mô tả cho bài đăng
@@ -267,6 +269,8 @@ vi:
       reply: "đã trả lời bình luận của bạn trong một bài viết"
     like_comment_notif:
       like_comment: "thích bình luận của bạn"
+    mention_notif:
+      mention: nhắc đến bạn
     exists_notification:
       notif: "Thông baó"
       mark_all: "Đánh dấu tất cả là đã đọc"
