@@ -6,7 +6,10 @@ class FollowsController < ApplicationController
     @users = @user.following
                   .page(params[:page])
                   .per Settings.user.previews_per_page
-    render :follow_list
+    respond_to do |format|
+      format.html{redirect_to @user}
+      format.js
+    end
   end
 
   def followers
@@ -14,7 +17,10 @@ class FollowsController < ApplicationController
     @users = @user.followers
                   .page(params[:page])
                   .per Settings.user.previews_per_page
-    render :follow_list
+    respond_to do |format|
+      format.html{redirect_to @user}
+      format.js
+    end
   end
 
   private

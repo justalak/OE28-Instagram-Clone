@@ -6,9 +6,13 @@ class LikesController < ApplicationController
   def index
     @title = t ".title"
     @tips = t ".tips"
-    @likers = User.likers_to_post(@post.id)
-                  .page(params[:page])
-                  .per Settings.user.previews_per_page
+    @users = User.likers_to_post(@post.id)
+                 .page(params[:page])
+                 .per Settings.user.previews_per_page
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

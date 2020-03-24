@@ -167,10 +167,6 @@ h1 {
   box-shadow: inset 0 0 6px $rgba0005;
 }
 
-.modal-backdrop {
-  position: inherit !important;
-}
-
 #triangle-up {
   width: 0;
   height: 0;
@@ -262,7 +258,7 @@ i.fa.fa-flag-checkered {
   display: flex;
   align-items: center;
   margin-top: 4px;
-  padding-left: 0px!important;
+  padding-left: 0px !important;
   flex-grow: 1;
 }
 
@@ -412,15 +408,18 @@ h6.mark_all_read {
   align-items: center;
 }
 
-#load-notifications, #load-notifications:visited {
+#load-notifications,
+#load-notifications:visited {
   color: $d33739E;
   text-decoration: none;
   display: block;
   margin: 0;
 }
+
 #load-notifications:hover {
   text-decoration: none;
 }
+
 #load-notifications {
   padding: 10px;
   text-align: center;
@@ -435,7 +434,22 @@ h6.mark_all_read {
   -moz-transition: all 600ms ease-in-out;
   -o-transition: all 600ms ease-in-out;
 }
+
 #load-notifications:hover {
   background-color: $white;
   color: $d33739E;
+}
+
+.loading {
+  display: none;
+}
+
+.transparent-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown button {
+  background: transparent;
+  border: none;
 }
