@@ -30,5 +30,7 @@ Rails.application.routes.draw do
     resources :likes, :bookmarks, only: %i(create destroy)
     resources :searches, only: :index
     resources :notifications, only: %i(index update destroy)
+
+    mount ActionCable.server, at: "/cable"
   end
 end
