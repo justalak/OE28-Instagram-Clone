@@ -15,6 +15,9 @@ vi:
   incorrect_user: Chờ chủ bài post xác nhận yêu cầu theo dõi
   edit: Chỉnh sửa
   password_not_be_blank: Mật khẩu không được để trống
+  errors_blank: can't be blank
+  errors_taken: has already been taken
+  errors_taken: has already been taken
   layouts:
     header:
       search: "@tìm_kiếm"

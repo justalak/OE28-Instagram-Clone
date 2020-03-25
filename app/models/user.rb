@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
-  has_many :followers, through: :passive_relationships
+  has_many :followers, through: :passive_relationships, source: :follower
   has_many :bookmark_likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
@@ -41,7 +41,8 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :phone, allow_blank: true,
     format: {with: Settings.user.phone_regex}
-  validates :password, length: {minimum: Settings.user.min_length_password},
+  validates :password, presence: true,
+    length: {minimum: Settings.user.min_length_password},
     allow_nil: true
 
   before_save :downcase_email

@@ -6,7 +6,7 @@ user:
   min_length_username: 4
   previews_per_page: 9
   email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i'
-  username_regex: !ruby/regexp '/[\w\-\+]+/'
+  username_regex: !ruby/regexp '/[A-Za-z0-9\-\_\+]+/'
   name_regex: !ruby/regexp '/\w+/'
   phone_regex: !ruby/regexp '/\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/'
   website_regex: !ruby/regexp '/https?:\/\/[\S]+/'
@@ -21,6 +21,11 @@ user:
   private_mode: 1
   public_mode_text: "public_mode"
   private_mode_text: "private_mode"
+  password_default: "123456"
+  role_user: 0
+  role_admin: 1
+  word_count: 10
+  username_specifier: 8
 favicon_image: "favicon.png"
 disable_link: "javascript:void(0)"
 post:
