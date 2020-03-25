@@ -19,8 +19,18 @@
             <%= t ".edit_profile" %>
           <% end %>
         <% else %>
-          <div id="people__column__<%= @user.id %>" class="ml-5">
-            <%= render follow_unfollow(@user), user: @user %>
+          <div class="d-flex justify-content-between align-items-center">
+            <div id="people__column__<%= @user.id %>" class="ml-5">
+              <%= render follow_unfollow(@user), user: @user %>
+            </div>
+            <% if current_user.admin? && !current_user?(@user) %>
+              <%= link_to t(".destroy"), @user, class: "ml-3 btn btn-outline-danger submit_delete_user",
+                  method: :delete,
+                  data: { confirm: t(".sure") } %>
+              <%= link_to edit_admin_user_path, class: "profile__button ml-3" do %>
+                <%= t ".edit_profile" %>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
@@ -33,10 +43,10 @@
     </div>
   </div>
 </div>
-<%= render "tab" %>
+<%= render "users/tab" %>
 <hr>
 <% if display_gallery? @user %>
-  <%= render "gallery" %>
+  <%= render "users/gallery" %>
   <%= render "shared/list_modal" %>
 <% end %>
 <%= javascript_pack_tag "load_posts", "data-turbolinks-track": "reload" %>

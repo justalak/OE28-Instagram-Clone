@@ -1,0 +1,7 @@
+$('div.frame-users-admin')
+  .append('<%= j render partial: "users/user", collection: @users %>');
+var users_size = '<%= @users.size %>';
+var previews_per_page = '<%= Settings.user.previews_per_page %>';
+if(parseInt(users_size) < parseInt(previews_per_page)) {
+  $('#load-more-users').hide();
+}

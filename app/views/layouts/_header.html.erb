@@ -34,12 +34,19 @@
       <% end %>
     </div>
     <div class="dropdown ml-5">
-      <button class="dropbtn"><%= t ".language" %></button>
+      <button class="dropbtn dropbtn-language"><%= t ".language" %></button>
       <div class="dropdown-content">
       <%= link_to t(".english"), locale:"en" %>
       <%= link_to t(".vietnamese"), locale:"vi" %>
       </div>
     </div>
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to admin_users_path do %>
+        <div class="dropdown ml-2">
+          <button class="dropbtn dropbtn-language"><%= t ".admin" %></button>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </nav>
 <!--End Navigation Bar-->

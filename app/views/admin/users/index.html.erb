@@ -1,0 +1,11 @@
+<%= provide :title, t(".users") %>
+<%= provide :active_user, t(".users") %>
+<%= render "admin/button_admin" %>
+<h1 class="text-center"><%= @title %></h1>
+<div class="frame-users-admin">
+  <%= render partial: "users/user", collection: @users %>
+</div>
+<div class="btn" id="load-more-users" data_id="<%= current_user.id %>">
+  <%= t ".view_more" %>
+</div>
+<%= javascript_pack_tag "load_users", "data-turbolinks-track": "reload" %>

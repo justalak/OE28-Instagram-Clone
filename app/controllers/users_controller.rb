@@ -37,26 +37,10 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit User::USER_PARAMS
-  end
-
-  def user_params_update
-    params.require(:user).permit User::USER_PARAMS_UPDATE
-  end
-
   def correct_user
     return if current_user? @user
 
     flash[:danger] = t "users.correct_user.not_allow"
     redirect_to root_url
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    return if @user
-
-    flash[:danger] = t "users.load_user.not_find_user"
-    redirect_to root_path
   end
 end

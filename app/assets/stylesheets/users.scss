@@ -166,6 +166,21 @@
 .people__column {
   display: flex;
   align-items: center;
+  min-width: 245px;
+}
+
+.btn-success.cursor-pointer {
+  cursor: auto;
+}
+
+.badge.badge_admin {
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.7rem 1.1rem!important;
+}
+
+.dropbtn-language {
+  border: 1px double $d555!important;
 }
 
 .people__info {

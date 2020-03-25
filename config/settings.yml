@@ -26,6 +26,7 @@ disable_link: "javascript:void(0)"
 post:
   max_picture_size: 5
   content_type: ["image/jpeg", "image/gif", "image/png"]
+  previews_per_page: 4
 favicon_image: "favicon.png"
 hashtag:
   max_length: 500
