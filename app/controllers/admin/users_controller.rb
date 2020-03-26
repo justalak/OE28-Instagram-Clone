@@ -47,4 +47,13 @@ class Admin::UsersController < ApplicationController
       end
     end
   end
+
+  private
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+
+    flash[:danger] = t ".incorrect_user"
+    redirect_to root_path
+  end
 end

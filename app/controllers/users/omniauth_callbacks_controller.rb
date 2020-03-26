@@ -1,6 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   before_action :user_exist, :email_exist
-
   def facebook
     facebook_info = request.env["omniauth.auth"].info
     @user = User.new name: facebook_info.name,

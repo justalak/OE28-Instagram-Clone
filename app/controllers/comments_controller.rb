@@ -82,13 +82,14 @@ class CommentsController < ApplicationController
   def push_notification receiver, type
     return if current_user? receiver
 
-    notif = {
-      sender: current_user,
-      receiver: receiver,
-      post: @post,
+    notif_hash = {
+      sender_id: current_user.id,
+      receiver_id: receiver.id,
+      post_id: @post.id,
       type_notif: type
     }
-    NotificationPushService.new(notif).push_notification
+
+    PushWorker.perform_async notif_hash
   end
 
   def push_mention_notification
