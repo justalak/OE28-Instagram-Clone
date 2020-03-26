@@ -278,9 +278,9 @@ en:
       mention_notif:
         mention: "mentioned you"
       request_notif:
-        request: "sent you a tracking request"
+        request: "sent you a follow request"
       accept_notif:
-        accept: "has accepted your tracking request"
+        accept: "has accepted your follow request"
     exists_notification:
       notif: "Notification"
       mark_all: "Mark all as read"

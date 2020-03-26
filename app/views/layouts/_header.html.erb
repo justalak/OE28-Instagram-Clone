@@ -22,7 +22,7 @@
       <div class="d-inline box-notif" id="notification_icon">
         <i class="fa fa-heart"></i>
       </div>
-      <%= render "notifications/badge_count_unread" if user_signed_in? and count_unread_notif %>
+      <%= render "notifications/badge_count_unread" if user_signed_in? %>
       <%= render "notifications/frame" %>
       <% if user_signed_in? %>
         <%= link_to current_user do %>

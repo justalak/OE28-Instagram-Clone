@@ -64,3 +64,4 @@ notification:
 relationship:
   accept: 0
   un_accept: 1
+host: localhost:3000

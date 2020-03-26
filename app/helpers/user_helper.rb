@@ -56,6 +56,7 @@ module UserHelper
 
   def display_gallery? user
     relationship = Relationship.find_by followed_id: user.id, follower_id: current_user.id
-    user.public_mode? || (relationship.present? && relationship.accept?)
+    (current_user? user) || user.public_mode? ||
+      (relationship.present? && relationship.accept?)
   end
 end

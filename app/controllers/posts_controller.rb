@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   def show
     @title = "#{@post.user_name} - #{@post.description}"
-    return if display_post? @post.user
+    return if display_post?(@post.user)
 
     flash[:danger] = t ".not_accept"
     redirect_to root_path

@@ -34,12 +34,14 @@ class ApplicationController < ActionController::Base
   end
 
   def display_post? user
-    relationship = Relationship.find_by followed_id: user.id, follower_id: current_user.id
-    user.public_mode? || (relationship.present? && relationship.accept?)
+    relationship = Relationship.find_by followed_id: user.id,
+      follower_id: current_user.id
+    (current_user? user) || user.public_mode? ||
+      (relationship.present? && relationship.accept?)
   end
 
   def find_notifications_by_relationship relationship
     Notification.get_by_all relationship.follower_id, relationship.followed_id,
-                             Settings.notification.request
+                            Settings.notification.request
   end
 end
