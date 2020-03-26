@@ -3,6 +3,7 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.passive_notifications
+                                 .send(params[:type])
                                  .order_by_created_at
                                  .page(params[:page])
                                  .per Settings.user.previews_per_page

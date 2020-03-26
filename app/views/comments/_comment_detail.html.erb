@@ -35,7 +35,8 @@
       class="transparent-btn like-comment-list">
       <%= t ".count_like", count: count_like(comment) %>
     </button>
-    <button comment_id="<%= comment.root? ? comment.id : comment.parent.id %>">
+    <button comment_id="<%= comment.root? ? comment.id : comment.parent.id %>"
+      class="reply-btn">
       <%= t ".reply" %>
     </button>
   </div>

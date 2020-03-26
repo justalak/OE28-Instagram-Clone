@@ -1,4 +1,7 @@
 class Notification < ApplicationRecord
+  ABOUT_POST_TYPE = %i(like comment reply mention like_comment).freeze
+  FOLLOW_REQUEST_TYPE = %i(follow request accept).freeze
+
   enum type_notif: {
     follow: 0,
     like: 1,
@@ -26,5 +29,11 @@ class Notification < ApplicationRecord
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :get_by_all, (lambda do |sender_id, receiver_id, type_notif|
     where(sender_id: sender_id, receiver_id: receiver_id, type_notif: type_notif)
+  end)
+  scope :about_post, (lambda do
+    where(type_notif: ABOUT_POST_TYPE)
+  end)
+  scope :follow_request, (lambda do
+    where(type_notif: FOLLOW_REQUEST_TYPE)
   end)
 end

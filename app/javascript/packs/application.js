@@ -9,4 +9,3 @@ require("bootstrap");
 require("packs/posts");
 require("packs/notifications");
 require("packs/comments");
-require("packs/load_notifications");

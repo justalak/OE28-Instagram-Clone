@@ -306,6 +306,9 @@ vi:
       mark_all: "Đánh dấu tất cả là đã đọc"
       view_more: "Xem thêm"
       update_all: "Cập nhật tất cả"
+      all: Tất cả
+      about_post: Về bài đăng
+      follow: Theo dõi và yêu cầu
     frame:
       not_login: "Bạn chưa đăng nhập"
       login: "Vui lòng đăng nhập để sử dụng ứng dụng."

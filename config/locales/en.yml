@@ -305,6 +305,9 @@ en:
       mark_all: "Mark all as read"
       view_more: "View more"
       update_all: "Update all"
+      all: All
+      about_post: About post
+      follow: Follow and requests
     frame:
       not_login: "You are not logged in"
       login: "Please login to use the application."

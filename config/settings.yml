@@ -6,7 +6,7 @@ user:
   min_length_username: 4
   previews_per_page: 9
   email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i'
-  username_regex: !ruby/regexp '/\A[a-zA-Z0-9]+\z/'
+  username_regex: !ruby/regexp '/[\w\-\+]+/'
   name_regex: !ruby/regexp '/\w+/'
   phone_regex: !ruby/regexp '/\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/'
   website_regex: !ruby/regexp '/https?:\/\/[\S]+/'
@@ -74,3 +74,9 @@ sort_post:
   type: "sort"
 search:
   type: "search"
+  char_sharp: "#"
+  char_at: "@"
+default_password: 123456
+factories:
+  user:
+    phone_number: 0984255640

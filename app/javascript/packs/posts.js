@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
         .attr('disabled', true);
   });
 
-  $('body').on('click', '.reply button', function() {
+  $('body').on('click', '.reply .reply-btn', function() {
     var parent_id = $(this).attr('comment_id');
     var postElement = $(this).closest('.instagram-card');
     var username = $(this)
@@ -26,3 +26,4 @@ $(document).on('turbolinks:load', function() {
       .val('@' + username + ' ');
   });
 });
+
