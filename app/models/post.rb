@@ -29,7 +29,6 @@ class Post < ApplicationRecord
                 end)
 
   scope :order_by_created_at, ->{order created_at: :desc}
-
   scope :bookmarking_by_user, (lambda do |user_id|
     joins(bookmark_likes: :user).where(
       "bookmark_likes.type_action": Settings.bookmark_like.bookmark,
