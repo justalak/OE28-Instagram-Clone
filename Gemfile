@@ -46,6 +46,7 @@ group :test do
   gem "rspec-rails", "~> 4.0"
   gem "rspec-support", "~> 3.9", ">= 3.9.2"
   gem "selenium-webdriver"
+  gem "shoulda-callback-matchers"
   gem "shoulda-matchers", "~> 4.3"
   gem "webdrivers"
 end

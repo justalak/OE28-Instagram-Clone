@@ -81,7 +81,7 @@ search:
   type: "search"
   char_sharp: "#"
   char_at: "@"
-default_password: 123456
+default_password: "123456"
 factories:
   user:
     phone_number: 0984255640
