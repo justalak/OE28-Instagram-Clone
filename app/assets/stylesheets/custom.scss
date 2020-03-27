@@ -410,19 +410,19 @@ h6.mark_all_read {
   align-items: center;
 }
 
-#load-notifications,
-#load-notifications:visited {
+#load-notifications, #load-more-users, #load-more-posts,
+#load-notifications:visited, #load-more-users:visited {
   color: $d33739E;
   text-decoration: none;
   display: block;
   margin: 0;
 }
 
-#load-notifications:hover {
+#load-notifications:hover, #load-more-users:hover, #load-more-posts:hover {
   text-decoration: none;
 }
 
-#load-notifications {
+#load-notifications, #load-more-users, #load-more-posts {
   padding: 10px;
   text-align: center;
   background-color: $d33739E;
@@ -437,7 +437,7 @@ h6.mark_all_read {
   -o-transition: all 600ms ease-in-out;
 }
 
-#load-notifications:hover {
+#load-notifications:hover, #load-more-users:hover, #load-more-posts:hover {
   background-color: $white;
   color: $d33739E;
 }
@@ -481,4 +481,27 @@ h6.mark_all_read {
 
 .hide-element {
   display: none
+}
+
+#load-more-posts {
+  margin-top: 1rem!important;
+  margin: 0px auto;
+  width: fit-content;
+}
+
+.container.overflow-auto {
+  background-color: $white;
+}
+
+.admin_users, .admin_posts {
+  display: block;
+  color: $white;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.admin_users:hover, .admin_posts:hover {
+  text-decoration: none;
+  color: $white;
 }

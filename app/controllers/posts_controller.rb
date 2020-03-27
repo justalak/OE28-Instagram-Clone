@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :log_in_user, except: %i(show index)
+  before_action :log_in_user, except: :index
   before_action :load_user, only: :index
   before_action :load_post, except: %i(create index)
   before_action :correct_user, only: %i(destroy update edit)

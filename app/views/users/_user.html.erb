@@ -1,4 +1,4 @@
-<li class="people__person">
+<li class="people__person" id="userid_<%= user.id %>" >
   <div class="people__column">
     <div class="people__avatar-container">
       <%= image_tag display_avatar_image(user), class: "people__avatar" %>
@@ -7,7 +7,7 @@
       <%= link_to user, class: "link_to_user" do %>
         <span class="people__username">
           <%= user.username %>
-          <% if current_user? user %>
+          <% if user_signed_in? && current_user?(user) %>
             <%= image_tag Settings.user.verified_image, class: "ml-1" %>
           <% end %>
         </span> 
@@ -15,5 +15,11 @@
       <span class="people__full-name"><%= user.name %></span>
     </div>
   </div>
-  <%= render "users/follow_form", user: user %>
+  <% if user_signed_in? %>
+    <%= render "users/follow_form", user: user %>
+    <%= render "admin/users/destroy", user: user if current_user.admin? %>
+  <% else %>
+    <button type="button" class="btn btn-primary follow_not_login"><%= t ".follow_not_login" %></button>
+    <p class="alert_follow d-none"><%= t "users.user.text" %></p>
+  <% end %>
 </li>

@@ -26,7 +26,7 @@ module UserHelper
 
   def arr_status
     User.statuses.map do |key, value|
-      [key.chomp("_user").capitalize, value]
+      [key.chomp("_mode").capitalize, value]
     end
   end
 
@@ -56,7 +56,19 @@ module UserHelper
 
   def display_gallery? user
     relationship = Relationship.find_by followed_id: user.id, follower_id: current_user.id
-    (current_user? user) || user.public_mode? ||
+    current_user.admin? || current_user?(user) || user.public_mode? ||
       (relationship.present? && relationship.accept?)
+  end
+
+  def active_admin active
+    active.present? ? " active" : ""
+  end
+
+  def url_update_user user
+    current_user.admin? ? admin_user_path(user) : user_path(user)
+  end
+
+  def url_create_user
+    current_user&.admin? ? admin_users_path : signup_path
   end
 end

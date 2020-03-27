@@ -1,7 +1,18 @@
-<%= provide :title, t(".title") %>
-<%= render "searches/search_user" if @users %>
-<%= render "searches/search_post" if @posts %>
-<button type="button" class="btn btn-primary new-btn" id="load-more" >
+<% if user_signed_in? %>
+  <%= provide :title, t(".title") %>
+  <%= render "searches/search_user" if @users %>
+  <%= render "searches/search_post" if @posts %>
+  <button type="button" class="btn btn-primary new-btn" id="load-more" >
     <%= t "load_more" %>
   </button>
+<% else %>
+  <div class="container w-100 overflow-auto">
+    <%= provide :title, t(".title") %>
+    <%= render "searches/search_user" if @users %>
+    <%= render "searches/search_post" if @posts %>
+    <button type="button" class="btn btn-primary new-btn" id="load-more" >
+      <%= t "load_more" %>
+    </button>
+  </div>
+<% end %>
 <%= javascript_pack_tag "search_results", "data-turbolinks-track": "reload" %>

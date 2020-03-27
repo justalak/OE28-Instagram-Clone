@@ -26,6 +26,10 @@ Rails.application.routes.draw do
       resources :comments, only: %i(create index destroy)   
     end
 
+    namespace :admin do
+      resources :users
+    end
+
     resources :comments, only: %i(update destroy)
     resources :relationships, only: %i(update create destroy)
     resources :likes, :bookmarks, only: %i(create destroy)

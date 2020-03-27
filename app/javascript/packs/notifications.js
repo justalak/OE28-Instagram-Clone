@@ -23,9 +23,9 @@ $(document).on('turbolinks:load',function() {
         .find('.button_delete_notif')
         .click();
     });
-  $('a#mark_all_as_read')
-    .unbind('click')
-    .on('click', function() {
-      $('.update_submit').click();
-    });
+    $('a#mark_all_as_read')
+      .unbind('click')
+      .on('click', function() {
+        $('.update_submit').click();
+  });
 });

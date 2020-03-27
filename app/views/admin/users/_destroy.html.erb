@@ -1,0 +1,9 @@
+<% if user.admin? %>
+  <span class="badge badge-success badge_admin"><%= t ".admin" %></span>
+<% else %>
+  <%= form_for user, url: admin_user_path(user),
+    html: { method: :delete }, remote: true do |f| %>
+    <%= f.submit t(".destroy"), class: "btn btn-outline-danger submit_delete_user" %>
+  <% end %>
+  <div class="sure d-none"><%= t ".sure" %></div>
+<% end %>

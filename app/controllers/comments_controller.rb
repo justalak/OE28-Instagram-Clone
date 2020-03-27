@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :logged_in_user
   before_action :load_post, except: %i(update destroy)
   before_action :load_comment, :correct_user, except: :create
+  before_action :correct_private_user, only: :create
 
   def create
     @comment = @post.comments.build comment_params
@@ -93,6 +94,19 @@ class CommentsController < ApplicationController
   def push_mention_notification
     @comment.mentions.each do |user|
       push_notification user, Settings.notification.mention
+    end
+  end
+
+  def correct_private_user
+    relationship = Relationship.find_by followed_id: @post.user.id,
+                                        follower_id: current_user.id
+    return if current_user?(@post.user) || @post.user.public_mode? ||
+              (relationship.present? && relationship.accept?)
+
+    respond_to do |format|
+      @message_error = t "incorrect_user"
+      format.html
+      format.js{render "shared/incorrect_user"}
     end
   end
 end

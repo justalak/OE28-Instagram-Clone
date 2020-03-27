@@ -50,3 +50,12 @@ $(document).ready(function() {
     });
   }
 });
+
+$(document).ready(function() {
+  var page = 1;
+  $('#load-more-users').unbind('click').on('click', function() {
+    url = '/admin/users';
+    page++;
+    loadData(url, { page: page });
+  });
+});

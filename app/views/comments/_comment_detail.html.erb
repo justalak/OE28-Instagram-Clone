@@ -3,7 +3,7 @@
     <p class="comment-content" id="content-<%= comment.id %>">
       <%= render "comments/comment_content", comment: comment %>
     </p>
-    <% if current_user? comment.user %>
+    <% if current_user?(comment.user) || current_user.admin? %>
       <div class="dropdown">
         <button class="dropbtn"><i class="fa fa-cog"></i></button>
         <div class="dropdown-content">
