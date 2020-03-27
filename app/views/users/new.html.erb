@@ -24,20 +24,24 @@
       <div class="form-group">
         <%= f.password_field :password_confirmation, class: "form-control", placeholder: t(".password_confirmation") %>
       </div>
+      <%= f.hidden_field :uid %>
       <div class="form-group">
         <%= f.submit t(".signup"), class: "btn btn-primary btn-block" %>
         <div class="row"></div>
       </div>
     <% end %>
     <hr>
-    <p class="text-center">
-      <%= t ".or" %>
-    </p>
-    <p>
-      <%= link_to "#", class: "btn btn-block btn-outline-primary" do %>
-        <i class="fa fa-facebook-f"></i>
-        <%= t ".login_via_facebook" %>
-      <% end %>
-    </p>
+    <% unless @user.uid %>
+      <p class="text-center">
+        <%= t ".or" %>
+      </p>
+      <p>
+        <%= link_to Settings.facebook_auth_path, 
+        class: "btn btn-block btn-outline-primary" do %>
+          <i class="fa fa-facebook-f"></i>
+          <%= t ".login_via_facebook" %>
+        <% end %>
+      </p>
+    <% end %>
   </article>
 </div>

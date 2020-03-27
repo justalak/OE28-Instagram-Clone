@@ -1,4 +1,4 @@
-User.create!(email: "viethoang2901hust@gmail.com",
+User.create!(email: "viethoang29011hust@gmail.com",
   username: "viethoangle",
   name: "Lê Việt Hoàng",
   password: "123456",

@@ -65,3 +65,4 @@ relationship:
   accept: 0
   un_accept: 1
 host: localhost:3000
+facebook_auth_path: "/auth/facebook"

@@ -37,8 +37,8 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :phone, allow_blank: true,
     format: {with: Settings.user.phone_regex}
-  validates :password, presence: true,
-    length: {minimum: Settings.user.min_length_password}, allow_nil: true
+  validates :password, length: {minimum: Settings.user.min_length_password},
+    allow_nil: true
 
   before_save :downcase_email
   has_secure_password
@@ -57,7 +57,7 @@ class User < ApplicationRecord
           search: "%#{sample_string}%")
   end)
 
-  USER_PARAMS = %i(email name username password password_confirmation).freeze
+  USER_PARAMS = %i(email name uid username password password_confirmation).freeze
   USER_PARAMS_UPDATE = %i(email name username website
                           bio phone gender status avatar_image).freeze
 

@@ -12,6 +12,7 @@ vi:
   close: Đóng
   post_detail: Chi tiết bài đăng
   edit: Chỉnh sửa
+  password_not_be_blank: Mật khẩu không được để trống
   layouts:
     header:
       search: "@tìm_kiếm"
