@@ -6,6 +6,10 @@ class User < ApplicationRecord
   enum role: {user: 0, admin: 1}
   enum status: {public_mode: 0, private_mode: 1}
 
+  USER_PARAMS = %i(email name uid username password password_confirmation).freeze
+  USER_PARAMS_UPDATE = %i(email name username website
+                          bio phone gender status avatar_image).freeze
+
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: :follower_id, dependent: :destroy
@@ -56,10 +60,6 @@ class User < ApplicationRecord
     where("username LIKE :search OR name LIKE :search",
           search: "%#{sample_string}%")
   end)
-
-  USER_PARAMS = %i(email name uid username password password_confirmation).freeze
-  USER_PARAMS_UPDATE = %i(email name username website
-                          bio phone gender status avatar_image).freeze
 
   class << self
     def digest string
