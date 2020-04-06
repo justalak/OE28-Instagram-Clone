@@ -1,5 +1,21 @@
 <div class="exists-notif h-100 scrollbar" id="style-3">
-  <h4 class="text-center mt-4"><%= t ".notif" %></h4>
+  <div class="input-group mb-3">
+    <select class="custom-select" id="type-notifications">
+      <option selected value="all">
+        <i class="fa fa-bell"></i>
+        <%= t ".all" %>
+      </option>
+      <option value="about_post">
+        <i class="fa fa-image"></i>
+        <%= t ".about_post" %>
+      </option>
+      <option value="follow_request">
+        <i class="fa fa-user-plus"></i>
+        <%= t ".follow" %>
+      </option>
+    </select>
+  </div>
+    
   <h6 class="mark_all_read">
     <%= link_to t(".mark_all"), Settings.disable_link,
       class: "mark_read", id: "mark_all_as_read" %>
