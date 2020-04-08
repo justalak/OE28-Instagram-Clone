@@ -59,10 +59,10 @@ RSpec.describe User, type: :model do
   end
 
   describe "Scopes" do
-    let!(:l1) { FactoryBot.create :bookmark_like, user_id: u1.id, likeable_id: p1.id, likeable_type: Post.name }
-    let!(:l2) { FactoryBot.create :bookmark_like, user_id: u3.id, likeable_id: p1.id, likeable_type: Post.name }
-    let!(:l3) { FactoryBot.create :bookmark_like, user_id: u2.id, likeable_id: p2.id, likeable_type: Post.name }
-    let!(:l4) { FactoryBot.create :bookmark_like, user_id: u4.id, likeable_id: p2.id, likeable_type: Post.name }
+    let!(:l1) { FactoryBot.create :bookmark_like, :like, :for_post, user_id: u1.id, likeable_id: p1.id }
+    let!(:l2) { FactoryBot.create :bookmark_like, :like, :for_post, user_id: u3.id, likeable_id: p1.id }
+    let!(:l3) { FactoryBot.create :bookmark_like, :like, :for_post, user_id: u2.id, likeable_id: p2.id }
+    let!(:l4) { FactoryBot.create :bookmark_like, :like, :for_post, user_id: u4.id, likeable_id: p2.id }
 
     context "Likers" do
       it {expect(User.likers_to_likeable p1.id, p1.class.name).to eq [u1, u3]}
