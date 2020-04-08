@@ -17,6 +17,9 @@ en:
   list: List
   close: Close
   password_not_be_blank: Password can't be blank hihi
+  errors_blank: can't be blank
+  errors_taken: has already been taken
+  errors_taken: has already been taken
   layouts:
     header:
       search: "@search"
