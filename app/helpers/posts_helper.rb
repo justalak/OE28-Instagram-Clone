@@ -42,7 +42,7 @@ module PostsHelper
     current_user&.admin? ? admin_posts_path : posts_path
   end
 
-  def numerical_order post_counter, page
+  def numerical_order_post post_counter, page
     return post_counter + 1 if page.blank?
 
     Settings.user.previews_per_page * (page.to_i - 1) + post_counter + 1

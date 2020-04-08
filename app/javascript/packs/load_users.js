@@ -53,9 +53,30 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   var page = 1;
-  $('#load-more-users').unbind('click').on('click', function() {
+  var sort_val;
+  var text_search = "";
+  var type = "";
+  $('#load-more-users-table').on('click', function() {
     url = '/admin/users';
     page++;
-    loadData(url, { page: page });
+    text_search = $('#search_input').val();
+    loadData(url, { page: page, type: type, sort_value: sort_val, text_search: text_search });
+  });
+  $('.sort_btn').on('click', function() {
+    page = 1;
+    sort_val = $(".sort_value").val();
+    url = '/admin/users';
+    type = "sort";
+    loadData(url, { sort_value: sort_val, type: type, text_search: text_search });
+  });
+  $('#search_input').keyup(function(event) {
+    url = '/admin/users';
+    text_search = $(this).val();
+    type = "search";
+    loadData(url, { type: type, text_search: text_search });
+  }).keydown(function(event) {
+    if ( event.which == 13 ) {
+      event.preventDefault();
+    }
   });
 });

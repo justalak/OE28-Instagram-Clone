@@ -29,11 +29,8 @@ class Admin::PostsController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
-  def edit; end
-
   def update
     if @post.update_post post_params
-      flash[:success] = t ".update_success"
       respond_to :js
     else
       flash.now[:danger] = t ".update_fail"

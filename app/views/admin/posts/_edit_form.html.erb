@@ -1,8 +1,10 @@
-<%= form_for post, url: url_update_post(post), remote: true do |f| %>
+<%= form_for post, url: url_update_post(post),
+  html: {id: "post-form-id-#{post.id.to_s}"},
+  remote: true do |f| %>
   <%= render "shared/error_messages", object: post %>
   <div class="form-group">
     <%= f.text_area :description, placeholder: t(".description"), 
-      class: "form-control" %>
+      class: "form-control", id: "post-description-id-#{post.id.to_s}" %>
   </div>
   <ul id="preview"></ul>
   <div class="text-center">
