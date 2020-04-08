@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_user
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:id] || params[:user_id]
     return if @user
 
     flash[:danger] = t "users.load_user.not_find_user"

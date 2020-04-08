@@ -9,6 +9,7 @@ Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 require "rspec/rails"
 require "shoulda/matchers"
 require "support/database_cleaner"
+require "support/spec_test_helper"
 require "capybara/rspec"
 
 begin
@@ -25,6 +26,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Callback::Matchers::ActiveModel)
+  config.include(SpecTestHelper, type: :controller)
 end
 
 Shoulda::Matchers.configure do |config|

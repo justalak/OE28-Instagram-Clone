@@ -18,6 +18,8 @@ vi:
   errors_blank: can't be blank
   errors_taken: has already been taken
   errors_taken: has already been taken
+  sign_up_successful: Đăng ký thành công!
+  fail_sign_up: Đăng ký thất bại!
   layouts:
     header:
       search: "@tìm_kiếm"

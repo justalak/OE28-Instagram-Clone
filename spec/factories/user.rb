@@ -8,7 +8,8 @@ FactoryBot.define do
     role {Settings.user.role_user}
     status {Settings.user.public_mode}
     email {Faker::Internet.email}
-    password_digest {BCrypt::Password.create(Settings.user.password_default)}
+    password {Settings.user.password_default}
+    password_confirmation {Settings.user.password_default}
     after(:build) do |user|
       user.avatar_image.attach(io: File.open(Rails.root.
         join("app", "assets", "images", "default.jpg")),

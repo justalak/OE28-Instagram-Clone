@@ -53,7 +53,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_uniqueness_of(:email).case_insensitive.with_message(I18n.t("errors_taken")) }
     it { is_expected.to allow_value("chungpham@gmail.com").for(:email) }
 
-    it { is_expected.to validate_presence_of(:password).with_message(I18n.t("errors_blank")) }
+    it { is_expected.to validate_presence_of(:password).allow_nil.with_message(I18n.t("errors_blank")) }
     it { is_expected.to validate_length_of(:password).is_at_least(Settings.user.min_length_password) }
     it { is_expected.to validate_confirmation_of(:password) }
   end
@@ -79,9 +79,9 @@ RSpec.describe User, type: :model do
   end
 
   describe "Methods" do
-    let!(:b1) { FactoryBot.create :bookmark_like, user_id: u1.id, likeable_id: p1.id, likeable_type: Post.name, type_action: Settings.bookmark_like.bookmark }
-    let!(:b2) { FactoryBot.create :bookmark_like, user_id: u1.id, likeable_id: p2.id, likeable_type: Post.name, type_action: Settings.bookmark_like.bookmark }
-    let!(:b3) { FactoryBot.create :bookmark_like, user_id: u2.id, likeable_id: p2.id, likeable_type: Post.name, type_action: Settings.bookmark_like.bookmark }
+    let!(:b1) { FactoryBot.create :bookmark_like, :bookmark, :for_post, user_id: u1.id, likeable_id: p1.id }
+    let!(:b2) { FactoryBot.create :bookmark_like, :bookmark, :for_post, user_id: u1.id, likeable_id: p2.id }
+    let!(:b3) { FactoryBot.create :bookmark_like, :bookmark, :for_post, user_id: u2.id, likeable_id: p2.id }
 
     context "Bookmarking" do
       it { expect(u1.bookmarking? p1).to eq true }
