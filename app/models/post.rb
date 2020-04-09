@@ -18,6 +18,7 @@ class Post < ApplicationRecord
     size: {less_than: Settings.post.max_picture_size.megabytes,
            message: I18n.t("less_than_max_size")}
   validate :image_presence
+  after_commit :add_hashtags, on: %i(create update)
 
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :order_by_updated_at, ->{order updated_at: :desc}
@@ -26,7 +27,6 @@ class Post < ApplicationRecord
                   where(user_id: Relationship.following_ids(user_id))
                   .or(where(user_id: user_id))
                 end)
-  after_commit :add_hashtags, on: %i(create update)
 
   scope :bookmarking_by_user, (lambda do |user_id|
     joins(bookmark_likes: :user).where(
@@ -44,6 +44,7 @@ class Post < ApplicationRecord
       "hashtags.name LIKE :search", search: "%#{sample_string}%"
     ).distinct
   end)
+ 
   scope :search_by_description_username, (lambda do |sample_string|
     joins(:user).where(
       "users.username LIKE :search OR description LIKE :search",
