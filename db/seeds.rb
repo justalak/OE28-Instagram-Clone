@@ -1,10 +1,3 @@
-User.create!(email: "viethoang29011hust@gmail.com",
-  username: "viethoangle",
-  name: "Lê Việt Hoàng",
-  password: "123456",
-  password_confirmation: "123456",
-)
-
 User.create!(email: "viethoang290111hust@gmail.com",
   username: "admin11",
   name: "Lê Việt Hoàng",
@@ -26,6 +19,7 @@ User.create!(email: "viethoang29012hust@gmail.com",
   name: "Lê Việt Hoàng",
   password: "123456",
   password_confirmation: "123456",
+  role: "admin"
 )
 
 28.times do |n|
