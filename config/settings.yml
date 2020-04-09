@@ -69,6 +69,7 @@ notification:
   type_accept: "accept"
   type_like_comment: "like_comment"
   type_mention: "mention"
+  read_s: "read"
 relationship:
   accept: 0
   un_accept: 1

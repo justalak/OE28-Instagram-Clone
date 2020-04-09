@@ -30,6 +30,9 @@ class Notification < ApplicationRecord
   scope :get_by_all, (lambda do |sender_id, receiver_id, type_notif|
     where(sender_id: sender_id, receiver_id: receiver_id, type_notif: type_notif)
   end)
+  scope :update_all_to_read, (lambda do |receiver|
+    where(receiver_id: receiver.id).update(status: Settings.notification.read)
+  end)
   scope :about_post, (lambda do
     where(type_notif: ABOUT_POST_TYPE)
   end)

@@ -1,9 +1,12 @@
 <%= form_for post, url: bookmark_path(post),
-  html: { method: :delete, class: "form_for_bookmark" },
+  html: { method: :delete, class: "form_for_bookmark", id: "form-destroy-bookmark-#{post.id}" },
   remote: true do |f| %>
-  <%= hidden_field_tag :likeable_id, post.id %>
-  <%= hidden_field_tag :likeable_type, Post.name %>
-  <%= hidden_field_tag :type_action, Settings.bookmark_like.bookmark %>
+  <%= hidden_field_tag :likeable_id, post.id,
+    id: "likeable_id-destroy-bookmark-#{post.id}" %>
+  <%= hidden_field_tag :likeable_type, Post.name,
+    id: "likeable_type-destroy-bookmark-#{post.id}" %>
+  <%= hidden_field_tag :type_action, Settings.bookmark_like.bookmark,
+    id: "type_action-destroy-bookmark-#{post.id}" %>
   <%= button_tag class: "instagram-card-icon instagram-bookmark button_blue" do %>
     <i class="fa fa-bookmark text-primary transform-scale"></i>
   <% end %>

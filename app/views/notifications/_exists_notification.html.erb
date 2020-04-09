@@ -1,4 +1,5 @@
 <div class="exists-notif h-100 scrollbar" id="style-3">
+  <h3 class="text-center"><%= t ".notif" %><h3>
   <div class="input-group mb-3">
     <select class="custom-select" id="type-notifications">
       <option selected value="all">
@@ -15,13 +16,13 @@
       </option>
     </select>
   </div>
-    
   <h6 class="mark_all_read">
     <%= link_to t(".mark_all"), Settings.disable_link,
       class: "mark_read", id: "mark_all_as_read" %>
+    <%= render "notifications/form_update_all" %>
   </h6>
   <div class="w-100" id="frame-notification">
-    <%= patial_notification %>
+    <%= render partial: "notifications/notification", collection: exists_notifications %>
   </div>
   <div class="force-overflow"></div>
   <a href=<%= Settings.disable_link %> id="load-notifications"><%= t ".view_more" %></a>

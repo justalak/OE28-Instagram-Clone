@@ -511,3 +511,8 @@ h6.mark_all_read {
   height: 70px;
   border-radius: 50%;
 }
+.mark_all_read {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}

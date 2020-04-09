@@ -1,0 +1,10 @@
+<% if notification.unread? %>
+  <%= link_to t(".update_read"), Settings.disable_link, class: "update_submit update_submit_read" %>
+<% else %>
+  <%= link_to t(".update_unread"), Settings.disable_link, class: "update_submit update_submit_unread" %>
+<% end %>
+<%= link_to t(".delete"), Settings.disable_link, class: "delete_submit" %>
+<div class="form_notif_update_delete">
+  <%= render partial: "notifications/form_update", locals: {notification: notification} %>
+  <%= render partial: "notifications/form_destroy", locals: {notification: notification} %>
+</div>
