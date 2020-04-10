@@ -27,6 +27,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Callback::Matchers::ActiveModel)
   config.include(SpecTestHelper, type: :controller)
+  config.include(FilesTestHelper, type: :controller)
 end
 
 Shoulda::Matchers.configure do |config|

@@ -6,6 +6,14 @@ User.create!(email: "viethoang290111hust@gmail.com",
   role: "admin"
 )
 
+User.create!(email: "viethoang290111hust@gmail.com",
+  username: "admin11",
+  name: "Lê Việt Hoàng",
+  password: "123456",
+  password_confirmation: "123456",
+  role: "admin"
+)
+
 User.create!(email: "viethoang29012hust@gmail.com",
   username: "viethoanglee",
   name: "Lê Việt Hoàng",
@@ -19,7 +27,6 @@ User.create!(email: "viethoang29012hust@gmail.com",
   name: "Lê Việt Hoàng",
   password: "123456",
   password_confirmation: "123456",
-  role: "admin"
 )
 
 28.times do |n|
@@ -56,6 +63,7 @@ user.posts[1..5].each do |post|
     comment.save
   end
 end
+
 users = User.all
 user = users.first
 following = users[2..20]
