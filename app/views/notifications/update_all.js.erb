@@ -1,0 +1,4 @@
+var message = '<%= @messages %>';
+if(!message || message === '') {
+  $('#frame-notification').html('<%= j render partial: "notifications/notification", collection: @notifications %>');
+}

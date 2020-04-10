@@ -282,12 +282,9 @@ vi:
     none_notification:
       activity: "Hoạt động trên bài viết của bạn"
       when: "Khi có người thích hoặc bình luận về một trong những bài viết của bạn, bạn sẽ nhìn thấy nó ở đây."
-    notification:
-      follow: "đang theo dõi bạn"
-      like: "đã thích một bài viết của bạn"
-      comment: "đã bình luận trong một bài viết của bạn"
-      reply: "đã trả lời bình luận của bạn trong một bài viết"
-      update: "Đánh dấu đã đọc"
+    setting_notification:
+      update_read: "Đánh dấu đã đọc"
+      update_unread: "Đánh dấu chưa đọc"
       delete: "Xóa"
     type_notif:
       follow_notif:
@@ -314,6 +311,7 @@ vi:
       all: Tất cả
       about_post: Về bài đăng
       follow: Theo dõi và yêu cầu
+      notif: "Thông báo"
     frame:
       not_login: "Bạn chưa đăng nhập"
       login: "Vui lòng đăng nhập để sử dụng ứng dụng."
@@ -329,6 +327,10 @@ vi:
     active_relationship:
       confirmed: "Đã xác nhận"
       refuse: "Đã từ chối"
+    update_all_notification:
+      update_all_failed: "Không thể cập nhật tất cả thông báo"
+    form_update_all:
+      update_all: "Gửi"
   admins:
     not_accept: "Không được phép"
     users:

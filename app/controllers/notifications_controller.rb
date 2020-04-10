@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :logged_in_user, :load_notification, only: %i(update destroy)
+  before_action :update_all_to_read, only: :update
 
   def index
     @notifications = current_user.passive_notifications
@@ -15,12 +16,11 @@ class NotificationsController < ApplicationController
   end
 
   def update
-    @messages = t ".error_update" unless @notif.read!
+    @messages = t ".error_update" unless notification_params[:status].eql?(Settings.notification.read_s) ? @notif.unread! : @notif.read!
+
     @type_action = Settings.notification.update
-    respond_to do |format|
-      format.html{redirect_to current_user}
-      format.js
-    end
+    @update_status = notification_params[:status]
+    respond_to :js
   end
 
   def destroy
@@ -42,6 +42,20 @@ class NotificationsController < ApplicationController
     respond_to do |format|
       format.html{redirect_to current_user}
       format.js{render "notifications/update"}
+    end
+  end
+
+  def update_all_to_read
+    return unless params[:update_all]
+
+    @messages = t ".update_all_failed" unless Notification.update_all_to_read current_user
+    @notifications = current_user.passive_notifications
+                                 .order_by_created_at
+                                 .page(params[:page])
+                                 .per Settings.user.previews_per_page
+    respond_to do |format|
+      format.html{redirect_to current_user}
+      format.js{render "notifications/update_all"}
     end
   end
 

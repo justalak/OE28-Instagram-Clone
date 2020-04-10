@@ -10,12 +10,11 @@ module NotificationsHelper
     notifications.present?
   end
 
-  def patial_notification
-    notifications = current_user.passive_notifications
-                                .order_by_created_at
-                                .page(params[:page])
-                                .per Settings.user.previews_per_page
-    render partial: "notifications/notification", collection: notifications
+  def exists_notifications
+    current_user.passive_notifications
+                .order_by_created_at
+                .page(params[:page])
+                .per Settings.user.previews_per_page
   end
 
   def mark_read notification

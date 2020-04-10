@@ -18,14 +18,7 @@
       <div class="dropdown" style="float:right;">
         <i class="fa fa-cog dropbtn dropbtn_icon"></i>
         <div class="dropdown-content dropdown-content-notif">
-        <% if notification.unread? %>
-          <%= link_to t(".update"), Settings.disable_link, class: "update_submit" %>
-        <% end %>
-        <%= link_to t(".delete"), Settings.disable_link, class: "delete_submit" %>
-        <div class="form_notif_update_delete">
-          <%= render partial: "notifications/form_update", locals: {notification: notification} %>
-          <%= render partial: "notifications/form_destroy", locals: {notification: notification} %>
-        </div>
+          <%= render partial: "notifications/setting_notification", locals: {notification: notification} %>
         </div>
       </div>
     </div>

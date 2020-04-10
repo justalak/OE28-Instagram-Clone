@@ -16,7 +16,6 @@ $(document).on('turbolinks:load', function() {
         .parent()
         .find('.button_update_notif')
         .click();
-      $(this).remove();
     });
   $(document).on('click', 'a.delete_submit', function() {
       $(this)

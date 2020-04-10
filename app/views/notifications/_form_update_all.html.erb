@@ -1,0 +1,7 @@
+<%= form_for exists_notifications.first,
+  html: {class: "d-none", id: "notif-update-#{exists_notifications.first.id}"},
+  remote: true do |f| %>
+  <%= hidden_field_tag :update_all, Settings.notification.read,
+    id: "update-all-#{exists_notifications.first.id}" %>
+  <%= f.submit t(".update_all"), class: "update_all_btn" %>
+<% end %>

@@ -1,8 +1,12 @@
 <%= form_for current_user.bookmark_likes.build, url: bookmarks_path,
-  html: {class: "form_for_bookmark"}, remote: true do |f| %>
-  <%= hidden_field_tag :likeable_id, post.id %>
-  <%= hidden_field_tag :likeable_type, Post.name %>
-  <%= hidden_field_tag :type_action, Settings.bookmark_like.bookmark %>
+  html: {class: "form_for_bookmark", id: "form-update-bookmark-#{post.id}"},
+  remote: true do |f| %>
+  <%= hidden_field_tag :likeable_id, post.id,
+    id: "likeable_id-update-bookmark-#{post.id}" %>
+  <%= hidden_field_tag :likeable_type, Post.name,
+    id: "likeable_type-update-bookmark-#{post.id}" %>
+  <%= hidden_field_tag :type_action, Settings.bookmark_like.bookmark,
+    id: "type_action-update-bookmark-#{post.id}" %>
   <%= button_tag class: "instagram-card-icon instagram-bookmark button_blue" do %>
     <i class="fa fa-bookmark-o transform-scale"></i>
   <% end %>

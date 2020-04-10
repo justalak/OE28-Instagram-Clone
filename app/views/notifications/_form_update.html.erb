@@ -1,6 +1,6 @@
 <%= form_for notification,
-  html: {class: "update_form_submit"},
+  html: {class: "update_form_submit", id: "form-update-#{notification.id}"},
   remote: true do |f| %>
-  <%= f.text_field :status %>
+  <%= f.text_field :status, id: "status-update-#{notification.id}" %>
   <%= f.submit class: "button_update_notif" %>
 <% end %>

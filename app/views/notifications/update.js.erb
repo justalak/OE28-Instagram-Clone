@@ -1,9 +1,15 @@
 var message = '<%= @messages %>';
 if(!message || message === '') {
   var type_action = '<%= @type_action %>';
-  if(type_action === 'update') {
+  var update_status = '<%= @update_status %>';
+  if(type_action === 'update' && update_status === 'unread') {
     $('#notification_<%= @notif.id %>').addClass('read');
-    $('#notification_<%= @notif.id %>').find('.update_submit').remove();
+    $('#notification_<%= @notif.id %>').find('.dropdown-content-notif')
+      .html('<%= j render partial: "notifications/setting_notification", locals: {notification: @notif} %>');
+  } else if(type_action === 'update' && update_status === 'read') {
+    $('#notification_<%= @notif.id %>').removeClass('read');
+    $('#notification_<%= @notif.id %>').find('.dropdown-content-notif')
+      .html('<%= j render partial: "notifications/setting_notification", locals: {notification: @notif} %>');
   } else {
     $('#notification_<%= @notif.id %>').remove();
   }

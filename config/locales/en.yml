@@ -285,8 +285,9 @@ en:
     none_notification:
       activity: "Actions on your post"
       when: "When someone likes or comments on one of your posts, you'll see it here."
-    notification:
-      update: "Mark as read"
+    setting_notification:
+      update_read: "Mark as read"
+      update_unread: "Mark as unread"
       delete: "Remove"
     type_notif:
       follow_notif:
@@ -313,6 +314,7 @@ en:
       all: All
       about_post: About post
       follow: Follow and requests
+      notif: "Notifications"
     frame:
       not_login: "You are not logged in"
       login: "Please login to use the application."
@@ -328,6 +330,10 @@ en:
     active_relationship:
       confirmed: "Confirmed"
       refused: "Refused"
+    update_all_notification:
+      update_all_failed: "Not update all notification"
+    form_update_all:
+      update_all: "Submit"
   admins:
     not_accept: "Not accept"
     users:
