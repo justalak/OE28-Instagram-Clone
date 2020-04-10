@@ -346,6 +346,15 @@ en:
       index:
         users: "System users"
         view_more: "View more"
+        new_user: "New user"
+        create_at: "Created at"
+        update_at: "Updated at"
+        name: "Name"
+        action: "Action"
+        stt: "STT"
+        avatar_image: "Avatar image"
+        posts_count: "Posts count"
+        view_full: "View full"
       destroy:
         admin: "Admin"
         destroy: "Delete"
@@ -369,6 +378,22 @@ en:
         email_sms: "Email and SMS"
         manage_contact: "Manage Contacts"
         privacy_security: "Privacy and Security"
+      sort_post:
+        username: "Username of user"
+        name: "Name of user"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        sort: "Sort"
+      search_user:
+        search_place: "Username or name of user ..."
+        search: "Search"
+      row:
+        edit: "Edit"
+        view_full: "View full"
+      edit_modal:
+        edit_user: "Edit user"
+      new_modal:
+        create: "Create user"
     posts:
       index:
         posts: "System posts"
@@ -379,6 +404,7 @@ en:
         create_at: "Created at"
         update_at: "Updated at"
         description: "Description"
+        follow: "Follow"
         action: "Action"
         stt: "STT"
         images_count: "Image count"

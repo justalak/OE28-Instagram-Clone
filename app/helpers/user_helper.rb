@@ -71,4 +71,10 @@ module UserHelper
   def url_create_user
     current_user&.admin? ? admin_users_path : signup_path
   end
+
+  def numerical_order_user user_counter, page
+    return user_counter + 1 if page.blank?
+
+    Settings.user.previews_per_page * (page.to_i - 1) + user_counter + 1
+  end
 end

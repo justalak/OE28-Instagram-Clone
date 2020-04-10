@@ -347,6 +347,17 @@ vi:
       index:
         users: "Người dùng hệ thống"
         view_more: "Xem thêm"
+        new_user: "Tạo người dùng"
+        create_at: "Thời điểm tạo"
+        update_at: "Thời điểm cập nhật"
+        name: "Tên người dùng"
+        username: "Tên đại diện"
+        action: "Tác vụ"
+        stt: "STT"
+        follow: "Theo dõi"
+        avatar_image: "Ảnh avatar"
+        posts_count: "Số post"
+        view_full: "Xem đầy đủ"
       destroy:
         admin: "Quản trị"
         destroy: "Xóa"
@@ -370,6 +381,22 @@ vi:
         email_sms: "Email và SMS"
         manage_contact: "Liên hệ quản lý"
         privacy_security: "Chính sách và bảo mật"
+      sort_user:
+        username: "Tên đại diện"
+        name: "Tên người dùng"
+        created_at: "Thời điểm tạo"
+        updated_at: "Thời điểm cập nhật"
+        sort: "Sắp xếp"
+      search_user:
+        search_place: "Tên người dùng"
+        search: "Tìm kiếm"
+      row:
+        edit: "Chỉnh sửa"
+        view_full: "Xem"
+      edit_modal:
+        edit_user: "Chỉnh sửa người dùng"
+      new_modal:
+        create: "Tạo người dùng"
     posts:
       index:
         posts: "Bài đăng"

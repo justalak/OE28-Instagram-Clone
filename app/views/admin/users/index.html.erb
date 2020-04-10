@@ -3,9 +3,38 @@
 <%= render "admin/button_admin" %>
 <h1 class="text-center"><%= @title %></h1>
 <div class="frame-users-admin">
-  <%= render partial: "users/user", collection: @users %>
-</div>
-<div class="btn" id="load-more-users" data_id="<%= current_user.id %>">
-  <%= t ".view_more" %>
+  <div>
+    <div class="d-flex justify-content-between align-items-center">
+      <%= link_to Settings.disable_link, class: "btn btn-primary new-btn m-0",
+          data: {toggle: "modal", target: "#new-user"} do %>
+          <%= t ".new_user" %>
+      <% end %>
+      <%= render partial: "admin/users/new_modal", locals: {user: @user_hash[:user]} %>
+      <%= render "sort_user" %>
+    </div>
+    <%= render "search_user" %>
+  </div>
+  <table class="table table-hover mt-5">
+    <thead>
+      <tr>
+        <th scope="col"><%= t ".stt" %></th>
+        <th scope="col"><%= t ".avatar_image" %></th>
+        <th scope="col"><%= t ".name" %></th>
+        <th scope="col"><%= t ".username" %></th>
+        <th scope="col"><%= t ".posts_count" %></th>
+        <th scope="col"><%= t ".create_at" %></th>
+        <th scope="col"><%= t ".update_at" %></th>
+        <th scope="col"><%= t ".follow" %></th>
+        <th scope="col"><%= t ".action" %></th>
+        <th scope="col"><%= t ".view_full" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "admin/users/row", collection: @user_hash[:users], as: :user %>
+    </tbody>
+  </table>
+  <div class="btn" id="load-more-users-table" data_id="<%= current_user.id %>">
+    <%= t ".view_more" %>
+  </div>
 </div>
 <%= javascript_pack_tag "load_users", "data-turbolinks-track": "reload" %>

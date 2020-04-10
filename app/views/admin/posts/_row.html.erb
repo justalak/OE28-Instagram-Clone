@@ -1,5 +1,5 @@
 <tr>
-  <th scope="row" id="stt-<%= post.id %>" class="stt"><%= numerical_order post_counter, @post_hash[:page] %></th>
+  <th scope="row" id="stt-<%= post.id %>" class="stt"><%= numerical_order_post post_counter, @post_hash[:page] %></th>
   <td>
     <%= link_to post.user, class: "instagram-card-username" do %>
       <%= post.user_username %>
@@ -23,5 +23,7 @@
   <td>
     <%= link_to t(".view_full"), post %>
   </td>
+  <td>
+    <%= render partial: "admin/posts/edit_modal", locals: {post: post} %>
+  </td>
 </tr>
-<%= render partial: "admin/posts/edit_modal", locals: {post: post} %>

@@ -62,6 +62,11 @@ class User < ApplicationRecord
           search: "%#{sample_string}%")
   end)
 
+  scope :order_by_created_at, ->{order created_at: :desc}
+  scope :order_by_updated_at, ->{order updated_at: :desc}
+  scope :order_by_name, ->{order :name}
+  scope :order_by_username, ->{order :username}
+
   class << self
     def digest string
       cost = if ActiveModel::SecurePassword.min_cost

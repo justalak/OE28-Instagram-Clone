@@ -1,0 +1,11 @@
+$('#user-row-name-<%= @user.id %>').html('<%= @user.name %>');
+$('#user-row-username-<%= @user.id %>').html('<%= @user.username %>');
+$('#updated-at-<%= @user.id %>').html('<%= time_ago_in_words @user.updated_at %>');
+$('#user-row-avatarimage-<%= @user.id %>').html('<%= image_tag display_avatar_image(@user), class: "avatar" %>');
+$('#show-user-avatar-image').html('<%= image_tag display_avatar_image(@user), class: "avatar" %>');
+$('#show-user-username').html('<%= @user.username %>');
+$('#show-user-name').html('<%= @user.name %>');
+$('#show-user-bio').html('<%= @user.bio %>');
+$('#show-user-website').attr('href', '<%= @user.website %>');
+$('#show-user-website').html('<%= @user.website %>');
+$('#edit-modal-<%= @user.id %>').modal('hide');

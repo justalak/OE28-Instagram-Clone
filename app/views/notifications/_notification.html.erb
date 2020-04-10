@@ -1,4 +1,4 @@
-<div class="m-0 box_notif_item <%= mark_read(notification) %> d-block" id=<%= "notification_".concat(notification.id.to_s) %> >
+<div class="m-0 box_notif_item <%= mark_read(notification) %> d-block" id=<%= "notification_#{notification.id.to_s}" %> >
   <div class="w-100 d-flex">
     <%= link_to get_post_user(notification),
       class: "item-notif ml-2 pr-1" do %>

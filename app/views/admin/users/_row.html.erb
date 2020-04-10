@@ -1,0 +1,33 @@
+<tr id="row-user-<%= user.id %>" class="user-tr">
+  <th scope="row" id="stt-<%= user.id %>" class="stt"><%= numerical_order_user user_counter, @user_hash[:page] %></th>
+  <td id="user-row-avatarimage-<%= user.id %>">
+    <%= image_tag display_avatar_image(user), class: "avatar" %>
+  </td>
+  <td id="user-row-name-<%= user.id %>"><%= user.name %></td>
+  <td id="user-row-username-<%= user.id %>"><%= user.username %></td>
+  <td>
+    <span><%= user.posts.size %></span>
+  </td>
+  <td><%= time_ago_in_words user.created_at %></td>
+  <td id="updated-at-<%= user.id %>"><%= time_ago_in_words user.updated_at %></td>
+  <td id="people__column__<%= user.id %>">
+    <%= render "users/follow_form", user: user %>
+  </td>
+  <td>
+    <div class="d-flex justify-content-between">
+      <%= link_to Settings.disable_link, class: "btn btn-primary modal-edit",
+        data: {toggle: "modal", target: "#edit-modal-#{user.id}"} do %>
+        <%= t ".edit" %>
+      <% end %>
+      <div class="ml-1">
+        <%= render "admin/users/destroy", user: user %>
+      </div>
+    </div>
+  </td>
+  <td>
+    <%= link_to t(".view_full"), user %>
+  </td>
+  <td>
+    <%= render partial: "admin/users/edit_modal", locals: {user: user} %>
+  </td>
+</tr>
