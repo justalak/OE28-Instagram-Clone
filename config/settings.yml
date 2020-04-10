@@ -26,6 +26,8 @@ user:
   role_admin: 1
   word_count: 10
   username_specifier: 8
+  user_id1: 1
+  user_id2: 2
 favicon_image: "favicon.png"
 disable_link: "javascript:void(0)"
 post:

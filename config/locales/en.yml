@@ -20,6 +20,8 @@ en:
   errors_blank: can't be blank
   errors_taken: has already been taken
   errors_taken: has already been taken
+  sign_up_successful: Sign up success!
+  fail_sign_up: Sign up failed!
   layouts:
     header:
       search: "@search"
