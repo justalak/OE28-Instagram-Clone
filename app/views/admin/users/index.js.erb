@@ -1,17 +1,2 @@
-var sort_value = '<%= @user_hash[:sort_value] %>';
-var text_search = '<%= @user_hash[:text_search] %>';
-var page = '<%= @user_hash[:page] %>';
-$('#load-more-users-table').show();
-var users_size = '<%= @user_hash[:users].size %>';
-var previews_per_page = '<%= Settings.user.previews_per_page %>';
-if (page.length === 0) {
-  $('table tbody').html('<%= j render partial: "admin/users/row", collection: @user_hash[:users], as: :user %>');
-  if(parseInt(users_size) < parseInt(previews_per_page)) {
-    $('#load-more-users-table').hide();
-  }
-} else {
-  $('table tbody').append('<%= j render partial: "admin/users/row", collection: @user_hash[:users], as: :user %>');
-  if(parseInt(users_size) < parseInt(previews_per_page)) {
-    $('#load-more-users-table').hide();
-  }
-}
+$('#table_user')
+  .html('<%= j render partial: "admin/users/table", locals: {user_hash: @user_hash} %>');

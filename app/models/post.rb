@@ -39,19 +39,7 @@ class Post < ApplicationRecord
                   where(user_id: Relationship.following_ids(user_id))
                   .or(where(user_id: user_id))
                 end)
-
-  scope :search_by_hashtag, (lambda do |sample_string|
-    joins(post_hashtags: :hashtag).where(
-      "hashtags.name LIKE :search", search: "%#{sample_string}%"
-    ).distinct
-  end)
- 
-  scope :search_by_description_username, (lambda do |sample_string|
-    joins(:user).where(
-      "users.username LIKE :search OR description LIKE :search",
-        search: "%#{sample_string}%"
-    )
-  end)
+  scope :search_by_description, ->(text){ransack description_cont: text}
 
   def likers? user
     User.likers_to_likeable(id, Post.name).include? user

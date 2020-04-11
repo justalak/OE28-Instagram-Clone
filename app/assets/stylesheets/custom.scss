@@ -511,8 +511,34 @@ h6.mark_all_read {
   height: 70px;
   border-radius: 50%;
 }
+
 .mark_all_read {
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
+}
+
+table {
+  width: 130%!important;
+  margin-left: -15%;
+}
+
+table tr th {
+  min-width: 10%;
+}
+
+.sort_user a {
+  text-decoration: none;
+}
+
+.sort_user a:hover {
+  text-decoration: none;
+}
+
+.sort_post a {
+  text-decoration: none;
+}
+
+.sort_post a:hover {
+  text-decoration: none;
 }

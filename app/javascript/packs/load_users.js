@@ -1,79 +1,79 @@
 var loadData = require('packs/load_data');
 var url, data_id, type, page;
 
+function appendData() {
+  $('.people__list').empty();
+
+  loadData(url, { page: page, type: type });
+
+  $('#load-more').on('click', function() {
+    page++;
+    loadData(url, { page: page, type: type });
+  });
+}
+
 $(document).ready(function() {
   $('#followers-list').on('click', function() {
-    $('#load-more').show();
     data_id = $('.user-profile').attr('data_id');
+    $('#load-more' + data_id).show();
     url = '/users/' + data_id + '/followers';
     page = 1;
     appendData();
   });
 
   $('#following-list').on('click', function() {
-    $('#load-more').show();
     data_id = $('.user-profile').attr('data_id');
+    $('#load-more' + data_id).show();
     url = '/users/' + data_id + '/following';
     page = 1;
     appendData();
   });
 
   $('body').on('click', '.like-list', function() {
-    $('#load-more').show();
-    data_id = $(this)
-      .closest('.instagram-card')
-      .attr('data_id');
+    data_id = $(this).data('id');
+    $('#load-more' + data_id).show();
     url = '/posts/' + data_id + '/likers';
     page = 1;
     type = 'Post'
     appendData();
   });
 
-  $('.comment-wrapper').on('click', '.like-comment-list', function() {
-    $('#load-more').show();
-    data_id = $(this)
-      .attr('data_id');
+  $('body').on('click', '.like-comment-list', function() {
+    data_id = $(this).data('id');
+    $('#load-more' + data_id).show();
     url = '/posts/' + data_id + '/likers';
     page = 1;
     type = 'Comment';
     appendData();
   });
 
-  function appendData() {
-    $('.people__list').empty();
-
-    loadData(url, { page: page, type: type });
-
-    $('#load-more').on('click', function() {
-      page++;
-      loadData(url, { page: page, type: type });
-    });
-  }
-});
-
-$(document).ready(function() {
-  var page = 1;
-  var sort_val;
-  var text_search = "";
-  var type = "";
-  $('#load-more-users-table').on('click', function() {
-    url = '/admin/users';
-    page++;
-    text_search = $('#search_input').val();
-    loadData(url, { page: page, type: type, sort_value: sort_val, text_search: text_search });
-  });
-  $('.sort_btn').on('click', function() {
+  $('body').on('click', '.followers-list-button', function() {
+    data_id = $(this).data('id');
+    $('#load-more' + data_id).show();
+    url = '/users/' + data_id + '/followers';
     page = 1;
-    sort_val = $(".sort_value").val();
-    url = '/admin/users';
-    type = "sort";
-    loadData(url, { sort_value: sort_val, type: type, text_search: text_search });
+    appendData();
   });
-  $('#search_input').keyup(function(event) {
-    url = '/admin/users';
-    text_search = $(this).val();
-    type = "search";
-    loadData(url, { type: type, text_search: text_search });
+
+  $('body').on('click', '.following-list-button', function() {
+    data_id = $(this).data('id');
+    $('#load-more' + data_id).show();
+    url = '/users/' + data_id + '/following';
+    page = 1;
+    appendData();
+  });
+
+  $('body').on('click', '.likers-list-button', function() {
+    data_id = $(this).data('id');
+    $('#load-more' + data_id).show();
+    url = '/posts/' + data_id + '/likers';
+    page = 1;
+    type = 'Post';
+    appendData();
+  });
+
+  $('#searh_user_input_name').keyup(function(event) {
+    $('#submit_search_user').click();
   }).keydown(function(event) {
     if ( event.which == 13 ) {
       event.preventDefault();

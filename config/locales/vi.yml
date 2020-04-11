@@ -367,6 +367,11 @@ vi:
         users: "Người dùng hệ thống"
         view_more: "Xem thêm"
         new_user: "Tạo người dùng"
+        title: "Hệ thống người dùng"
+      search_form:
+        submit: "Tìm kiếm"
+        place: "Tên | Tên đại diện"
+      table:
         create_at: "Thời điểm tạo"
         update_at: "Thời điểm cập nhật"
         name: "Tên người dùng"
@@ -374,6 +379,8 @@ vi:
         action: "Tác vụ"
         stt: "STT"
         follow: "Theo dõi"
+        following: "Following"
+        followers: "Followers"
         avatar_image: "Ảnh avatar"
         posts_count: "Số post"
         view_full: "Xem đầy đủ"
@@ -400,15 +407,6 @@ vi:
         email_sms: "Email và SMS"
         manage_contact: "Liên hệ quản lý"
         privacy_security: "Chính sách và bảo mật"
-      sort_user:
-        username: "Tên đại diện"
-        name: "Tên người dùng"
-        created_at: "Thời điểm tạo"
-        updated_at: "Thời điểm cập nhật"
-        sort: "Sắp xếp"
-      search_user:
-        search_place: "Tên người dùng"
-        search: "Tìm kiếm"
       row:
         edit: "Chỉnh sửa"
         view_full: "Xem"
@@ -419,10 +417,12 @@ vi:
     posts:
       index:
         posts: "Bài đăng"
-        view_more: "Xem thêm"
         create_post: Đăng bài
         new_post: Bài viết mới
+        title: "Hệ thống bài đăng"
+      table:
         creator: "Người tạo"
+        likes_count: "Số like"
         create_at: "Tạo lúc"
         update_at: "Cập nhật lúc"
         description: "Mô tả"
@@ -430,6 +430,9 @@ vi:
         stt: "STT"
         images_count: "Số ảnh"
         view_full: "Xem"
+      search_form:
+        place: "Tìm kiếm Hastag | Mô tả"
+        submit: "Tìm"
       destroy:
         destroy_success: "Xóa thành công"
         destroy_failed: "Không thể xóa"
@@ -487,3 +490,10 @@ vi:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  views:
+    pagination:
+      first: "« Đầu"
+      last: "Cuối »"
+      previous: "‹ Trước"
+      next: "Sau ›"
+      truncate: "…"

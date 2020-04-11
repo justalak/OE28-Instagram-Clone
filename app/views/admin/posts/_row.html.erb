@@ -1,4 +1,4 @@
-<tr>
+<tr id="row-post-<%= post.id %>" >
   <th scope="row" id="stt-<%= post.id %>" class="stt"><%= numerical_order_post post_counter, @post_hash[:page] %></th>
   <td>
     <%= link_to post.user, class: "instagram-card-username" do %>
@@ -9,6 +9,12 @@
     <%= display_description post.description %>
   </td>
   <td><%= post.images.size %></td>
+  <td>
+    <%= link_to Settings.disable_link, class: "likers-list-button",
+      data: {id: post.id, toggle: "modal", target: "#list-modal-#{post.id}"} do %>
+      <%= count_like post %>
+    <% end %>
+  </td>
   <td><%= time_ago_in_words post.created_at %></td>
   <td id="updated-at-<%= post.id %>"><%= time_ago_in_words post.updated_at %></td>
   <td>
@@ -25,5 +31,8 @@
   </td>
   <td>
     <%= render partial: "admin/posts/edit_modal", locals: {post: post} %>
+  </td>
+  <td>
+    <%= render partial: "shared/list_modal", locals: {object: post} %>
   </td>
 </tr>

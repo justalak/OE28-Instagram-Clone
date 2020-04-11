@@ -1,0 +1,8 @@
+<%= search_form_for @q, url: admin_posts_path, remote: true do |f| %>
+  <div class="d-flex mt-2">
+    <%= f.text_field :description_cont,
+      class: "form-control form-control-sm w-25", id: "searh_post_input_name",
+      placeholder: t(".place") %>
+    <%= f.submit t(".submit"), class: "d-none", id: "submit_search_post" %>
+  </div>
+<% end %>

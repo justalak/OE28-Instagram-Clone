@@ -365,13 +365,21 @@ en:
     users:
       index:
         users: "System users"
-        view_more: "View more"
         new_user: "New user"
+        title: "System users"
+      search_form:
+        submit: "Search"
+        place: "Name | Username"
+      table:
         create_at: "Created at"
         update_at: "Updated at"
         name: "Name"
+        username: "Username"
         action: "Action"
+        following: "Following"
+        followers: "Followers"
         stt: "STT"
+        follow: "Follow"
         avatar_image: "Avatar image"
         posts_count: "Posts count"
         view_full: "View full"
@@ -397,16 +405,6 @@ en:
         authorized_application: "Authorized Applications"
         email_sms: "Email and SMS"
         manage_contact: "Manage Contacts"
-        privacy_security: "Privacy and Security"
-      sort_post:
-        username: "Username of user"
-        name: "Name of user"
-        created_at: "Created at"
-        updated_at: "Updated at"
-        sort: "Sort"
-      search_user:
-        search_place: "Username or name of user ..."
-        search: "Search"
       row:
         edit: "Edit"
         view_full: "View full"
@@ -417,9 +415,10 @@ en:
     posts:
       index:
         posts: "System posts"
-        view_more: "View more"
         create_post: Create post
         new_post: New post
+        title: "System posts"
+      table:
         creator: "Creator"
         create_at: "Created at"
         update_at: "Updated at"
@@ -427,8 +426,11 @@ en:
         follow: "Follow"
         action: "Action"
         stt: "STT"
+        likes_count: "Like count"
         images_count: "Image count"
-        view_full: "View full"
+      search_form:
+        place: "Search Hashtag | Description"
+        submit: "Search"
       destroy:
         destroy_success: "Delete success"
         destroy_failed: "Delete failed"
@@ -522,3 +524,10 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  views:
+    pagination:
+      first: "« First"
+      last: "Last »"
+      previous: "‹ Prev"
+      next: "Next ›"
+      truncate: "…"

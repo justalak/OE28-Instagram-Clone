@@ -31,7 +31,8 @@
     </span>
     <button data_id="<%= comment.id %>" 
       id="count-like-comment-<%= comment.id %>"
-      data-toggle="modal" data-target="#list-modal"
+      data-id="<%= comment.id %>"
+      data-toggle="modal" data-target="#list-modal-<%= comment.id %>"
       class="transparent-btn like-comment-list">
       <%= t ".count_like", count: count_like(comment) %>
     </button>
@@ -41,3 +42,4 @@
     </button>
   </div>
 </div>
+<%= render partial: "shared/list_modal", locals: {object: comment} %>
