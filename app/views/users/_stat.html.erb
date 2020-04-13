@@ -6,14 +6,14 @@
     <% end %>
   </li>
   <li>
-    <button id="followers-list" data-toggle="modal" data-target="#list-modal"
+    <button id="followers-list" data-toggle="modal" data-target="#list-modal-<%= @user.id %>"
       class="transparent-btn" >
       <span id="followers"><%= @user.followers.size %></span>
       <%= t ".followers" %>
     </button>
   </li>
   <li>
-    <button id="following-list" data-toggle="modal" data-target="#list-modal"
+    <button id="following-list" data-toggle="modal" data-target="#list-modal-<%= @user.id %>"
       class="transparent-btn" >
       <span><%= @user.following.size %></span>
       <%= t ".following" %>

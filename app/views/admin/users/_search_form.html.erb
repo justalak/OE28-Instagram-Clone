@@ -1,0 +1,8 @@
+<%= search_form_for @q, url: admin_users_path, remote: true do |f| %>
+  <div class="d-flex mt-2">
+    <%= f.text_field :name_or_username_cont,
+      class: "form-control form-control-sm w-25", id: "searh_user_input_name",
+      placeholder: t(".place") %>
+    <%= f.submit t(".submit"), class: "d-none", id: "submit_search_user" %>
+  </div>
+<% end %>

@@ -49,7 +49,7 @@
 <hr>
 <% if display_gallery? @user %>
   <%= render "users/gallery" %>
-  <%= render "shared/list_modal" %>
+  <%= render partial: "shared/list_modal", locals: {object: @user} %>
 <% end %>
 <%= javascript_pack_tag "load_posts", "data-turbolinks-track": "reload" %>
 <%= javascript_pack_tag "load_users", "data-turbolinks-track": "reload" %>

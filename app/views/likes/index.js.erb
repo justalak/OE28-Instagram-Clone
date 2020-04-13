@@ -1,4 +1,5 @@
-$('.people__list').append('<%= j render(@users) %>')
-<% if @users.size < Settings.user.previews_per_page %>
-  $('#load-more').hide();
+var object_id = '<%= @object.id %>';
+$('#list-modal-' + object_id + ' .people__list').append('<%= j render(@users) %>');
+<% if @users.size <= Settings.user.previews_per_page %>
+  $('#load-more-' + object_id).hide();
 <% end %>

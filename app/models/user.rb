@@ -53,16 +53,7 @@ class User < ApplicationRecord
       "bookmark_likes.likeable_type": likeable_type
     )
   end)
-
-  scope :search_by_name_username, (lambda do |sample_string|
-    where("username LIKE :search OR name LIKE :search",
-          search: "%#{sample_string}%")
-  end)
-
-  scope :order_by_created_at, ->{order created_at: :desc}
-  scope :order_by_updated_at, ->{order updated_at: :desc}
-  scope :order_by_name, ->{order :name}
-  scope :order_by_username, ->{order :username}
+  scope :search_by_name_or_username, ->(text){ransack name_or_username_cont: text}
 
   def bookmarking? post
     Post.bookmarking_by_user(id).include? post

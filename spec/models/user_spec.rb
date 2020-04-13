@@ -69,29 +69,6 @@ RSpec.describe User, type: :model do
       it {expect(User.likers_to_likeable p2.id, p2.class.name).to eq [u2, u4]}
       it {expect(User.likers_to_likeable p3.id, p3.class.name).to eq []}
     end
-
-    context "Search" do
-      it { expect(User.search_by_name_username "andrew").to eq [u1] }
-      it { expect(User.search_by_name_username "ing").to eq [u2, u3, u4] }
-      it { expect(User.search_by_name_username "eva").to eq [] }
-      it { expect(User.search_by_name_username "").to eq [u1, u2, u3, u4] }
-    end
-
-    context "Order by created at" do
-      it { expect(User.order_by_created_at).to eq [u4, u3, u2, u1] }
-    end
-
-    context "Order by updated at" do
-      it { expect(User.order_by_updated_at).to eq [u4, u3, u2, u1] }
-    end
-
-    context "Order by username" do
-      it { expect(User.order_by_username).to eq [u1, u2, u3, u4] }
-    end
-
-    context "Order by name" do
-      it { expect(User.order_by_name).to eq [u1, u2, u4, u3] }
-    end
   end
 
   describe "Methods" do

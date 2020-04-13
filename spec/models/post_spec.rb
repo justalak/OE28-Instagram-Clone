@@ -62,15 +62,6 @@ RSpec.describe Post, type: :model do
     context "Feed" do
       it {expect(Post.feed u1).to eq [p1,p2,p3]}
     end
-
-    context "Search by hashtags" do
-      it {expect(Post.search_by_hashtag "rspec").to eq [p4, p5]}
-    end
-
-    context "Search by description or username" do
-      it {expect(Post.search_by_description_username "ab").to eq [p3]}
-      it {expect(Post.search_by_description_username "viethoang").to eq [p4,p5]}
-    end
   end
 
   describe "Method" do

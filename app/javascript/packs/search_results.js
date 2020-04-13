@@ -9,5 +9,5 @@ $(document).ready(function() {
   $('#load-more').on('click', function(){
       page++;
       loadData(url, { page: page, search: search });
-  })
+  });
 });

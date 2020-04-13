@@ -10,7 +10,7 @@
     <div class="m-auto">
       <%= form_for :search, url: searches_path, role: "search", method: :get,
         html: {class: "form-inline search-form"} do %>
-        <%= text_field_tag :search, @search, class: "form-control mr-sm-2",
+        <%= text_field_tag :search, @text_search, class: "form-control mr-sm-2",
           placeholder: t(".search")
         %>
       <% end %>

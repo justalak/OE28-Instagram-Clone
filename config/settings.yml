@@ -73,19 +73,8 @@ notification:
 relationship:
   accept: 0
   un_accept: 1
-host: localhost:3000
+host: localhost:3000t
 facebook_auth_path: "/auth/facebook"
-sort_post:
-  created_at: 0
-  updated_at: 1
-  description: 2
-  type: "sort"
-sort_user:
-  created_at: 0
-  updated_at: 1
-  name: 2
-  username: 3
-  type: "sort"
 search:
   type: "search"
   char_sharp: "#"

@@ -8,6 +8,18 @@
   <td>
     <span><%= user.posts.size %></span>
   </td>
+  <td>
+    <%= link_to Settings.disable_link, class: "following-list-button",
+      data: {id: user.id, toggle: "modal", target: "#list-modal-#{user.id}"} do %>
+      <%= user.following.size %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to Settings.disable_link, class: "followers-list-button",
+      data: {id: user.id, toggle: "modal", target: "#list-modal-#{user.id}"} do %>
+      <%= user.followers.size %>
+    <% end %>
+  </td>
   <td><%= time_ago_in_words user.created_at %></td>
   <td id="updated-at-<%= user.id %>"><%= time_ago_in_words user.updated_at %></td>
   <td id="people__column__<%= user.id %>">
@@ -29,5 +41,8 @@
   </td>
   <td>
     <%= render partial: "admin/users/edit_modal", locals: {user: user} %>
+  </td>
+  <td>
+    <%= render partial: "shared/list_modal", locals: {object: user} %>
   </td>
 </tr>

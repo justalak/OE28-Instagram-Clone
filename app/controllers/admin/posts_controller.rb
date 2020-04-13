@@ -1,20 +1,13 @@
 class Admin::PostsController < ApplicationController
-  before_action :logged_in_user, :is_admin
+  before_action :authenticate_user!, :is_admin
   before_action :load_post, except: %i(index create)
-  before_action :search, :sort, only: :index
 
   def index
-    @posts ||= Post.order_by_created_at
-                   .page(params[:page])
-                   .per Settings.user.previews_per_page
+    @q = Post.ransack params[:q]
     @post_hash = {
       post: Post.new,
-      posts: @posts,
-      title: t(".posts"),
-      page: params[:page],
-      type: params[:type],
-      sort_value: params[:sort_value],
-      text_search: params[:text_search]
+      posts: @q.result.page(params[:page]).per(Settings.user.previews_per_page),
+      page: params[:page]
     }
     respond_to :html, :js
   end
@@ -33,44 +26,23 @@ class Admin::PostsController < ApplicationController
     if @post.update_post post_params
       respond_to :js
     else
-      flash.now[:danger] = t ".update_fail"
-      render "posts/edit"
+      @messages = t ".update_fail"
+      respond_to do |format|
+        format.html{redirect_back fallback_location: root_path}
+        format.js{flash.now[:notice] = @messages}
+      end
     end
   end
 
   def destroy
     if @post.destroy
-      flash[:success] = t ".destroy_success"
+      respond_to :js
     else
-      flash[:danger] = t ".destroy_failed"
+      @messages = t ".destroy_failed"
+      respond_to do |format|
+        format.html{redirect_back fallback_location: root_path}
+        format.js{flash.now[:notice] = @messages}
+      end
     end
-    redirect_back fallback_location: root_path
-  end
-
-  private
-
-  def sort
-    return unless params[:type].eql? Settings.sort_post.type
-
-    posts_search = Post.search_by_description_username(params[:text_search])
-    @posts = case params[:sort_value].to_i
-             when Settings.sort_post.updated_at
-               posts_search.order_by_updated_at
-                           .page(params[:page]).per Settings.user.previews_per_page
-             when Settings.sort_post.description
-               posts_search.order_by_description
-                           .page(params[:page]).per Settings.user.previews_per_page
-             else
-               posts_search.order_by_created_at
-                           .page(params[:page]).per Settings.user.previews_per_page
-             end
-  end
-
-  def search
-    return unless params[:type].eql? Settings.search.type
-
-    @posts = Post.search_by_description_username(params[:text_search])
-                 .order_by_created_at
-                 .page(params[:page]).per Settings.user.previews_per_page
   end
 end

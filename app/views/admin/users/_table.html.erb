@@ -1,0 +1,50 @@
+<table class="table table-hover mt-5">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".stt" %></th>
+      <th scope="col"><%= t ".avatar_image" %></th>
+      <th scope="col">
+        <%= t ".name" %>
+        <span class="sort_user">
+          <%= sort_link @q, :name, {}, {remote: true} do %>
+            <i class="fa fa-sort"></i>
+          <% end %>
+        </span>
+      </th>
+      <th scope="col">
+        <%= t ".username" %>
+        <span class="sort_user">
+          <%= sort_link @q, :username, {}, {remote: true} do %>
+            <i class="fa fa-sort"></i>
+          <% end %>
+        </span>
+      </th>
+      <th scope="col"><%= t ".posts_count" %></th>
+      <th scope="col"><%= t ".following" %></th>
+      <th scope="col"><%= t ".followers" %></th>
+      <th scope="col">
+        <%= t ".create_at" %>
+        <span class="sort_user">
+          <%= sort_link @q, :created_at, {}, {remote: true} do %>
+            <i class="fa fa-sort"></i>
+          <% end %>
+        </span>
+      </th>
+      <th scope="col">
+        <%= t ".update_at" %>
+        <span class="sort_user">
+          <%= sort_link @q, :updated_at, {}, {remote: true} do %>
+            <i class="fa fa-sort"></i>
+          <% end %>
+        </span>
+      </th>
+      <th scope="col"><%= t ".follow" %></th>
+      <th scope="col"><%= t ".action" %></th>
+      <th scope="col"><%= t ".view_full" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "admin/users/row", collection: user_hash[:users], as: :user %>
+  </tbody>
+</table>
+<%= paginate user_hash[:users], remote: true, theme: "twitter-bootstrap-4" %>
