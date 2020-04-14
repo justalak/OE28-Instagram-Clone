@@ -1,6 +1,6 @@
-class Admin::PostsController < ApplicationController
-  before_action :authenticate_user!, :is_admin
+class Admin::PostsController < Admin::BasesController
   before_action :load_post, except: %i(index create)
+  load_and_authorize_resource
 
   def index
     @q = Post.ransack params[:q]

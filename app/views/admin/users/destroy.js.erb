@@ -1,2 +1,3 @@
-var userId = 'row-user-<%= @user.id %>';
-$('#' + userId).remove();
+var userId = '<%= @user.id %>';
+$('#row-user-' + userId).remove();
+$('li#userid_' + userId).remove();

@@ -1,6 +1,8 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!, :load_user
   before_action :load_relationship, only: %i(update destroy)
+  authorize_resource
+  skip_authorize_resource only: :create
 
   def create
     params[:status] = params[:status].to_i

@@ -8,6 +8,7 @@ gem "bcrypt", "~> 3.1.13"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.4", ">= 4.4.1"
 gem "bootstrap4-kaminari-views"
+gem "cancancan", "~> 3.1"
 gem "config"
 gem "devise"
 gem "faker", "~> 2.10", ">= 2.10.2"

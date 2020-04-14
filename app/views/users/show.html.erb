@@ -23,7 +23,7 @@
             <div id="people__column__<%= @user.id %>" class="ml-5">
               <%= render follow_unfollow(@user), user: @user %>
             </div>
-            <% if current_user.admin? && !current_user?(@user) %>
+            <% if can?(:destroy, current_user) && !current_user?(@user) %>
               <%= link_to t(".destroy"), @user, class: "ml-3 btn btn-outline-danger submit_delete_user",
                   method: :delete,
                   data: { confirm: t(".sure") } %>

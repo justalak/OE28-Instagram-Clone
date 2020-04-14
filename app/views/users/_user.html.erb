@@ -17,7 +17,7 @@
   </div>
   <% if user_signed_in? %>
     <%= render "users/follow_form", user: user %>
-    <%= render "admin/users/destroy", user: user if current_user.admin? %>
+    <%= render "admin/users/destroy", user: user if can? :destroy, current_user %>
   <% else %>
     <button type="button" class="btn btn-primary follow_not_login"><%= t ".follow_not_login" %></button>
     <p class="alert_follow d-none"><%= t "users.user.text" %></p>

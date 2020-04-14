@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :load_user
   before_action :correct_user, only: %i(edit update)
+  load_and_authorize_resource
+  skip_authorize_resource only: :show
 
   def show; end
 
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
