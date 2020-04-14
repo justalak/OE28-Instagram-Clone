@@ -7,13 +7,7 @@ class RelationshipsController < ApplicationController
     @relationship = current_user.active_relationships
                                 .build relationship_params
     if @relationship.save
-      notif = {
-        sender: current_user,
-        receiver: @user,
-        post: nil,
-        type_notif: @user.public_mode? ? Settings.notification.follow : Settings.notification.request
-      }
-      NotificationPushService.new(notif).push_notification unless current_user? @user
+      push_create_notification
     else
       @messages = t ".create_failed"
     end
@@ -29,13 +23,9 @@ class RelationshipsController < ApplicationController
       notifications: find_notifications_by_relationship(@relationship),
       message_confirmed: t("notifications.active_relationship.confirmed")
     }
-    notif = {
-      sender: @relationship.followed,
-      receiver: @relationship.follower,
-      post: nil,
-      type_notif: Settings.notification.accept
-    }
-    NotificationPushService.new(notif).push_notification if current_user? @relationship.followed
+
+    push_update_notification
+
     respond_to do |format|
       format.html{redirect_to current_user}
       format.js
@@ -78,5 +68,29 @@ class RelationshipsController < ApplicationController
 
   def relationship_params
     params.permit :followed_id, :status
+  end
+
+  def push_create_notification
+    return if current_user? @user
+
+    notif_hash = {
+      sender_id: current_user.id,
+      receiver_id: @user.id,
+      post_id: nil,
+      type_notif: @user.public_mode? ? Settings.notification.follow : Settings.notification.request
+    }
+    PushWorker.perform_async notif_hash
+  end
+
+  def push_update_notification
+    return unless current_user? @relationship.followed
+
+    notif_hash = {
+      sender_id: @relationship.followed.id,
+      receiver_id: @relationship.follower.id,
+      post_id: nil,
+      type_notif: Settings.notification.accept
+    }
+    PushWorker.perform_async notif_hash
   end
 end

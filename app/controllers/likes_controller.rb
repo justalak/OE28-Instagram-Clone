@@ -66,17 +66,19 @@ class LikesController < ApplicationController
   end
 
   def push_notification
+    return if current_user? @object.user
+
     class_name = @object.class.name
-    notif = {
-      sender: current_user,
-      receiver: @object.user,
-      post: class_name.eql?(Post.name) ? @object : @object.post,
+    notif_hash = {
+      sender_id: current_user.id,
+      receiver_id: @object.user.id,
+      post_id: class_name.eql?(Post.name) ? @object.id : @object.post.id,
       type_notif: if class_name.eql?(Post.name)
                     Settings.notification.like
                   else
                     Settings.notification.like_comment
                   end
     }
-    NotificationPushService.new(notif).push_notification unless current_user? @object.user
+    PushWorker.perform_async notif_hash
   end
 end
