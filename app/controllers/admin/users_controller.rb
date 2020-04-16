@@ -1,6 +1,6 @@
-class Admin::UsersController < ApplicationController
-  before_action :authenticate_user!, :is_admin
+class Admin::UsersController < Admin::BasesController
   before_action :load_user, except: %i(index create)
+  load_and_authorize_resource
 
   def index
     @q = User.ransack params[:q]

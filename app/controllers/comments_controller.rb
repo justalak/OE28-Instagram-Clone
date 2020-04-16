@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
   before_action :load_post, except: %i(update destroy)
   before_action :load_comment, :correct_user, except: :create
   before_action :correct_private_user, only: :create
+  load_and_authorize_resource
+  skip_authorize_resource only: :create
 
   def create
     @comment = @post.comments.build comment_params

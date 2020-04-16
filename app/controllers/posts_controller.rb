@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :load_user, only: :index
   before_action :load_post, except: %i(create index)
   before_action :correct_user, only: %i(destroy update edit)
+  load_and_authorize_resource
+  skip_authorize_resource only: %i(index create show)
 
   def index
     @posts = @user.posts.order_by_created_at
@@ -65,10 +67,6 @@ class PostsController < ApplicationController
 
     flash[:danger] = t "post_not_found"
     redirect_to root_path
-  end
-  
-  def post_params
-    params.require(:post).permit(:description, images: [])
   end
 
   def load_user

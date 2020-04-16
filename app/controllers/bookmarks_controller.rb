@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!, :load_user, :correct_user, only: :index
   before_action :object_exists, :correct_user_like_bookmark, only: %i(create destroy)
   before_action :find_bookmark, only: :destroy
+  authorize_resource :bookmark_like, parent: false
 
   def index
     @title = t ".title"

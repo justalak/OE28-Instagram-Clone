@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!, :load_notification, only: %i(update destroy)
   before_action :update_all_to_read, only: :update
+  load_and_authorize_resource
 
   def index
     @notifications = current_user.passive_notifications

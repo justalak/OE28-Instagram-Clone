@@ -6,7 +6,7 @@
   <%= link_to post.user, class: "instagram-card-username" do %>
     <%= post.user_username %>
   <% end %>
-  <% if current_user?(post.user) || current_user.admin? %>
+  <% if can? :destroy, post %>
     <%= link_to post, method: :delete, data: { confirm: t("sure_delete")} do %>
       <i class="fa fa-trash"></i>
     <% end %>

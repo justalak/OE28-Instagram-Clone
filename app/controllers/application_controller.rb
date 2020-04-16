@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_action :set_locale
+  protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_back fallback_location: root_path
+  end
 
   private
   def configure_permitted_parameters
@@ -59,10 +65,7 @@ class ApplicationController < ActionController::Base
     params.require(:user).permit User::USER_PARAMS_UPDATE
   end
 
-  def is_admin
-    return if current_user.admin?
-
-    flash[:danger] = t "not_admin"
-    redirect_to root_path
+  def post_params
+    params.require(:post).permit(:description, images: [])
   end
 end
