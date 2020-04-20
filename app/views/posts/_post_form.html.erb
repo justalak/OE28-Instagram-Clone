@@ -7,7 +7,8 @@
   <div class="form-group">
     <%= f.file_field :images, multiple: true, accept: Settings.image_format %>
   </div>
-  <ul id="preview"></ul>
+  <ul id="upload-preview">
+  </ul>
   <div class="text-center">
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
   </div>

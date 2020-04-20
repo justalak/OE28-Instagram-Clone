@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!, :load_user, :correct_user, only: :index
   before_action :object_exists, :correct_user_like_bookmark, only: %i(create destroy)
   before_action :find_bookmark, only: :destroy
-  authorize_resource :bookmark_like, parent: false
+  authorize_resource :bookmark_like, parent: false, instance_name: :bookmark
 
   def index
     @title = t ".title"
@@ -60,8 +60,8 @@ class BookmarksController < ApplicationController
 
   def find_bookmark
     @bookmark = current_user
-                .bookmark_likes
-                .find_by likeable_id: bookmark_like_params[:likeable_id],
+                     .bookmark_likes
+                     .find_by likeable_id: bookmark_like_params[:likeable_id],
                   type_action: bookmark_like_params[:type_action],
                   likeable_type: bookmark_like_params[:likeable_type]
     return if @bookmark

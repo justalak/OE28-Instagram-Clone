@@ -1,9 +1,12 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_post, except: %i(update destroy)
-  before_action :load_comment, :correct_user, except: :create
+
+  load_resource :post, except: %i(update destroy)
+  load_and_authorize_resource through: :post, except: %i(update destroy)
+  load_and_authorize_resource only: %i(update destroy)
+ 
+  before_action :correct_user, except: :create
   before_action :correct_private_user, only: :create
-  load_and_authorize_resource
   skip_authorize_resource only: :create
 
   def create

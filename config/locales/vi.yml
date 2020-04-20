@@ -208,8 +208,8 @@ vi:
       upload_successfully: Đăng bài thành công
       upload_fail: Xảy ra lỗi trong quá trình đăng bài  
     destroy:
-      destroy_success: Post has been deleted successfully
-      destroy_failed: Fail to delete post
+      destroy_success: Xóa bài đăng thành công
+      destroy_failed: Xóa bài đăng thất bại
     show:
       not_accept: "Không được phép"
     card_stat:

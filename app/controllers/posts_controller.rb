@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :load_user, only: :index
-  before_action :load_post, except: %i(create index)
-  before_action :correct_user, only: %i(destroy update edit)
+  load_resource :user
   load_and_authorize_resource
+  before_action :correct_user, only: %i(destroy update edit)
   skip_authorize_resource only: %i(index create show)
 
   def index
@@ -35,7 +34,7 @@ class PostsController < ApplicationController
       flash[:danger] = t ".destroy_failed"
     end
 
-    redirect_back fallback_location: root_path
+    redirect_to current_user
   end
 
   def update
@@ -66,14 +65,6 @@ class PostsController < ApplicationController
     return if @post
 
     flash[:danger] = t "post_not_found"
-    redirect_to root_path
-  end
-
-  def load_user
-    @user = User.find_by id: params[:user_id]
-    return if @user
-
-    flash[:danger] = t "users.load_user.not_find_user"
     redirect_to root_path
   end
 

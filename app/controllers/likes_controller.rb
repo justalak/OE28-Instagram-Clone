@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :authenticate_user!, :load_object, only: :index
   before_action :object_exists, :correct_user_like_bookmark, only: %i(create destroy)
   before_action :find_like, only: :destroy
-  authorize_resource :bookmark_like, parent: false
+  authorize_resource :bookmark_like, parent: false, instance_name: :like
 
   def index
     @title = t ".title"

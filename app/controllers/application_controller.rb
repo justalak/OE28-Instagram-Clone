@@ -38,9 +38,13 @@ class ApplicationController < ActionController::Base
   end
 
   def display_post? user
-    relationship = Relationship.find_by followed_id: user.id, follower_id: current_user.id
-    current_user.admin? || current_user?(user) || user.public_mode? ||
-      (relationship.present? && relationship.accept?)
+    if user_signed_in?
+      relationship = Relationship.find_by followed_id: user.id, follower_id: current_user.id
+      current_user.admin? || current_user?(user) || user.public_mode? ||
+        (relationship.present? && relationship.accept?)
+    else
+      user.public_mode?
+    end
   end
 
   def find_notifications_by_relationship relationship

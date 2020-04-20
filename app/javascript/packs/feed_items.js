@@ -5,7 +5,7 @@ $(document).ready(function() {
   var url = '/feeds';
   loadData(url, {page: page});
 
-  $(window).scroll(function() {
+  $(window).unbind('scroll').scroll(function() {
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
       page++;
       loadData(url, {page: page});
